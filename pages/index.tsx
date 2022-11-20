@@ -1,14 +1,14 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Header from "../src/component/atoms/header";
 import PageSEO from "../src/component/atoms/pageSEO";
 import getCurrentURL from "../src/utils/getURL";
+import HomeTemplate from "../src/component/template/home";
 
 const Home: NextPage = () => {
   const image = `${process.env.BASE_IMAGE_URL}/logo/1.0.0/default-image-news.jpg`;
   const router = useRouter();
-  const url = getCurrentURL(router)
+  const url = getCurrentURL(router);
   return (
     <>
       <Head>
@@ -26,10 +26,7 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <main>
-        <Header/>
-        <h1 className="b-typography__h4 b-color-text__teal--800">Index Page</h1>
-      </main>
+      <HomeTemplate />
     </>
   );
 };

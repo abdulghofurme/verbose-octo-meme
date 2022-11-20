@@ -1,0 +1,26 @@
+@import "../variables.scss";
+
+.header {
+  height: $header_mobile_height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+
+  > .title {
+    margin: 0 32px;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    > * {
+      margin: 0 32px 0 0;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 import { FC } from "react";
 import PreloadLink from "../src/component/atoms/preloadLink";
 
-const FAVICON_URL = `${process.env.BASE_IMAGE_URL}/logo/1.0.0/favicon.ico`
+const FAVICON_URL = `${process.env.BASE_IMAGE_URL}/logo/1.0.0/favicon.ico`;
 
 const Document: FC = () => {
   return (
@@ -15,21 +15,14 @@ const Document: FC = () => {
         <meta name="author" content="Bareksa Portal Investasi" />
         <meta name="theme-color" content="#689c34" />
 
-				{/* FAVICON */}
-				<link
-            rel="shortcut icon"
-            href={FAVICON_URL}
-          />
-          <link
-            rel="apple-touch-icon"
-            href={FAVICON_URL}
-          />
+        {/* FAVICON */}
+        <link rel="shortcut icon" href={FAVICON_URL} />
+        <link rel="apple-touch-icon" href={FAVICON_URL} />
 
-				{/* OG GENERAL */}
-				<meta property="og:site_name" content="Bareksa.com" />
-				<meta property="og:locale" content="id_ID" />
-				<meta property="og:type" content="article" />
-
+        {/* OG GENERAL */}
+        <meta property="og:site_name" content="Bareksa.com" />
+        <meta property="og:locale" content="id_ID" />
+        <meta property="og:type" content="article" />
 
         {/* FACEBOOK */}
         <meta property="fb:pages" content="105765639586044" />
@@ -37,7 +30,7 @@ const Document: FC = () => {
         <meta property="fb:admins" content="100000149676767" />
 
         {/* TWITTER GENERAL */}
-				<meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@bareksacom" />
         <meta name="twitter:creator" content="@bareksacom" />
         <meta name="twitter:domain" content="www.bareksa.com" />
@@ -57,7 +50,7 @@ const Document: FC = () => {
         {/* TYPOGRAPHY */}
         <PreloadLink
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.1/dist/typography.min.css"
+          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.2/dist/typography.min.css"
         />
         {/* COLOR TEXT */}
         <PreloadLink
@@ -67,7 +60,7 @@ const Document: FC = () => {
         {/* MATERIAL ICON */}
         <PreloadLink
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&display=optional"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
         />
       </Head>
       <body>

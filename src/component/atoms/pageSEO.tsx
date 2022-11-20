@@ -1,5 +1,4 @@
 import { FC } from "react";
-import Router, { useRouter } from "next/router";
 
 interface PageSEOProps {
   title: string;
@@ -15,7 +14,10 @@ const PageSEO: FC<PageSEOProps> = ({
   image,
   url,
   keywords,
-}) => (
+}) => {
+  console.log('================= PAGE SEO')
+  console.log('title: ', title)
+  return (
   <>
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -33,6 +35,7 @@ const PageSEO: FC<PageSEOProps> = ({
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
   </>
-);
+)
+}
 
 export default PageSEO;
