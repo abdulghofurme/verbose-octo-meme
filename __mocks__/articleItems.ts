@@ -21,6 +21,6 @@ export const articleItems: ArticleItemProps[] = [
     thumbnail:
       "https://storage.googleapis.com/palma/mandau/vtoeUkHuIi03nDUUSW2z.jpeg",
     published: "29 menit yang lalu",
-    noBorder: true,
+    noBorder: false,
   },
 ];
