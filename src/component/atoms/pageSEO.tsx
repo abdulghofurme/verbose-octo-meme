@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { FC } from "react";
 
 interface PageSEOProps {
@@ -18,7 +19,7 @@ const PageSEO: FC<PageSEOProps> = ({
   console.log('================= PAGE SEO')
   console.log('title: ', title)
   return (
-  <>
+  <Head>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={url} />
@@ -34,7 +35,7 @@ const PageSEO: FC<PageSEOProps> = ({
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-  </>
+  </Head>
 )
 }
 
