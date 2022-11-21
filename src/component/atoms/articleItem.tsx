@@ -1,39 +1,61 @@
 import { FC } from "react";
 import styles from "../../../styles/atoms/articleItem.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
-interface ArticleItemProps {
-  title?: string;
-  thumbnail?: string;
+export interface ArticleItemProps {
+  url: string;
+  title: string;
+  category: string;
+  categoryURL: string;
+  thumbnail: string;
+  published: string;
   noBorder?: boolean;
 }
 
 const ArticleItem: FC<ArticleItemProps> = ({
-  title = "Berita Hari Ini: Harga Emas Naik, Lelang 6 Seri SBSN Target Rp7 Triliun, Lelang 6 Seri SBSN Target Rp7 Triliun",
-  thumbnail = "https://storage.googleapis.com/palma/mandau/LodTNA43fLOWvF1-qxcb.jpeg",
+  url,
+  title,
+  category,
+  categoryURL,
+  thumbnail,
+  published,
   noBorder = false,
 }) => {
   return (
     <article
       className={`${styles.article_item} ${noBorder ? styles.no_border : ""}`}
     >
-      <a>
-        <h4 className="b-typography__subtitle-2 b-typography__subtitle-2--medium b-color-text__onsurface--high-emphasis">
+      <Link href={url} data-testid="articleItem__link">
+        <h4
+          data-testid="articleItem__title"
+          className="b-typography__subtitle-2 b-typography__subtitle-2--medium b-color-text__onsurface--high-emphasis"
+        >
           {title}
         </h4>
 
         <Image
+          data-testid="articleItem__thumbnail"
           src={thumbnail}
-          alt={`${title} Thumbnail`}
+          alt={`${title} thumbnail`}
           width={64}
           height={64}
         />
-      </a>
+      </Link>
       <div className={styles.subtitle}>
-        <a className="b-typography__button b-color-text__primary--800">Emas</a>
+        <Link
+          data-testid="articleItem__category"
+          href={categoryURL}
+          className="b-typography__button b-color-text__primary--800"
+        >
+          {category}
+        </Link>
         <span className="b-color-text__onsurface--medium-emphasis">•</span>
-        <span className="b-typography__caption b-color-text__onsurface--medium-emphasis">
-          12 Mei
+        <span
+          data-testid="articleItem__published"
+          className="b-typography__caption b-color-text__onsurface--medium-emphasis"
+        >
+          {published}
         </span>
       </div>
     </article>
