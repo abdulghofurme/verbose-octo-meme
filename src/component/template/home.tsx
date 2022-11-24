@@ -3,42 +3,26 @@ import { articleItems } from "../../../__mocks__/articleItems";
 import ArticleItem from "../atoms/articleItem";
 import Header from "../molecule/header";
 import styles from "../../../styles/template/home.module.scss";
-import Headline from "../molecule/headline";
+import Headline, { HeadlineProps } from "../molecule/headline";
 import SectionHorizontal from "../molecule/sectionHorizontal";
 import CircularLoader from "../atoms/circularLoader";
 
-interface HomeTemplateProps {}
+interface HomeTemplateProps {
+  title: string;
+  headline: HeadlineProps;
+}
 
-const HomeTemplate: FC<HomeTemplateProps> = () => {
+const HomeTemplate: FC<HomeTemplateProps> = ({ title, headline }) => {
   return (
     <>
       <Header />
 
       <main className={styles.main}>
         <h1 className="b-typography__h4 b-color-text__onsurface--high-emphasis">
-          Berita dan Analisis Investasi
+          {title}
         </h1>
 
-        <Headline
-          url="/terpopuler"
-          title="TERPOPULER MINGGU INI"
-          articles={[
-            {
-              url: "/reksa-dana/2022-11-16/ekonomi-global-dorong-pasar-sbn-manulife-obligasi-negara-indonesia-ii-ikut-cuan",
-              title:
-                "Ekonomi Global Dorong Pasar SBN, Manulife Obligasi Negara Indonesia II Ikut Cuan",
-              background:
-                "https://storage.googleapis.com/palma/mandau/y2nzlIQxQ1NSwRn4Kird.jpeg",
-            },
-            {
-              url: "/reksa-dana/2022-11-16/ekonomi-global-dorong-pasar-sbn-manulife-obligasi-negara-indonesia-ii-ikut-cuan",
-              title:
-                "Ekonomi Global Dorong Pasar SBN, Manulife Obligasi Negara Indonesia II Ikut Cuan",
-              background:
-                "https://storage.googleapis.com/palma/mandau/y2nzlIQxQ1NSwRn4Kird.jpeg",
-            },
-          ]}
-        />
+        <Headline {...headline} />
 
         {articleItems.map((articleItem) => (
           <ArticleItem key={articleItem.url} {...articleItem} />
