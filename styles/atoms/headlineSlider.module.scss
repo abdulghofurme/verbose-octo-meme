@@ -1,0 +1,48 @@
+.headline_slider {
+  margin: 0 -16px;
+  padding: 0 0 16px;
+  position: relative;
+  overflow: hidden;
+
+  > div > div > * {
+    padding: 0 16px;
+  }
+
+  > button {
+    display: none !important;
+  }
+
+  ul {
+    position: initial;
+    margin: 12px 0 0;
+    height: auto;
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    li {
+      padding: 0 4px;
+      margin: 0;
+      height: auto;
+      width: auto;
+
+      button {
+        height: auto;
+        width: auto;
+
+        &::before {
+          opacity: 1;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          content: "";
+          width: 8px !important;
+          height: 8px !important;
+          background: #e0c3e8;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { articleItems } from "../../../__mocks__/articleItems";
-import ArticleList from "../molecule/articleList";
+import ArticleItem from "../atoms/articleItem";
 import Header from "../molecule/header";
+import styles from "../../../styles/template/home.module.scss";
+import Headline from "../molecule/headline";
 
 interface HomeTemplateProps {}
 
@@ -10,12 +12,16 @@ const HomeTemplate: FC<HomeTemplateProps> = () => {
     <>
       <Header />
 
-      <main>
+      <main className={styles.main}>
         <h1 className="b-typography__h4 b-color-text__onsurface--high-emphasis">
           Berita dan Analisis Investasi
         </h1>
 
-        <ArticleList articles={[...articleItems, ...articleItems, articleItems[0]]} />
+        <Headline />
+
+        {articleItems.map((articleItem) => (
+          <ArticleItem key={articleItem.url} {...articleItem} />
+        ))}
       </main>
     </>
   );

@@ -18,6 +18,14 @@ a {
   box-sizing: border-box;
 }
 
+.slick-active {
+  button {
+    &::before {
+      background: #4c2a86 !important;
+    }
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
