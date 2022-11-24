@@ -5,6 +5,7 @@ import Header from "../molecule/header";
 import styles from "../../../styles/template/home.module.scss";
 import Headline from "../molecule/headline";
 import SectionHorizontal from "../molecule/sectionHorizontal";
+import CircularLoader from "../atoms/circularLoader";
 
 interface HomeTemplateProps {}
 
@@ -52,6 +53,12 @@ const HomeTemplate: FC<HomeTemplateProps> = () => {
             ...articleItems,
           ]}
         />
+
+        {articleItems.map((articleItem) => (
+          <ArticleItem key={articleItem.url} {...articleItem} />
+        ))}
+
+        <CircularLoader marginTop={8} marginBottom={44} />
       </main>
     </>
   );

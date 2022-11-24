@@ -21,7 +21,7 @@ a {
 .slick-active {
   button {
     &::before {
-      background: #4c2a86 !important;
+      background: var(--secondary--900) !important;
     }
   }
 }
