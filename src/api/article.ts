@@ -1,16 +1,32 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { ArticleItemProps } from "../component/atoms/articleItem";
+import { ArticleItemVerticalProps } from "../component/atoms/articleItemVertical";
 import { HeadlineItemProps } from "../component/atoms/headlineItem";
-import Article from "../entity/article";
+import Article, { ArticlePemula } from "../entity/article";
+import { ArticleInterface } from "../entity/articleInterface";
+
+const BASE_API = process.env.NEXT_PUBLIC_BASE_API;
+
+const headers = {
+  Authorization: "X-BAREKSA-WEB",
+};
+
+export interface getRecentInterface {
+  limit?: number;
+  scrollId?: string;
+}
+
+export interface getPemulaInterface {
+  limit?: number;
+  page?: number;
+}
 
 export default {
   getHeadlines: async () => {
     let response: HeadlineItemProps[];
 
     try {
-      const url = `${process.env.BASE_API}/news/v1/list-news`;
-      const headers = {
-        Authorization: "X-BAREKSA-WEB",
-      };
+      const url = `${BASE_API}/news/v1/list-news`;
       const smallHeadlineResponse = await fetch(
         url +
           `?${new URLSearchParams({
@@ -63,5 +79,61 @@ export default {
     }
 
     return response;
+  },
+  getRecent: async ({ limit = 15, scrollId = "" }: getRecentInterface) => {
+    let result: ArticleItemProps[];
+    try {
+      const response = await fetch(
+        `${BASE_API}/news/v1/list-news` +
+          `?${new URLSearchParams({
+            limit: limit.toString(),
+            scrollId,
+          })}`,
+        { headers }
+      ).then((res) => res.json());
+      const { status: responseStatus, data: responseData } = response;
+      if (responseStatus === 200) {
+        result = responseData?.news?.map(
+          (article: ArticleInterface, idx: number) => ({
+            ...new Article(article).articleItem,
+            noBorder: idx === 5,
+          })
+        );
+      } else {
+        result = [];
+      }
+    } catch (error) {
+      result = [];
+    }
+
+    return result;
+  },
+  getPemula: async ({ limit = 15, page = 1 }: getPemulaInterface) => {
+    let result: ArticleItemVerticalProps[] = [];
+    try {
+      const response = await fetch(
+        `${BASE_API}/news/v1/home/news/belajar-investasi` +
+          `?${new URLSearchParams({
+            limit: limit.toString(),
+            page: page.toString(),
+          })}`,
+        { headers }
+      ).then((res) => res.json());
+      const { status: responseStatus, data: responseData } = response;
+
+      if (responseStatus === 200) {
+        for (const article of responseData?.news) {
+          if (article.wajib_baca)
+            result.unshift(new ArticlePemula(article).articleItemVertical);
+          else result.push(new ArticlePemula(article).articleItemVertical);
+        }
+
+        result = result.splice(0, 5);
+      }
+    } catch (error) {
+      result = [];
+    }
+
+    return result;
   },
 };

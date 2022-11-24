@@ -11,7 +11,7 @@ const SLIDERSETTING = {
   infinite: true,
   speed: 500,
   autoplay: true,
-  autoplaySpeed: 3500,
+  autoplaySpeed: 5000,
   pauseOnHover: true,
   slidesToShow: 1,
   slidesToScroll: 1,

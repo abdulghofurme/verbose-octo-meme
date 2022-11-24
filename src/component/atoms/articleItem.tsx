@@ -6,8 +6,8 @@ import Link from "next/link";
 export interface ArticleItemProps {
   url: string;
   title: string;
-  category: string;
-  categoryURL: string;
+  category?: string;
+  categoryURL?: string;
   thumbnail: string;
   published: string;
   noBorder?: boolean;
@@ -16,12 +16,14 @@ export interface ArticleItemProps {
 const ArticleItem: FC<ArticleItemProps> = ({
   url,
   title,
-  category,
-  categoryURL,
+  category = "Kategori",
+  categoryURL = "",
   thumbnail,
   published,
   noBorder = false,
 }) => {
+  if (!url) return null
+
   return (
     <article
       className={`${styles.article_item} ${noBorder ? styles.no_border : ""}`}
@@ -43,13 +45,19 @@ const ArticleItem: FC<ArticleItemProps> = ({
         />
       </Link>
       <div className={styles.subtitle}>
-        <Link
-          data-testid="articleItem__category"
-          href={categoryURL}
-          className="b-typography__button b-color-text__primary--800"
-        >
-          {category}
-        </Link>
+        {categoryURL ? (
+          <Link
+            data-testid="articleItem__category"
+            href={categoryURL}
+            className="b-typography__button b-color-text__primary--800"
+          >
+            {category}
+          </Link>
+        ) : (
+          <span className="b-typography__button b-color-text__primary--800">
+            {category}
+          </span>
+        )}
         <span className="b-color-text__onsurface--medium-emphasis">•</span>
         <span
           data-testid="articleItem__published"

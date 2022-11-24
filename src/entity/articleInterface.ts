@@ -18,6 +18,27 @@ export interface ArticleInterface {
 	wajib_baca:      number;
 }
 
+export interface ArticlePemulaInterface {
+	_id:             string;
+	title:           string;
+	subtitle:        string;
+	titleSuggestion: ArticleTitleSuggestion;
+	content:         string;
+	slug:            string;
+	newsId:          number;
+	thumbnailUrl:    string;
+	author:          ArticleAuthor;
+	tags:            null;
+	categories:      ArticleCategory[];
+	cover:           ArticleCover;
+	isHeader:        number;
+	createdAt:       Date;
+	publishedAt:     Date;
+	views:           number;
+	isBookmark:      boolean;
+	wajib_baca:      number;
+}
+
 export interface ArticleAuthor {
 	userId:   string;
 	name:     string;
