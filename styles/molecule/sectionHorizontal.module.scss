@@ -11,7 +11,8 @@
 
 .horizontal {
   align-items: flex-start !important;
-	padding: 0 16px 16px !important;
+  justify-content: flex-start !important;
+  padding: 0 16px 16px !important;
   overflow: auto;
 
   > article {

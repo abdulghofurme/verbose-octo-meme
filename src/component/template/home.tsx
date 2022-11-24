@@ -54,9 +54,11 @@ const HomeTemplate: FC<HomeTemplateProps> = () => {
           ]}
         />
 
-        {articleItems.map((articleItem) => (
-          <ArticleItem key={articleItem.url} {...articleItem} />
-        ))}
+        {[{ ...articleItems[0], noBorder: true }, ...articleItems].map(
+          (articleItem) => (
+            <ArticleItem key={articleItem.url} {...articleItem} />
+          )
+        )}
 
         <CircularLoader marginTop={8} marginBottom={44} />
       </main>

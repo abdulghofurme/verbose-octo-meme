@@ -14,7 +14,6 @@ const Header: FC<HeaderProps> = ({ onBack = Router.back, title }) => {
     <header className={styles.header}>
       <MaterialIcon
         icon="arrow_back"
-        onClick={onBack}
         className={iconColorClassName}
       />
       {title && <h6 className="title b-typography__h6">{title}</h6>}
