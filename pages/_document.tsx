@@ -62,6 +62,11 @@ const Document: FC = () => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
         />
+        {/* BACKGROUND */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/background.min.css"
+        />
       </Head>
       <body>
         <Main />

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FC } from "react";
 import styles from "../../../styles/atoms/headlineItem.module.scss";
 
-interface HeadlineItemProps {
+export interface HeadlineItemProps {
   background: string;
   title: string;
   url: string;
@@ -25,7 +25,7 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
         </Head>
       )}
 
-      <article className={styles.headline_item}>
+      <article className={styles.article}>
         <Link href={url}>
           <img
             alt={`${title} cover`}
