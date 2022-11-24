@@ -13,7 +13,7 @@ import {
 } from "../src/hooks/api/article";
 
 const Home: NextPage = () => {
-  const image = `${process.env.BASE_IMAGE_URL}/logo/1.0.0/default-image-news.jpg`;
+  const image = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/default-image-news.jpg`;
   const router = useRouter();
   const url = getCurrentURL(router);
 
