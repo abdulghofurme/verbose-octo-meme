@@ -6,7 +6,7 @@ import styles from "../../../styles/molecule/sectionHorizontal.module.scss";
 import Link from "next/link";
 import MaterialIcon from "../atoms/materialIcon";
 
-interface SectionHorizontalProps {
+export interface SectionHorizontalProps {
   title: string;
   url: string;
   articles: ArticleItemVerticalProps[];
@@ -17,6 +17,8 @@ const SectionHorizontal: FC<SectionHorizontalProps> = ({
   title,
   articles,
 }) => {
+  if (!articles || articles?.length === 0) return null;
+
   return (
     <section className={`${styles.section} b-color-bg__surface--dark`}>
       <div>

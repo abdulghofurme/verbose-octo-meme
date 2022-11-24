@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import styles from "../../../styles/atoms/headlineItem.module.scss";

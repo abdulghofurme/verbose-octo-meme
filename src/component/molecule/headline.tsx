@@ -4,13 +4,15 @@ import HeadlineItem, { HeadlineItemProps } from "../atoms/headlineItem";
 import Link from "next/link";
 import HeadlineSlider from "../atoms/headlineSlider";
 
-interface HeadlineProps {
+export interface HeadlineProps {
   url: string;
   title: string;
-  articles: HeadlineItemProps[];
+  articles?: HeadlineItemProps[];
 }
 
 const Headline: FC<HeadlineProps> = ({ title, url, articles }) => {
+  if (!articles || articles?.length === 0) return null
+
   return (
     <section className={styles.headline}>
       <h2 className="b-typography__overline b-color-text__onsurface--medium-emphasis">
