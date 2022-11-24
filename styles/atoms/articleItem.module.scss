@@ -1,0 +1,62 @@
+@import '../mixins.scss';
+
+.article_item {
+  position: relative;
+
+  > a {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px 0;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background: rgba(33, 33, 33, 0.08);
+      mix-blend-mode: normal;
+    }
+
+    h4 {
+      margin: 0 0 22px;
+
+      @include lineClamp(calc(100% - 64px - 24px), 3);
+    }
+
+    img {
+      margin: 0 0 0 24px;
+      border-radius: 4px;
+			object-fit: cover;
+    }
+  }
+}
+
+.subtitle {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+
+  span {
+    &:first-of-type {
+      margin: 0 4px;
+    }
+  }
+}
+
+.no_border {
+  > a {
+    &::before {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import '../mixins.scss';
+
+.article {
+  width: 100%;
+  height: 165px;
+  position: relative;
+	border-radius: 4px;
+	overflow: hidden;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+	div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.38);
+	}
+
+  h4 {
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    padding: 0 16px;
+
+		@include lineClamp(100%, 3);
+  }
+}
