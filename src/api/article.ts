@@ -94,10 +94,12 @@ export default {
       const { status: responseStatus, data: responseData } = response;
       if (responseStatus === 200) {
         result = responseData?.news?.map(
-          (article: ArticleInterface, idx: number) => ({
-            ...new Article(article).articleItem,
-            noBorder: idx === 5,
-          })
+          // (article: ArticleInterface, idx: number) => ({
+          //   ...new Article(article).articleItem,
+          //   noBorder: idx === 5,
+          // })
+          (article: ArticleInterface, idx: number) =>
+            new Article(article).articleItem
         );
       } else {
         result = [];

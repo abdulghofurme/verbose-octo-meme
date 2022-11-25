@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import PageSEO from "../src/component/atoms/pageSEO";
 import getCurrentURL from "../src/utils/getURL";
 import HomeTemplate from "../src/component/template/home";
@@ -11,8 +11,13 @@ import {
   usePemulaNews,
   useRecentNews,
 } from "../src/hooks/api/article";
+import uaParser, { UserAgentInterface } from "../src/utils/userAgent";
 
-const Home: NextPage = () => {
+interface HomeProps {
+  userAgent: UserAgentInterface;
+}
+
+const Home: NextPage<HomeProps> = ({ userAgent }) => {
   const image = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/default-image-news.jpg`;
   const router = useRouter();
   const url = getCurrentURL(router);
@@ -42,6 +47,7 @@ const Home: NextPage = () => {
           url: "/terpopuler",
           title: "TERPOPULER MINGGU INI",
           articles: headlinesData || [],
+          userAgent,
         }}
         articles={recentNewsData || []}
         horizontalSection={{
@@ -54,7 +60,8 @@ const Home: NextPage = () => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const userAgent = uaParser(ctx.req.headers['user-agent']);
   const queryClient = new QueryClient();
 
   await queryClient.fetchQuery([KEYS.headlines], article.getHeadlines);
@@ -66,6 +73,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
+      userAgent,
     },
   };
 };

@@ -15,7 +15,8 @@ const PageSEO: FC<PageSEOProps> = ({
   image,
   url,
   keywords,
-}) => (
+}) => {
+  return (
   <Head>
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -33,6 +34,7 @@ const PageSEO: FC<PageSEOProps> = ({
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
   </Head>
-);
+)
+};
 
 export default PageSEO;

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { articleItems } from "../../../__mocks__/articleItems";
+import dynamic from "next/dynamic";
 import ArticleItem, { ArticleItemProps } from "../atoms/articleItem";
 import Header from "../molecule/header";
 import styles from "../../../styles/template/home.module.scss";
@@ -7,7 +7,9 @@ import Headline, { HeadlineProps } from "../molecule/headline";
 import SectionHorizontal, {
   SectionHorizontalProps,
 } from "../molecule/sectionHorizontal";
-import CircularLoader from "../atoms/circularLoader";
+const CircularLoader = dynamic(() => import("../atoms/circularLoader"), {
+  ssr: false,
+});
 
 interface HomeTemplateProps {
   title: string;
@@ -28,12 +30,17 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
     thirdArticle,
     forthArticle,
     fifthArticle,
+    sixthArticle,
     ...restArticle
   ] = articles;
   const topSectionArticles =
     [firstArticle, secondArticle, thirdArticle, forthArticle, fifthArticle] ||
     [];
-  const bottomSectionArticles = restArticle || [];
+  const bottomSectionArticles =
+    [
+      ...(sixthArticle ? [{ ...sixthArticle, noBorder: true }] : []),
+      ...restArticle,
+    ] || [];
   return (
     <>
       <Header />

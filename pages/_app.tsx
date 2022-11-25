@@ -6,7 +6,6 @@ import {
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useState } from "react";
-import PreloadLink from "../src/component/atoms/preloadLink";
 import "../styles/globals.scss";
 
 const FAVICON_URL = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/favicon.ico`;
