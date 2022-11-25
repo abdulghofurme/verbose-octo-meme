@@ -15,13 +15,13 @@ const Document: FC = () => {
         {/* TYPOGRAPHY */}
         <PreloadLink
           rel="stylesheet"
-          as='style'
+          as="style"
           href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.2/dist/typography.min.css"
         />
         {/* COLOR TEXT */}
         <PreloadLink
           rel="stylesheet"
-          as='style'
+          as="style"
           href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/text.min.css"
         />
         {/* MATERIAL ICON */}
