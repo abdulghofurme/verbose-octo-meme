@@ -7,3 +7,19 @@
   white-space: initial;
   overflow: hidden;
 }
+
+@mixin devices($breakpoint) {
+  // low resolution tablets
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 481px) {
+      @content;
+    }
+  }
+
+  // laptops & desktops
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: 1025px) {
+      @content;
+    }
+  }
+}

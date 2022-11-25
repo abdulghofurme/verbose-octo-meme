@@ -6,10 +6,9 @@ import {
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useState } from "react";
-import PreloadLink from "../src/component/atoms/preloadLink";
 import "../styles/globals.scss";
 
-const FAVICON_URL = `${process.env.BASE_IMAGE_URL}/logo/1.0.0/favicon.ico`;
+const FAVICON_URL = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/favicon.ico`;
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -49,33 +48,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="robots" content="noodp,noydir" />
         <meta name="googlebot" content="index, follow" />
         <meta name="msnbot" content="index, follow" />
-
-        {/* COLOR VARIABLE */}
-        <PreloadLink
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/variables.min.css"
-        />
-        {/* TYPOGRAPHY */}
-        <PreloadLink
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.2/dist/typography.min.css"
-        />
-        {/* COLOR TEXT */}
-        <PreloadLink
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/text.min.css"
-        />
-        {/* MATERIAL ICON */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <PreloadLink
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
-        />
-        {/* BACKGROUND */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/background.min.css"
-        />
       </Head>
 
       <QueryClientProvider client={queryClient}>

@@ -1,14 +1,18 @@
 @import "../variables.scss";
+@import '../mixins.scss';
+
+$content_distance_mobile: calc($side_padding_mobile + 16px);
+$content_distance_tablet: calc($side_padding_tablet + 16px);
 
 .header {
   height: $header_mobile_height;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 0 $side_padding_mobile;
 
-  > .title {
-    margin: 0 32px;
+  h6 {
+    margin: 0 $content_distance_mobile;
   }
 
   > div {
@@ -16,10 +20,24 @@
     align-items: center;
 
     > * {
-      margin: 0 32px 0 0;
+      margin: 0 $content_distance_mobile 0 0;
 
       &:last-of-type {
         margin: 0;
+      }
+    }
+  }
+
+  @include devices(tablet) {
+    padding: 0 $side_padding_tablet;
+
+    h6 {
+      margin: 0 $content_distance_tablet;
+    }
+
+    > div {
+      > * {
+        margin: 0 $content_distance_tablet 0 0;
       }
     }
   }

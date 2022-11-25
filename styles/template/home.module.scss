@@ -1,7 +1,14 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
 .main {
-	padding: 0 16px;
+	padding: 0 $side_padding_mobile;
 
 	h1 {
 		margin: 8px 0 0;
+	}
+
+	@include devices(tablet) {
+		padding: 0 $side_padding_tablet;
 	}
 }

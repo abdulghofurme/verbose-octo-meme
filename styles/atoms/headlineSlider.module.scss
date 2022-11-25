@@ -1,11 +1,14 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
 .headline_slider {
-  margin: 0 -16px;
+  margin: 0 (-$side_padding_mobile);
   padding: 0 0 16px;
   position: relative;
   overflow: hidden;
 
   > div > div > * {
-    padding: 0 16px;
+    padding: 0 $side_padding_mobile;
   }
 
   > button {
@@ -43,6 +46,16 @@
           border-radius: 50%;
         }
       }
+    }
+  }
+
+  @include devices(tablet) {
+    // margin: 0 -32px;
+
+    margin: 0 (-$side_padding_tablet);
+
+    > div > div > * {
+      padding: 0 $side_padding_tablet;
     }
   }
 }

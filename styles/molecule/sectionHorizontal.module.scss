@@ -1,18 +1,29 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 .section {
-  margin: 0 -16px;
+  margin: 0 (-$side_padding_mobile);
 
   > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
+    padding: 12px $side_padding_mobile;
+  }
+
+  @include devices(tablet) {
+    margin: 0 (-$side_padding_tablet);
+
+    > div {
+      padding: 12px $side_padding_tablet;
+    }
   }
 }
 
 .horizontal {
   align-items: flex-start !important;
   justify-content: flex-start !important;
-  padding: 0 16px 16px !important;
+  padding: 0 $side_padding_mobile 16px !important;
   overflow: auto;
 
   > article {
@@ -21,5 +32,9 @@
     &:last-of-type {
       margin: 0;
     }
+  }
+
+  @include devices(tablet) {
+    padding: 0 $side_padding_tablet 16px !important;
   }
 }
