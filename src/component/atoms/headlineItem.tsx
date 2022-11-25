@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
@@ -36,30 +35,22 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
       break;
   }
   return (
-    <>
-      {priority && (
-        <Head>
-          <link rel="preload" as="image" href={background} />
-        </Head>
-      )}
+    <article className={styles.article}>
+      <Link href={url}>
+        <Image
+          alt={`${title} cover`}
+          src={background}
+          height={165}
+          width={imageWidth}
+          priority={priority}
+        />
+        <div />
 
-      <article className={styles.article}>
-        <Link href={url}>
-          <Image
-            alt={`${title} cover`}
-            src={background}
-            height={165}
-            width={imageWidth}
-            loading={priority ? "eager" : "lazy"}
-          />
-          <div />
-
-          <h4 className="b-typography__subtitle-2 b-typography__subtitle-2--medium b-color-text__onprimary--high-emphasis">
-            {title}
-          </h4>
-        </Link>
-      </article>
-    </>
+        <h4 className="b-typography__subtitle-2 b-typography__subtitle-2--medium b-color-text__onprimary--high-emphasis">
+          {title}
+        </h4>
+      </Link>
+    </article>
   );
 };
 

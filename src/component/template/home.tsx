@@ -1,5 +1,4 @@
 import { FC } from "react";
-import dynamic from "next/dynamic";
 import ArticleItem, { ArticleItemProps } from "../atoms/articleItem";
 import Header from "../molecule/header";
 import styles from "../../../styles/template/home.module.scss";
@@ -7,9 +6,6 @@ import Headline, { HeadlineProps } from "../molecule/headline";
 import SectionHorizontal, {
   SectionHorizontalProps,
 } from "../molecule/sectionHorizontal";
-const CircularLoader = dynamic(() => import("../atoms/circularLoader"), {
-  ssr: false,
-});
 
 interface HomeTemplateProps {
   title: string;
@@ -61,8 +57,6 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
         {bottomSectionArticles.map((articleItem) => (
           <ArticleItem key={articleItem?.url} {...articleItem} />
         ))}
-
-        <CircularLoader marginTop={8} marginBottom={44} />
       </main>
     </>
   );

@@ -15,6 +15,11 @@ export interface getRecentInterface {
   limit?: number;
   scrollId?: string;
 }
+export interface getRecentResultInterface {
+  news: ArticleItemProps[];
+  scrollId: string;
+  total: number;
+}
 
 export interface getPemulaInterface {
   limit?: number;
@@ -81,7 +86,12 @@ export default {
     return response;
   },
   getRecent: async ({ limit = 15, scrollId = "" }: getRecentInterface) => {
-    let result: ArticleItemProps[];
+    // let result: ArticleItemProps[];
+    const result: getRecentResultInterface = {
+      scrollId: "",
+      news: [],
+      total: 0,
+    };
     try {
       const response = await fetch(
         `${BASE_API}/news/v1/list-news` +
@@ -93,19 +103,16 @@ export default {
       ).then((res) => res.json());
       const { status: responseStatus, data: responseData } = response;
       if (responseStatus === 200) {
-        result = responseData?.news?.map(
-          // (article: ArticleInterface, idx: number) => ({
-          //   ...new Article(article).articleItem,
-          //   noBorder: idx === 5,
-          // })
-          (article: ArticleInterface, idx: number) =>
-            new Article(article).articleItem
+        result.news = responseData?.news?.map(
+          (article: ArticleInterface) => new Article(article).articleItem
         );
+        result.scrollId = responseData?.scrollId
+        result.total = responseData?.total
       } else {
-        result = [];
+        result.news = [];
       }
     } catch (error) {
-      result = [];
+      result.news = [];
     }
 
     return result;
