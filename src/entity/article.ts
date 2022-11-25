@@ -29,7 +29,7 @@ class Article {
 
   get published(): string {
     const dateArray = new Date(this.article.publishedAt)
-      .toUTCString()
+      .toISOString()
       .split("T");
     const fullDate = dateArray[0];
     const fullTime = dateArray[1];
@@ -41,11 +41,11 @@ class Article {
       parseInt(year),
       parseInt(month) - 1,
       parseInt(date),
-      parseInt(hour),
+      parseInt(hour) + 7,
       parseInt(minute),
       parseInt(second)
     );
-    publishedAtDate.setHours(publishedAtDate.getHours() + 7);
+    // publishedAtDate.setHours(publishedAtDate.getHours() + 7);
     const validPublishedAtDate =
       publishedAtDate.getTime() === publishedAtDate.getTime();
 
@@ -123,8 +123,8 @@ export class ArticlePemula {
       url: this.url,
       title: this.article.title,
       thumbnail: this.article.thumbnailUrl,
-      badge: this.article.wajib_baca ? 'Wajib baca': ''
-    }
+      badge: this.article.wajib_baca ? "Wajib baca" : "",
+    };
   }
 }
 
