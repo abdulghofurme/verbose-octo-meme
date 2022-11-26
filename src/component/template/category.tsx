@@ -13,6 +13,7 @@ const CategoryTemplate: FC<CategoryTemplateProps> = ({
   categoryHeader = {},
   articles = [],
 }) => {
+  articles[0].noBorder = true
   return (
     <>
       <Header className="b-color-bg__surface--dark" />

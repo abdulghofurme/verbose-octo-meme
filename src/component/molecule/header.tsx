@@ -1,5 +1,5 @@
-import { FC } from "react";
-import Router from "next/router";
+import { FC, useCallback } from "react";
+import Router, { useRouter } from "next/router";
 import MaterialIcon from "../atoms/materialIcon";
 import styles from "../../../styles/molecule/header.module.scss";
 
@@ -14,9 +14,24 @@ const Header: FC<HeaderProps> = ({
   title,
   className = "b-color-bg__surface--light",
 }) => {
+  const router = useRouter();
   const iconColorClassName = "b-color-text__secondary--900";
+  const headerRef = useCallback((node: HTMLElement) => {
+    if (!/\/\[category\]/.test(router.pathname)) {
+      window.addEventListener("scroll", () => {
+        if (node) {
+          if (window.scrollY >= 56) node?.classList.add(styles.section__border);
+          else node?.classList.remove(styles.section__border);
+        }
+      });
+    }
+  }, []);
   return (
-    <header className={`${styles.header} ${className}`}>
+    <header
+      ref={headerRef}
+      id="header--mobile"
+      className={`${styles.header} ${className}`}
+    >
       <MaterialIcon icon="arrow_back" className={iconColorClassName} />
       {title && <h6 className="title b-typography__h6">{title}</h6>}
       <div>
@@ -29,3 +44,6 @@ const Header: FC<HeaderProps> = ({
 };
 
 export default Header;
+// else if (bottom <= 56)
+//           headerMobileElement?.classList.add(styles.section__border);
+//         else headerMobileElement?.classList.remove(styles.section__border);

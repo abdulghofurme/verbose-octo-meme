@@ -15,6 +15,7 @@ $content_distance_tablet: calc($side_padding_tablet + 16px);
   align-items: center;
   justify-content: space-between;
   padding: 0 $side_padding_mobile;
+  transition: all ease .5s;
 
   h6 {
     margin: 0 $content_distance_mobile;
@@ -45,5 +46,18 @@ $content_distance_tablet: calc($side_padding_tablet + 16px);
         margin: 0 $content_distance_tablet 0 0;
       }
     }
+  }
+}
+
+.section__border {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.87);
+    opacity: 0.12;
   }
 }

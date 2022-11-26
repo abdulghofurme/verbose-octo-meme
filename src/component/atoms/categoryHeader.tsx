@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import styles from "../../../styles/atoms/categoryHeader.module.scss";
+import headerStyles from "../../../styles/molecule/header.module.scss";
 
 export interface CategoryHeaderProps {
   title?: string;
@@ -15,8 +16,28 @@ const CategoryHeader: FC<CategoryHeaderProps> = ({
   subCategories = [],
   currentSubCategory = "",
 }) => {
+  const sectionRef = useCallback((node: HTMLElement) => {
+    window.addEventListener("scroll", () => {
+      if (node) {
+        const { bottom } = node.getBoundingClientRect();
+        const headerMobileElement = document.getElementById("header--mobile");
+        if (bottom <= 56) {
+          headerMobileElement?.classList.add("b-color-bg__surface--light");
+          headerMobileElement?.classList.add(headerStyles.section__border);
+          headerMobileElement?.classList.remove("b-color-bg__surface--dark");
+        } else {
+          headerMobileElement?.classList.remove(headerStyles.section__border);
+          headerMobileElement?.classList.remove("b-color-bg__surface--light");
+          headerMobileElement?.classList.add("b-color-bg__surface--dark");
+        }
+      }
+    });
+  }, []);
   return (
-    <section className={`${styles.section} b-color-bg__surface--dark`}>
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${headerStyles.section__border} b-color-bg__surface--dark`}
+    >
       <div className="b-typography__overline b-color-text__onsurface--medium-emphasis">
         <Link href="/" className="b-color-text__primary--900">
           BERITA
