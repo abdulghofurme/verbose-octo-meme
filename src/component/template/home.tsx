@@ -41,8 +41,10 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
     <>
       <Header />
 
-      <main className={styles.main}>
-        <h1 className="b-typography__h4 b-color-text__onsurface--high-emphasis">
+      <main className={`${styles.main}`}>
+        <h1
+          className={`${styles.title} b-typography__h4 b-color-text__onsurface--high-emphasis`}
+        >
           {title}
         </h1>
 

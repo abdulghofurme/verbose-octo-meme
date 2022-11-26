@@ -1,0 +1,39 @@
+{
+	"category": {
+		"default": {
+			"title": "Berita Terkini Tentang Pasar Modal, Ekonomi & Investasi | Bareksa",
+			"description": "Dapatkan informasi terkini dan terpercaya tentang pasar modal, bursa, serta perkembangan ekonomi. Berita terupdate terkait investasi di Indonesia."
+		},
+		"belajar-investasi": {
+			"title": "Berita Belajar Investasi Untuk Pemula | Bareksa",
+			"description": "Belajar investasi mudah dan gratis dengan artikel terupdate dan terpercaya tentang reksadana, pasar modal, obligasi, emas, serta perkembangan ekonomi di Indonesia."
+		},
+		"berita-ekonomi-terkini": {
+			"title": "Berita Ekonomi Terkini | Bareksa",
+			"description": "Dapatkan informasi terkini dan terpercaya tentang perkembangan ekonomi di Indonesia secara lengkap dan gratis."
+		},
+		"pasar-modal": {
+			"title": "Berita Pasar Modal Terkini | Bareksa",
+			"description": "Dapatkan informasi terkini dan terpercaya tentang pasar modal di Indonesia secara lengkap dan gratis."
+		},
+		"emas": {
+			"title": "Berita Investasi Emas Terkini | Bareksa",
+			"description": "Dapatkan informasi terkini dan terpercaya tentang perkembangan investasi emas di Indonesia secara lengkap dan gratis."
+		},
+		"reksa-dana": {
+			"title": "Berita Investasi Reksadana Terkini | Bareksa",
+			"description": "Dapatkan informasi terkini dan terpercaya tentang perkembangan investasi reksadana di Indonesia secara lengkap dan gratis."
+		},
+		"sbn": {
+			"title": "Berita Investasi SBN Terkini | Bareksa",
+			"description": "Dapatkan informasi terkini dan terpercaya tentang investasi obligasi di Surat Berharga Negara (SBN) Indonesia secara lengkap dan gratis."
+		},
+		"umroh": {
+			"title": "Berita Investasi Umroh Terkini | Bareksa",
+			"description": "Dapatkan informasi terkini dan terpercaya tentang investasi perencanaan ibadah umroh secara lengkap dan gratis di Indonesia."
+		},
+		"promo": {
+			"title": "Promo Cashback Investasi di Bareksa"
+		}
+	}
+}

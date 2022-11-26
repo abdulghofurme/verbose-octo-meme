@@ -1,0 +1,74 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.section {
+  padding: calc(16px + $header_mobile_height) $side_padding_mobile 24px;
+  position: relative;
+
+  > div > * {
+    padding: 0 4px 0 0;
+  }
+
+  > h1 {
+    margin: 8px 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.87);
+    opacity: 0.12;
+  }
+
+  @include devices(tablet) {
+    padding: calc(16px + $header_mobile_height) $side_padding_tablet 24px;
+  }
+}
+
+.sub_categories {
+  margin: 20px (-$side_padding_mobile) -24px;
+  overflow-y: auto;
+  @include noScrollbar;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: max-content;
+
+    a {
+      padding: 0 $side_padding_mobile 7px;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        content: "";
+        height: 3px;
+        background: transparent;
+      }
+    }
+  }
+
+  @include devices(tablet) {
+    margin: 20px (-$side_padding_tablet) -24px;
+
+    > div {
+      a {
+        padding: 0 $side_padding_tablet 7px;
+      }
+    }
+  }
+}
+
+.sub_category--active {
+  &::after {
+    background: var(--primary--800) !important;
+  }
+}

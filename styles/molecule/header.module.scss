@@ -5,6 +5,11 @@ $content_distance_mobile: calc($side_padding_mobile + 16px);
 $content_distance_tablet: calc($side_padding_tablet + 16px);
 
 .header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: $header_mobile_height;
   display: flex;
   align-items: center;

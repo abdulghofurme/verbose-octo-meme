@@ -4,21 +4,19 @@ import getCurrentURL from "../src/utils/getURL";
 import HomeTemplate from "../src/component/template/home";
 import { useRouter } from "next/router";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
-import article, { getRecentResultInterface } from "../src/api/article";
+import article, { GetRecentNewsResultInterface } from "../src/api/article";
 import {
-  KEYS,
+  KEYS_ARTICLE,
   useHeadlines,
   usePemulaNews,
   useRecentNews,
 } from "../src/hooks/api/article";
-import uaParser, { UserAgentInterface } from "../src/utils/userAgent";
+import uaParser from "../src/utils/userAgent";
 import { ArticleItemProps } from "../src/component/atoms/articleItem";
 import dynamic from "next/dynamic";
 import InfiniteScroll from "../src/component/atoms/infiniteScroll";
-// const InfiniteScroll = dynamic(
-//   () => import("../src/component/atoms/infiniteScroll"),
-//   { ssr: false }
-// );
+import { PropsWithUserAgent } from "../src/interface/props";
+
 const CircularLoader = dynamic(
   () => import("../src/component/atoms/circularLoader"),
   {
@@ -26,21 +24,16 @@ const CircularLoader = dynamic(
   }
 );
 
-interface HomeProps {
-  userAgent: UserAgentInterface;
-}
-
-const Home: NextPage<HomeProps> = ({ userAgent, ...t }) => {
+const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
   const image = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/default-image-news.jpg`;
   const router = useRouter();
   const url = getCurrentURL(router);
 
-  const { data: headlinesData, isFetching: headlineFetching } = useHeadlines();
-  const { data: pemulaNews, isFetching: pemulaFetching } = usePemulaNews({
+  const { data: headlinesData } = useHeadlines();
+  const { data: pemulaNews } = usePemulaNews({
     limit: 7,
   });
   const {
-    isFetching,
     data: recentNewsData,
     fetchNextPage,
     hasNextPage,
@@ -96,17 +89,17 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const userAgent = uaParser(ctx.req.headers["user-agent"]);
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery([KEYS.headlines], article.getHeadlines);
-  await queryClient.prefetchQuery([KEYS.pemulaNews], () =>
+  await queryClient.prefetchQuery([KEYS_ARTICLE.headlines], article.getHeadlines);
+  await queryClient.prefetchQuery([KEYS_ARTICLE.pemulaNews], () =>
     article.getPemula({ limit: 7 })
   );
-  await queryClient.prefetchInfiniteQuery([KEYS.recentNews], () =>
+  await queryClient.prefetchInfiniteQuery([KEYS_ARTICLE.recentNews], () =>
     article.getRecent({})
   );
   queryClient.setQueriesData<{
-    pages?: getRecentResultInterface[];
+    pages?: GetRecentNewsResultInterface[];
     pageParams?: string[];
-  }>([KEYS.recentNews], (data) => ({
+  }>([KEYS_ARTICLE.recentNews], (data) => ({
     pages: data?.pages || [],
     pageParams: data?.pageParams?.map((pageParam) =>
       pageParam === undefined ? "" : pageParam

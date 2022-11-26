@@ -37,7 +37,7 @@ const Document: FC = () => {
           href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/background.min.css"
         />
       </Head>
-      <body>
+      <body className="b-color-bg__surface--light" >
         <Main />
         <NextScript />
       </body>

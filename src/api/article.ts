@@ -4,27 +4,29 @@ import { ArticleItemVerticalProps } from "../component/atoms/articleItemVertical
 import { HeadlineItemProps } from "../component/atoms/headlineItem";
 import Article, { ArticlePemula } from "../entity/article";
 import { ArticleInterface } from "../entity/articleInterface";
+import { GENERAL_HEADERS, BASE_API } from "./config";
 
-const BASE_API = process.env.NEXT_PUBLIC_BASE_API;
+export interface GetPemulaInterface {
+  limit?: number;
+  page?: number;
+}
 
-const headers = {
-  Authorization: "X-BAREKSA-WEB",
-};
-
-export interface getRecentInterface {
+export interface GetRecentNewsInterface {
   limit?: number;
   scrollId?: string;
 }
-export interface getRecentResultInterface {
+export interface GetRecentNewsResultInterface {
   news: ArticleItemProps[];
   scrollId: string;
   total: number;
 }
-
-export interface getPemulaInterface {
-  limit?: number;
-  page?: number;
+export interface GetRecentNewsByCategoryInterface
+  extends GetRecentNewsInterface {
+  categorySlug: string;
+  subCategorySlug?: string;
 }
+export interface GetRecentNewsByCategoryResultInterface
+  extends GetRecentNewsResultInterface {}
 
 export default {
   getHeadlines: async () => {
@@ -39,7 +41,7 @@ export default {
             limit: "2",
           })}`,
         {
-          headers,
+          headers: GENERAL_HEADERS,
         }
       ).then((res) => res.json());
 
@@ -49,7 +51,7 @@ export default {
             isHeader: "2",
             limit: "3",
           })}`,
-        { headers }
+        { headers: GENERAL_HEADERS }
       ).then((res) => res.json());
 
       const {
@@ -85,9 +87,8 @@ export default {
 
     return response;
   },
-  getRecent: async ({ limit = 15, scrollId = "" }: getRecentInterface) => {
-    // let result: ArticleItemProps[];
-    const result: getRecentResultInterface = {
+  getRecent: async ({ limit = 15, scrollId = "" }: GetRecentNewsInterface) => {
+    const result: GetRecentNewsResultInterface = {
       scrollId: "",
       news: [],
       total: 0,
@@ -99,15 +100,15 @@ export default {
             limit: limit.toString(),
             scrollId,
           })}`,
-        { headers }
+        { headers: GENERAL_HEADERS }
       ).then((res) => res.json());
       const { status: responseStatus, data: responseData } = response;
       if (responseStatus === 200) {
         result.news = responseData?.news?.map(
           (article: ArticleInterface) => new Article(article).articleItem
         );
-        result.scrollId = responseData?.scrollId
-        result.total = responseData?.total
+        result.scrollId = responseData?.scrollId;
+        result.total = responseData?.total;
       } else {
         result.news = [];
       }
@@ -117,7 +118,43 @@ export default {
 
     return result;
   },
-  getPemula: async ({ limit = 15, page = 1 }: getPemulaInterface) => {
+  getRecentNewsByCategory: async ({
+    scrollId = "",
+    limit = 15,
+    subCategorySlug = '',
+    categorySlug,
+  }: GetRecentNewsByCategoryInterface) => {
+    let result: GetRecentNewsByCategoryResultInterface = {
+      scrollId: "",
+      news: [],
+      total: 0,
+    };
+    try {
+      const response = await fetch(
+        `${BASE_API}/news/v1/home/category/${categorySlug}` +
+          `?${new URLSearchParams({
+            limit: limit.toString(),
+            scrollId,
+            subCategory: subCategorySlug,
+          })}`,
+        { headers: GENERAL_HEADERS }
+      ).then((res) => res.json());
+      const { status: responseStatus, data: responseData } = response;
+      if (responseStatus === 200) {
+        result.news = responseData?.news?.map(
+          (article: ArticleInterface) => new Article(article).articleItem
+        );
+        result.scrollId = responseData?.scrollId;
+        result.total = responseData?.total;
+      } else {
+        result.news = [];
+      }
+    } catch (error) {
+      result.news = [];
+    }
+    return result;
+  },
+  getPemula: async ({ limit = 15, page = 1 }: GetPemulaInterface) => {
     let result: ArticleItemVerticalProps[] = [];
     try {
       const response = await fetch(
@@ -126,7 +163,7 @@ export default {
             limit: limit.toString(),
             page: page.toString(),
           })}`,
-        { headers }
+        { headers: GENERAL_HEADERS }
       ).then((res) => res.json());
       const { status: responseStatus, data: responseData } = response;
 

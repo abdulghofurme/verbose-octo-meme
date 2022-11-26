@@ -2,14 +2,9 @@
 @import "../variables.scss";
 
 .main {
-  margin: $header_mobile_height 0 0;
   padding: 0 $side_padding_mobile;
 
   @include devices(tablet) {
     padding: 0 $side_padding_tablet;
   }
-}
-
-.title {
-  margin: 8px 0 0;
 }
