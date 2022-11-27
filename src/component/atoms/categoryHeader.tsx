@@ -54,7 +54,6 @@ const CategoryHeader: FC<CategoryHeaderProps> = ({
 
       {subCategories.length > 1 && (
         <div className={styles.sub_categories}>
-          <div>
             {subCategories.map(({ url, label, slug }) => (
               <Link
                 key={url}
@@ -69,7 +68,6 @@ const CategoryHeader: FC<CategoryHeaderProps> = ({
                 {label}
               </Link>
             ))}
-          </div>
         </div>
       )}
     </section>

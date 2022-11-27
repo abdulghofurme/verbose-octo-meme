@@ -23,25 +23,23 @@
   overflow-y: auto;
   @include noScrollbar;
 
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
 
-    a {
-      padding: 0 $side_padding_mobile 7px;
-      position: relative;
+  a {
+    padding: 0 $side_padding_mobile 7px;
+    position: relative;
 
-      &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        content: "";
-        height: 3px;
-        background: transparent;
-      }
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      content: "";
+      height: 3px;
+      background: transparent;
     }
   }
 

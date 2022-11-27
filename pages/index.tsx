@@ -67,10 +67,11 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
         LoadingComponent={<CircularLoader marginTop={8} marginBottom={44} />}
       >
         <HomeTemplate
+          userAgent={userAgent}
           title="Berita dan Analisis Investasi"
           headline={{
             url: "/terpopuler",
-            title: "TERPOPULER MINGGU INI",
+            title: "BERITA TERPOPULER MINGGU INI",
             articles: headlinesData || [],
             userAgent,
           }}

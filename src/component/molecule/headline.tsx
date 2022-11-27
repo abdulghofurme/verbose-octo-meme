@@ -1,30 +1,52 @@
 import { FC } from "react";
+import dynamic from "next/dynamic";
 import styles from "../../../styles/molecule/headline.module.scss";
 import HeadlineItem, { HeadlineItemProps } from "../atoms/headlineItem";
 import Link from "next/link";
-import HeadlineSlider from "../atoms/headlineSlider";
 import { UserAgentInterface } from "../../lib/userAgent";
+const HeadlineSlider = dynamic(() => import("../atoms/headlineSlider"));
 
 export interface HeadlineProps {
   url: string;
   title: string;
   articles?: HeadlineItemProps[];
-  userAgent?: UserAgentInterface
+  userAgent?: UserAgentInterface;
 }
 
 const Headline: FC<HeadlineProps> = ({ title, url, articles, userAgent }) => {
-  if (!articles || articles?.length === 0) return null
+  if (!articles || articles?.length === 0) return null;
+
+  const renderHeadlines = () => {
+    return articles.map((articleItem, idx) => (
+      <HeadlineItem
+        key={articleItem?.url}
+        {...articleItem}
+        userAgent={userAgent}
+        bigHeadline={[0, 1, 4].includes(idx)}
+      />
+    ));
+  };
 
   return (
-    <section className={styles.headline}>
-      <h2 className="b-typography__overline b-color-text__onsurface--medium-emphasis">
+    <section
+      className={
+        userAgent?.isUserMobile ? styles.headline : styles["headline--desktop"]
+      }
+    >
+      <h2
+        className={`b-typography__overline ${
+          userAgent?.isUserMobile
+            ? "b-color-text__onsurface--medium-emphasis"
+            : "b-color-text__secondary--900"
+        }`}
+      >
         <Link href={url}>{title}</Link>
       </h2>
-      <HeadlineSlider>
-        {articles.map((articleItem) => (
-          <HeadlineItem key={articleItem?.url} {...articleItem} userAgent={userAgent} />
-        ))}
-      </HeadlineSlider>
+      {userAgent?.isUserMobile ? (
+        <HeadlineSlider>{renderHeadlines()}</HeadlineSlider>
+      ) : (
+        <div>{renderHeadlines()}</div>
+      )}
     </section>
   );
 };

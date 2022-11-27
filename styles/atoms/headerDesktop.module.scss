@@ -1,0 +1,94 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.header {
+  z-index: 1;
+  height: $header_desktop_height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 $side_padding_desktop;
+
+  a {
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    padding: 14px 20px 0;
+    white-space: nowrap;
+  }
+
+  > div,
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  > div {
+    &:nth-child(1) {
+      justify-content: flex-start;
+      max-width: 80%;
+
+      > a {
+        padding: 0 27px 0 0;
+
+        img {
+          width: 157.5px;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      justify-content: flex-end;
+      a {
+        width: 80px;
+        padding: 0;
+        margin: 10px 16px 0 0;
+        justify-content: center;
+      }
+
+      button {
+        border-radius: 4px;
+        border: none;
+        margin: 6px 0 0;
+        width: 112px;
+        height: 42px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 1px rgba(0, 0, 0, 0.12),
+          0 1px 1px rgba(0, 0, 0, 0.14);
+      }
+    }
+  }
+
+  nav {
+    overflow-y: auto;
+    @include noScrollbar;
+  }
+
+  // @include devices(tablet-as-max) {
+  //   height: $header_mobile_height;
+  //   padding: 0 $side_padding_tablet;
+
+  //   a {
+  //     min-height: initial;
+  //   }
+
+  //   > div {
+  //     &:nth-child(1) > a img {
+  //       height: 36px;
+  //       width: 135px;
+  //     }
+
+  //     &:nth-child(2) {
+  //       display: none;
+  //     }
+  //   }
+
+  //   nav {
+  //     display: none;
+  //   }
+  // }
+}

@@ -1,0 +1,26 @@
+.register_dialog {
+  padding: 24px;
+  margin: 120px auto auto;
+
+  h6 {
+    margin: 0 0 16px;
+  }
+
+  nav {
+    > a {
+      padding: 8px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      img {
+        margin: 0 24px 0 0;
+      }
+
+      > div {
+        width: 204px;
+        margin: 0 12px 0 0;
+      }
+    }
+  }
+}

@@ -9,19 +9,32 @@
 }
 
 @mixin devices($breakpoint) {
-  // low resolution tablets
+  // mobile
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  }
+
+  // tablets
   @if $breakpoint == tablet {
-    @media only screen and (min-width: 481px) {
+    @media only screen and (min-width: 481px) and (max-width: 1024px) {
       @content;
     }
   }
 
   // laptops & desktops
-  @if $breakpoint == laptop {
+  @if $breakpoint == desktop {
     @media only screen and (min-width: 1025px) {
       @content;
     }
   }
+
+  // @if $breakpoint == tablet-as-max {
+  //   @media only screen and (max-width: 1024px) {
+  //     @content;
+  //   }
+  // }
 }
 
 @mixin noScrollbar {

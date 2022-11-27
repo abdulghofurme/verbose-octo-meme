@@ -10,6 +10,7 @@ export interface HeadlineItemProps {
   url: string;
   priority?: boolean;
   userAgent?: UserAgentInterface;
+  bigHeadline?: boolean;
 }
 
 const HeadlineItem: FC<HeadlineItemProps> = ({
@@ -18,6 +19,7 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
   background,
   priority,
   userAgent,
+  bigHeadline = false,
 }) => {
   let imageWidth: number;
   // mobile & tablet using
@@ -31,16 +33,20 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
       imageWidth = 1024;
       break;
     default:
-      imageWidth = 340;
+      imageWidth = bigHeadline ? 340 : 160;
       break;
   }
   return (
-    <article className={styles.article}>
+    <article
+      className={`${styles.article} ${
+        userAgent?.isUserMobile ? styles["article--mobile"] : styles["article--desktop"]
+      } ${bigHeadline ? styles.article_big : styles.article_small}`}
+    >
       <Link href={url}>
         <Image
           alt={`${title} cover`}
           src={background}
-          height={165}
+          height={userAgent?.isUserMobile ? 165 : 160}
           width={imageWidth}
           priority={priority}
         />

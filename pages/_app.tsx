@@ -9,6 +9,7 @@ const FAVICON_URL = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/favico
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => AppQueryClient);
+ 
   return (
     <>
       <Head>
