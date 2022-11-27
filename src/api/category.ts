@@ -15,7 +15,9 @@ export default {
         `${BASE_API}/news/v1/list-categories` +
           `?${new URLSearchParams({ slug: categorySlug || "" })}`,
         { headers: GENERAL_HEADERS }
-      ).then((res) => res.json());
+      ).then((res) => {
+        return res.json();
+      });
       const { status: responseStatus, data: responseData } = response;
       if (responseStatus === 200)
         result = new CategoryEntity((responseData?.categories || [])[0])
@@ -32,7 +34,9 @@ export default {
     try {
       const response = await fetch(`${BASE_API}/news/v1/list-categories`, {
         headers: GENERAL_HEADERS,
-      }).then((res) => res.json());
+      }).then((res) => {
+        return res.json();
+      });
 
       console.log({ response });
     } catch (error) {

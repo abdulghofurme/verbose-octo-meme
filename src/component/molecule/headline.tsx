@@ -3,7 +3,7 @@ import styles from "../../../styles/molecule/headline.module.scss";
 import HeadlineItem, { HeadlineItemProps } from "../atoms/headlineItem";
 import Link from "next/link";
 import HeadlineSlider from "../atoms/headlineSlider";
-import { UserAgentInterface } from "../../utils/userAgent";
+import { UserAgentInterface } from "../../lib/userAgent";
 
 export interface HeadlineProps {
   url: string;

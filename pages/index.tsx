@@ -1,9 +1,9 @@
 import { GetServerSideProps, NextPage } from "next";
 import PageSEO from "../src/component/atoms/pageSEO";
-import getCurrentURL from "../src/utils/getURL";
+import getCurrentURL from "../src/lib/getURL";
 import HomeTemplate from "../src/component/template/home";
 import { useRouter } from "next/router";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
+import { dehydrate } from "@tanstack/react-query";
 import article, { GetRecentNewsResultInterface } from "../src/api/article";
 import {
   KEYS_ARTICLE,
@@ -11,11 +11,12 @@ import {
   usePemulaNews,
   useRecentNews,
 } from "../src/hooks/api/article";
-import uaParser from "../src/utils/userAgent";
+import uaParser from "../src/lib/userAgent";
 import { ArticleItemProps } from "../src/component/atoms/articleItem";
 import dynamic from "next/dynamic";
 import InfiniteScroll from "../src/component/atoms/infiniteScroll";
 import { PropsWithUserAgent } from "../src/interface/props";
+import { ServerQueryClient } from "../src/lib/queryClient";
 
 const CircularLoader = dynamic(
   () => import("../src/component/atoms/circularLoader"),
@@ -87,16 +88,17 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const userAgent = uaParser(ctx.req.headers["user-agent"]);
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery([KEYS_ARTICLE.headlines], article.getHeadlines);
-  await queryClient.prefetchQuery([KEYS_ARTICLE.pemulaNews], () =>
+  await ServerQueryClient.prefetchQuery(
+    [KEYS_ARTICLE.headlines],
+    article.getHeadlines
+  );
+  await ServerQueryClient.prefetchQuery([KEYS_ARTICLE.pemulaNews], () =>
     article.getPemula({ limit: 7 })
   );
-  await queryClient.prefetchInfiniteQuery([KEYS_ARTICLE.recentNews], () =>
+  await ServerQueryClient.prefetchInfiniteQuery([KEYS_ARTICLE.recentNews], () =>
     article.getRecent({})
   );
-  queryClient.setQueriesData<{
+  ServerQueryClient.setQueriesData<{
     pages?: GetRecentNewsResultInterface[];
     pageParams?: string[];
   }>([KEYS_ARTICLE.recentNews], (data) => ({
@@ -108,7 +110,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
+      dehydratedState: dehydrate(ServerQueryClient),
       userAgent,
     },
   };

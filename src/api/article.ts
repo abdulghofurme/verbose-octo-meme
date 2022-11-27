@@ -43,7 +43,9 @@ export default {
         {
           headers: GENERAL_HEADERS,
         }
-      ).then((res) => res.json());
+      ).then((res) => {
+        return res.json();
+      });
 
       const bigHeadlineResponse = await fetch(
         url +
@@ -52,7 +54,9 @@ export default {
             limit: "3",
           })}`,
         { headers: GENERAL_HEADERS }
-      ).then((res) => res.json());
+      ).then((res) => {
+        return res.json();
+      });
 
       const {
         status: smallHeadlineResponseStatus,
@@ -101,7 +105,9 @@ export default {
             scrollId,
           })}`,
         { headers: GENERAL_HEADERS }
-      ).then((res) => res.json());
+      ).then((res) => {
+        return res.json();
+      });
       const { status: responseStatus, data: responseData } = response;
       if (responseStatus === 200) {
         result.news = responseData?.news?.map(
@@ -121,7 +127,7 @@ export default {
   getRecentNewsByCategory: async ({
     scrollId = "",
     limit = 15,
-    subCategorySlug = '',
+    subCategorySlug = "",
     categorySlug,
   }: GetRecentNewsByCategoryInterface) => {
     let result: GetRecentNewsByCategoryResultInterface = {
@@ -138,7 +144,9 @@ export default {
             subCategory: subCategorySlug,
           })}`,
         { headers: GENERAL_HEADERS }
-      ).then((res) => res.json());
+      ).then((res) => {
+        return res.json();
+      });
       const { status: responseStatus, data: responseData } = response;
       if (responseStatus === 200) {
         result.news = responseData?.news?.map(
@@ -164,7 +172,9 @@ export default {
             page: page.toString(),
           })}`,
         { headers: GENERAL_HEADERS }
-      ).then((res) => res.json());
+      ).then((res) => {
+        return res.json();
+      });
       const { status: responseStatus, data: responseData } = response;
 
       if (responseStatus === 200) {

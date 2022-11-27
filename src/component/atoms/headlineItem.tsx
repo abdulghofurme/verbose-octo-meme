@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import styles from "../../../styles/atoms/headlineItem.module.scss";
-import { UserAgentInterface } from "../../utils/userAgent";
+import { UserAgentInterface } from "../../lib/userAgent";
 
 export interface HeadlineItemProps {
   background: string;

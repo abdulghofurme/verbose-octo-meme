@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
+import { dehydrate } from "@tanstack/react-query";
 import { GetServerSideProps } from "next";
 import PageSEO from "../../src/component/atoms/pageSEO";
 import CategoryTemplate from "../../src/component/template/category";
@@ -16,8 +16,9 @@ import article, {
   GetRecentNewsByCategoryResultInterface,
 } from "../../src/api/article";
 import { useRouter } from "next/router";
-import getCurrentURL from "../../src/utils/getURL";
+import getCurrentURL from "../../src/lib/getURL";
 import seoConfig from "../../src/config/seo.json";
+import { ServerQueryClient } from "../../src/lib/queryClient";
 const CircularLoader = dynamic(
   () => import("../../src/component/atoms/circularLoader")
 );
@@ -81,11 +82,11 @@ const Category: NextPage<{
 export const getServerSideProps: GetServerSideProps = async ({
   query: { category: categorySlug, sub: subCategorySlug = "" },
 }) => {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery([KEYS_CATEGORY.category, categorySlug], () =>
-    category.getCategory({ categorySlug: categorySlug as string })
+  await ServerQueryClient.prefetchQuery(
+    [KEYS_CATEGORY.category, categorySlug],
+    () => category.getCategory({ categorySlug: categorySlug as string })
   );
-  await queryClient.prefetchInfiniteQuery(
+  await ServerQueryClient.prefetchInfiniteQuery(
     [KEYS_ARTICLE.recentNews, categorySlug, subCategorySlug],
     () =>
       article.getRecentNewsByCategory({
@@ -93,7 +94,7 @@ export const getServerSideProps: GetServerSideProps = async ({
         subCategorySlug: subCategorySlug as string,
       })
   );
-  queryClient.setQueriesData<{
+  ServerQueryClient.setQueriesData<{
     pages?: GetRecentNewsByCategoryResultInterface[];
     pageParams?: string[];
   }>([KEYS_ARTICLE.recentNews, categorySlug, subCategorySlug], (data) => ({
@@ -109,7 +110,7 @@ export const getServerSideProps: GetServerSideProps = async ({
         categorySlug,
         subCategorySlug,
       },
-      dehydratedState: dehydrate(queryClient),
+      dehydratedState: dehydrate(ServerQueryClient),
     },
   };
 };
