@@ -42,7 +42,7 @@ const HeaderDesktop: FC<HeaderDesktopProps> = () => {
               <Link
                 key={url}
                 href={url}
-                className={`b-typography__subtitle-3 b-typography__subtitle-3--medium ${
+                className={`b-typography__subtitle-3--medium ${
                   url === "/"
                     ? "b-color-text__primary--800"
                     : "b-color-text__onsurface--high-emphasis"

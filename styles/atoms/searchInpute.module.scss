@@ -1,0 +1,23 @@
+.label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 3.5px;
+  padding: 12px 16px;
+	margin: 0 0 16px;
+
+  input {
+    border: none;
+    outline: none;
+    width: 100%;
+
+    &::placeholder {
+      font: var(--b-typography__subtitle-1);
+      letter-spacing: var(--b-typography__subtitle-1_letter-spacing);
+      font-weight: var(--b-typography__subtitle-1--medium_font-weight);
+      color: var(--onsurface--disabled);
+    }
+  }
+}

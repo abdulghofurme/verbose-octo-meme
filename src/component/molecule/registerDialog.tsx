@@ -51,10 +51,10 @@ const RegisterDialog: FC<DialogProps> = ({ open, onClose }) => {
               alt={`Illustrasi Pendaftaran ${title}`}
             />
             <div>
-              <p className="b-typography__subtitle-1 b-typography__subtitle-1--medium b-color-text__onsurface--high-emphasis">
+              <p className="b-typography__subtitle-1--medium b-color-text__onsurface--high-emphasis">
                 {title}
               </p>
-              <p className="b-typography__body-2 b-typography__body-2--reguler b-color-text__onsurface--medium-emphasis">
+              <p className="b-typography__body-2--reguler b-color-text__onsurface--medium-emphasis">
                 {subtitle}
               </p>
             </div>

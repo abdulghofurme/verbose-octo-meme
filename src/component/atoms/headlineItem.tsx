@@ -52,7 +52,7 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
         />
         <div />
 
-        <h4 className="b-typography__subtitle-2 b-typography__subtitle-2--medium b-color-text__onprimary--high-emphasis">
+        <h4 className="b-typography__subtitle-2--medium b-color-text__onprimary--high-emphasis">
           {title}
         </h4>
       </Link>

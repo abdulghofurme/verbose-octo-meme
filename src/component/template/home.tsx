@@ -5,6 +5,7 @@ import Headline, { HeadlineProps } from "../molecule/headline";
 import { PropsWithUserAgent } from "../../interface/props";
 import { SectionHorizontalProps } from "../molecule/sectionHorizontal";
 import dynamic from "next/dynamic";
+import SearchInput from "../atoms/searchInput";
 const HeaderDesktop = dynamic(() => import("../atoms/headerDesktop"));
 const Header = dynamic(() => import("../molecule/header"));
 const SectionHorizontal = dynamic(
@@ -73,7 +74,9 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
           ))}
         </section>
 
-        <aside>test</aside>
+        <aside>
+          <SearchInput />
+        </aside>
       </main>
     </>
   );

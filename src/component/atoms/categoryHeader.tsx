@@ -58,7 +58,7 @@ const CategoryHeader: FC<CategoryHeaderProps> = ({
               <Link
                 key={url}
                 href={url || ""}
-                className={`b-typography__body-2 b-typography__body-2--medium ${
+                className={`b-typography__body-2--medium ${
                   currentSubCategory === slug
                     ? "b-color-text__primary--800 " +
                       styles["sub_category--active"]

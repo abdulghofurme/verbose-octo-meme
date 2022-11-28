@@ -16,7 +16,7 @@ const Document: FC = () => {
         <PreloadLink
           rel="stylesheet"
           as="style"
-          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.2/dist/typography.min.css"
+          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.3/dist/typography.min.css"
         />
         {/* COLOR TEXT */}
         <PreloadLink
@@ -36,8 +36,14 @@ const Document: FC = () => {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/background.min.css"
         />
+        {/* TYPOGRAPHY VARS */}
+        <PreloadLink
+          as="style"
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.3/dist/variable.min.css"
+        />
       </Head>
-      <body className="b-color-bg__surface--light" >
+      <body className="b-color-bg__surface--light">
         <Main />
         <NextScript />
       </body>
