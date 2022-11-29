@@ -4,9 +4,8 @@ import styles from "../../../styles/molecule/registerDialog.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import MaterialIcon from "../atoms/materialIcon";
+import { BASE_IMAGE_URL, BASE_URL } from "../../config/env";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-const BASE_IMAGE_URL = process.env.NEXT_PUBLIC_BASE_IMAGE_URL;
 
 const navigations: {
   url: string;

@@ -4,7 +4,8 @@ import { ArticleItemVerticalProps } from "../component/atoms/articleItemVertical
 import { HeadlineItemProps } from "../component/atoms/headlineItem";
 import Article, { ArticlePemula } from "../entity/article";
 import { ArticleInterface } from "../entity/articleInterface";
-import { GENERAL_HEADERS, BASE_API } from "./config";
+import { GENERAL_HEADERS } from "../config/api";
+import { BASE_API } from "../config/env";
 
 export interface GetPemulaInterface {
   limit?: number;

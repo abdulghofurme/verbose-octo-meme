@@ -1,7 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { CategoryHeaderProps } from "../component/atoms/categoryHeader";
 import CategoryEntity from "../entity/category";
-import { BASE_API, GENERAL_HEADERS } from "./config";
+import { GENERAL_HEADERS } from "../config/api";
+import { BASE_API } from "../config/env";
 
 export interface GetCategoriesInterface {
   categorySlug?: string;

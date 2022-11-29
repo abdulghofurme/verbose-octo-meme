@@ -1,0 +1,72 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.footer {
+  width: 100%;
+  padding: 0 $side_padding_desktop;
+  margin: 60px auto 0;
+  max-width: calc(1140px + (2 * $side_padding_desktop));
+
+  > section {
+    padding: 32px 0 48px;
+    position: relative;
+    display: flex;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #d1d4d8;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    > * {
+      width: 25%;
+
+      &:nth-child(1) {
+        h6 {
+          margin: 24px 0 16px;
+        }
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        > * {
+          width: 100%;
+          height: 36px;
+        }
+
+        button {
+          display: flex;
+          background: transparent;
+          border: none;
+        }
+      }
+
+      &:nth-child(4) {
+        display: flex;
+        flex-direction: column;
+
+        > * {
+          margin: 0 0 12px;
+        }
+      }
+    }
+  }
+
+  > span {
+    display: block;
+    margin: 28px auto;
+    text-align: center;
+  }
+}

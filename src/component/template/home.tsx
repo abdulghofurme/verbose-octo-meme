@@ -6,13 +6,14 @@ import { PropsWithUserAgent } from "../../interface/props";
 import { SectionHorizontalProps } from "../molecule/sectionHorizontal";
 import dynamic from "next/dynamic";
 import SearchInput from "../atoms/searchInput";
+import Footer from "../molecule/footer";
 const HeaderDesktop = dynamic(() => import("../atoms/headerDesktop"));
 const Header = dynamic(() => import("../molecule/header"));
 const SectionHorizontal = dynamic(
   () => import("../molecule/sectionHorizontal")
 );
 
-interface HomeTemplateProps extends PropsWithUserAgent {
+export interface HomeTemplateProps extends PropsWithUserAgent {
   title: string;
   headline: HeadlineProps;
   articles: ArticleItemProps[];
@@ -78,6 +79,11 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
           <SearchInput />
         </aside>
       </main>
+
+      {!userAgent.isUserMobile
+      &&
+      <Footer />
+      }
     </>
   );
 };

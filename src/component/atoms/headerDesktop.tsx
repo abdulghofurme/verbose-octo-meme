@@ -6,8 +6,7 @@ import styles from "../../../styles/atoms/headerDesktop.module.scss";
 const RegisterDialog = dynamic(() => import("../molecule/registerDialog"), {
   ssr: false,
 });
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { BASE_IMAGE_URL, BASE_URL } from '../../config/env' 
 
 interface HeaderDesktopProps {}
 
@@ -31,7 +30,7 @@ const HeaderDesktop: FC<HeaderDesktopProps> = () => {
         <div>
           <Link href={BASE_URL || "/"}>
             <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/logo.svg`}
+              src={`${BASE_IMAGE_URL}/logo/1.0.0/logo.svg`}
               width={157.5}
               height={42}
               alt="Bareksa"

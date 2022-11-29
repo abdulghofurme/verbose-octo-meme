@@ -1,7 +1,9 @@
 import { GetServerSideProps, NextPage } from "next";
 import PageSEO from "../src/component/atoms/pageSEO";
 import getCurrentURL from "../src/lib/getURL";
-import HomeTemplate from "../src/component/template/home";
+import HomeTemplate, {
+  HomeTemplateProps,
+} from "../src/component/template/home";
 import { useRouter } from "next/router";
 import { dehydrate } from "@tanstack/react-query";
 import article, { GetRecentNewsResultInterface } from "../src/api/article";
@@ -45,6 +47,23 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
     []
   );
 
+  const homeProps: HomeTemplateProps = {
+    userAgent,
+    title: "Berita dan Analisis Investasi",
+    headline: {
+      url: "/terpopuler",
+      title: "BERITA TERPOPULER MINGGU INI",
+      articles: headlinesData || [],
+      userAgent,
+    },
+    articles: recentArticles || [],
+    horizontalSection: {
+      url: "/belajar-investasi",
+      title: "BELAJAR INVESTASI",
+      articles: pemulaNews || [],
+    },
+  };
+
   return (
     <>
       <PageSEO
@@ -60,29 +79,18 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
         ]}
       />
 
-      <InfiniteScroll
-        hasMore={Boolean(hasNextPage)}
-        isLoading={isFetchingNextPage}
-        loadFunction={fetchNextPage}
-        LoadingComponent={<CircularLoader marginTop={8} marginBottom={44} />}
-      >
-        <HomeTemplate
-          userAgent={userAgent}
-          title="Berita dan Analisis Investasi"
-          headline={{
-            url: "/terpopuler",
-            title: "BERITA TERPOPULER MINGGU INI",
-            articles: headlinesData || [],
-            userAgent,
-          }}
-          articles={recentArticles || []}
-          horizontalSection={{
-            url: "/belajar-investasi",
-            title: "BELAJAR INVESTASI",
-            articles: pemulaNews || [],
-          }}
-        />
-      </InfiniteScroll>
+      {userAgent.isUserMobile ? (
+        <InfiniteScroll
+          hasMore={Boolean(hasNextPage)}
+          isLoading={isFetchingNextPage}
+          loadFunction={fetchNextPage}
+          LoadingComponent={<CircularLoader marginTop={8} marginBottom={44} />}
+        >
+          <HomeTemplate {...homeProps} />
+        </InfiniteScroll>
+      ) : (
+        <HomeTemplate {...homeProps} />
+      )}
     </>
   );
 };
