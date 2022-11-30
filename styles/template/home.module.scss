@@ -29,9 +29,10 @@
     max-width: 328px;
 
     > * {
+      padding: 16px;
       margin-top: 48px;
 
-      &:first-of-type {
+      &:first-child {
         margin-top: 0;
       }
     }

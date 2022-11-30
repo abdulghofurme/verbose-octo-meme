@@ -1,6 +1,6 @@
 import { FC } from "react";
 import MaterialIcon from "./materialIcon";
-import styles from "../../../styles/atoms/searchInpute.module.scss";
+import styles from "../../../styles/atoms/searchInput.module.scss";
 
 // export interface SearchInputProps extends HTMLInputElement {}
 export interface SearchInputProps {

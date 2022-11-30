@@ -9,8 +9,9 @@ export interface ArticleItemProps {
   category?: string;
   categoryURL?: string;
   thumbnail: string;
-  published: string;
+  published?: string;
   noBorder?: boolean;
+  variant?: "" | "aside";
 }
 
 const ArticleItem: FC<ArticleItemProps> = ({
@@ -21,12 +22,29 @@ const ArticleItem: FC<ArticleItemProps> = ({
   thumbnail,
   published,
   noBorder = false,
+  variant = "",
 }) => {
   if (!url) return null;
+  let size: number;
+  let categoryClassName: string;
+
+  switch (variant) {
+    case "aside":
+      size = 48;
+      categoryClassName =
+        "b-typography__caption b-color-text__onsurface--medium-emphasis";
+      break;
+    default:
+      size = 64;
+      categoryClassName = "b-typography__button b-color-text__primary--800";
+      break;
+  }
 
   return (
     <article
-      className={`${styles.article_item} ${noBorder ? styles.no_border : ""}`}
+      className={`${styles.article_item} ${noBorder ? styles.no_border : ""} ${
+        variant ? styles[`article_item--${variant}`] : ""
+      }`}
     >
       <div>
         <Link href={url} data-testid="articleItem__link">
@@ -38,28 +56,30 @@ const ArticleItem: FC<ArticleItemProps> = ({
           </h4>
         </Link>
 
-        <div className={styles.subtitle}>
-          {categoryURL ? (
-            <Link
-              data-testid="articleItem__category"
-              href={categoryURL}
-              className="b-typography__button b-color-text__primary--800"
+        {published ? (
+          <div className={`${styles.subtitle}`}>
+            {categoryURL ? (
+              <Link
+                data-testid="articleItem__category"
+                href={categoryURL}
+                className={categoryClassName}
+              >
+                {category}
+              </Link>
+            ) : (
+              <span className={categoryClassName}>{category}</span>
+            )}
+            <span className="b-color-text__onsurface--medium-emphasis">•</span>
+            <span
+              data-testid="articleItem__published"
+              className="b-typography__caption b-color-text__onsurface--medium-emphasis"
             >
-              {category}
-            </Link>
-          ) : (
-            <span className="b-typography__button b-color-text__primary--800">
-              {category}
+              {published}
             </span>
-          )}
-          <span className="b-color-text__onsurface--medium-emphasis">•</span>
-          <span
-            data-testid="articleItem__published"
-            className="b-typography__caption b-color-text__onsurface--medium-emphasis"
-          >
-            {published}
-          </span>
-        </div>
+          </div>
+        ) : (
+          <span className={categoryClassName}>{category}</span>
+        )}
       </div>
 
       <Link href={url} data-testid="articleItem__link">
@@ -67,8 +87,8 @@ const ArticleItem: FC<ArticleItemProps> = ({
           data-testid="articleItem__thumbnail"
           src={thumbnail}
           alt={`${title} thumbnail`}
-          width={64}
-          height={64}
+          width={size}
+          height={size}
         />
       </Link>
     </article>

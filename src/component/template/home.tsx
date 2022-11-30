@@ -7,6 +7,7 @@ import { SectionHorizontalProps } from "../molecule/sectionHorizontal";
 import dynamic from "next/dynamic";
 import SearchInput from "../atoms/searchInput";
 import Footer from "../molecule/footer";
+import BookmarkAside from "../molecule/bookmarkAside";
 const HeaderDesktop = dynamic(() => import("../atoms/headerDesktop"));
 const Header = dynamic(() => import("../molecule/header"));
 const SectionHorizontal = dynamic(
@@ -77,6 +78,7 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
 
         <aside>
           <SearchInput />
+          <BookmarkAside articles={restArticle} />
         </aside>
       </main>
 

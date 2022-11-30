@@ -33,6 +33,26 @@
   }
 }
 
+.no_border {
+  &::before {
+    display: none;
+  }
+}
+
+.article_item--aside {
+  @extend .no_border;
+  padding: 0;
+  margin: 24px 0 0;
+
+  &:first-of-type {
+    margin: 0;
+  }
+
+  h4 {
+    @include lineClamp(calc(100%), 2);
+  }
+}
+
 .subtitle {
   white-space: nowrap;
   overflow: hidden;
@@ -41,18 +61,12 @@
   max-width: 0 0 4px;
 
   > a {
-    padding: 0 4px 0 0;
+    padding: 4px 4px 0 0;
   }
 
   span {
     &:first-of-type {
       margin: 0 4px 0 0;
     }
-  }
-}
-
-.no_border {
-  &::before {
-    display: none;
   }
 }
