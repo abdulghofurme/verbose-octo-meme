@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren, useEffect, useRef } from "react";
-import styles from "../../../styles/atoms/dailog.module.scss";
+import styles from "../../../styles/atoms/dialog.module.scss";
 
 export interface DialogProps extends PropsWithChildren {
   open?: boolean;
