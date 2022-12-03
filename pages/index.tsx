@@ -19,6 +19,8 @@ import dynamic from "next/dynamic";
 import InfiniteScroll from "../src/component/atoms/infiniteScroll";
 import { PropsWithUserAgent } from "../src/interface/props";
 import { ServerQueryClient } from "../src/lib/queryClient";
+import { KEYS_CATEGORY, useCategories } from "../src/hooks/api/category";
+import category from "../src/api/category";
 
 const CircularLoader = dynamic(
   () => import("../src/component/atoms/circularLoader"),
@@ -46,6 +48,7 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
     (r, v) => [...r, ...(v?.news || [])],
     []
   );
+  const { data: categories } = useCategories();
 
   const homeProps: HomeTemplateProps = {
     userAgent,
@@ -61,6 +64,9 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
       url: "/belajar-investasi",
       title: "BELAJAR INVESTASI",
       articles: pemulaNews || [],
+    },
+    categoryAside: {
+      categories: categories || [],
     },
   };
 
@@ -106,6 +112,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   );
   await ServerQueryClient.prefetchInfiniteQuery([KEYS_ARTICLE.recentNews], () =>
     article.getRecent({})
+  );
+  await ServerQueryClient.prefetchQuery([KEYS_CATEGORY.categories], () =>
+    category.getCategories()
   );
   ServerQueryClient.setQueriesData<{
     pages?: GetRecentNewsResultInterface[];

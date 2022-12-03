@@ -1,4 +1,5 @@
 import { CategoryHeaderProps } from "../component/atoms/categoryHeader";
+import { CategoryAsideListInterface } from "../component/molecule/categoryAside";
 import { CategoryInterface } from "./categoryInterface";
 
 class CategoryEntity {
@@ -8,19 +9,45 @@ class CategoryEntity {
     this.category = category;
   }
 
+  get categoryURL(): string {
+    return `/${this.category.slug}`;
+  }
+
   get categoryHeader(): CategoryHeaderProps {
-    const categoryURL = `/${this.category.slug}`;
     return {
       title: this.category.name,
       totalArticle: this.category.count,
-      subCategories: [
-        { label: "Semua", url: categoryURL, slug: "" },
-        ...(this.category.sub_categories?.map((subCategory) => ({
-          label: subCategory.name,
-          url: `${categoryURL}?sub=${subCategory.slug}`,
-          slug: subCategory.slug,
-        })) || []),
-      ],
+      subCategories:
+        this.category.sub_categories?.length || 0 > 0
+          ? [
+              { label: "Semua", url: this.categoryURL, slug: "" },
+              ...(this.category.sub_categories?.map((subCategory) => ({
+                label: subCategory.name,
+                url: `${this.categoryURL}?sub=${subCategory.slug}`,
+                slug: subCategory.slug,
+              })) || []),
+            ]
+          : [],
+    };
+  }
+
+  get categoryAsideItem(): CategoryAsideListInterface {
+    return {
+      title: `${this.category.name} (${this.category.count})`,
+      url: this.categoryURL,
+      subCategories:
+        this.category.sub_categories?.length || 0 > 0
+          ? [
+              {
+                title: `Semua (${this.category.count})`,
+                url: this.categoryURL,
+              },
+              ...(this.category.sub_categories?.map((subCategory) => ({
+                title: `${subCategory.name} (${subCategory.count})`,
+                url: `${this.categoryURL}?sub=${subCategory.slug}`,
+              })) || []),
+            ]
+          : [],
     };
   }
 }

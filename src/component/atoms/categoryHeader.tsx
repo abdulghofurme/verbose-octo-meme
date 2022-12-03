@@ -52,7 +52,7 @@ const CategoryHeader: FC<CategoryHeaderProps> = ({
         {totalArticle.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} artikel
       </span>
 
-      {subCategories.length > 1 && (
+      {subCategories.length > 0 && (
         <div className={styles.sub_categories}>
             {subCategories.map(({ url, label, slug }) => (
               <Link

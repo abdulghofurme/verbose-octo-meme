@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import SearchInput from "../atoms/searchInput";
 import Footer from "../molecule/footer";
 import BookmarkAside from "../molecule/bookmarkAside";
+import CategoryAside, { CategoryAsideProps } from "../molecule/categoryAside";
 const HeaderDesktop = dynamic(() => import("../atoms/headerDesktop"));
 const Header = dynamic(() => import("../molecule/header"));
 const SectionHorizontal = dynamic(
@@ -19,6 +20,7 @@ export interface HomeTemplateProps extends PropsWithUserAgent {
   headline: HeadlineProps;
   articles: ArticleItemProps[];
   horizontalSection: SectionHorizontalProps;
+  categoryAside?: CategoryAsideProps;
 }
 
 const HomeTemplate: FC<HomeTemplateProps> = ({
@@ -27,6 +29,7 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
   articles = [],
   horizontalSection,
   userAgent,
+  categoryAside = { categories: [] },
 }) => {
   const [
     firstArticle,
@@ -79,13 +82,11 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
         <aside>
           <SearchInput />
           <BookmarkAside articles={restArticle} />
+          <CategoryAside {...categoryAside} />
         </aside>
       </main>
 
-      {!userAgent.isUserMobile
-      &&
-      <Footer />
-      }
+      {!userAgent.isUserMobile && <Footer />}
     </>
   );
 };

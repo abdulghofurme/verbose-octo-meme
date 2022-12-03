@@ -10,3 +10,6 @@ export const useCategory = (param: GetCategoriesInterface) =>
   useQuery([KEYS_CATEGORY.category, param?.categorySlug], () =>
     category.getCategory(param)
   );
+
+export const useCategories = () =>
+  useQuery([KEYS_CATEGORY.categories], () => category.getCategories());

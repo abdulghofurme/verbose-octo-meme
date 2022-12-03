@@ -62,7 +62,7 @@ const Footer: FC<FooterProps> = () => {
                 </Link>
               ) : (
                 <button
-                  key={url}
+                  key={label}
                   onClick={onClick}
                   className="b-typography__subtitle-2--medium b-color-text__onsurface--high-emphasis"
                 >

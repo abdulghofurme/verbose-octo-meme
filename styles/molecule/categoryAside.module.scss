@@ -1,0 +1,24 @@
+.section {
+  h6 {
+    margin: 0 0 20px;
+  }
+
+  details {
+    padding: 0 16px;
+
+    summary {
+      margin: 0 -16px;
+      > span {
+        transition: transform ease 0.3s;
+      }
+    }
+
+    &[open] {
+      summary {
+        > span {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

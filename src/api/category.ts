@@ -3,6 +3,8 @@ import { CategoryHeaderProps } from "../component/atoms/categoryHeader";
 import CategoryEntity from "../entity/category";
 import { GENERAL_HEADERS } from "../config/api";
 import { BASE_API } from "../config/env";
+import { CategoryAsideListInterface } from "../component/molecule/categoryAside";
+import { CategoryInterface } from "../entity/categoryInterface";
 
 export interface GetCategoriesInterface {
   categorySlug?: string;
@@ -31,17 +33,24 @@ export default {
     return result;
   },
   getCategories: async () => {
-    let result = {};
+    let result: CategoryAsideListInterface[];
     try {
       const response = await fetch(`${BASE_API}/news/v1/list-categories`, {
         headers: GENERAL_HEADERS,
       }).then((res) => {
         return res.json();
       });
-
-      console.log({ response });
+      const { status: responseStatus, data: responseData } = response;
+      if (responseStatus === 200) {
+        result = responseData.categories.map(
+          (category: CategoryInterface) =>
+            new CategoryEntity(category).categoryAsideItem
+        );
+      } else {
+        result = [];
+      }
     } catch (error) {
-      console.log({ error });
+      result = [];
     }
 
     return result;
