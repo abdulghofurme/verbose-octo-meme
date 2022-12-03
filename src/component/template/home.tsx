@@ -9,7 +9,7 @@ import SearchInput from "../atoms/searchInput";
 import Footer from "../molecule/footer";
 import BookmarkAside from "../molecule/bookmarkAside";
 import CategoryAside, { CategoryAsideProps } from "../molecule/categoryAside";
-import PemulaAside, { PemulaAsideProps } from "../molecule/PemulaAside";
+import PemulaAside, { PemulaAsideProps } from "../molecule/pemulaAside";
 import SocialMediaAside from "../molecule/socialMediaAside";
 const HeaderDesktop = dynamic(() => import("../atoms/headerDesktop"));
 const Header = dynamic(() => import("../molecule/header"));
