@@ -4,6 +4,7 @@ import { FC } from "react";
 import styles from "../../../styles/molecule/bookmarkAside.module.scss";
 import { BASE_IMAGE_URL, BASE_URL } from "../../config/env";
 import ArticleItem, { ArticleItemProps } from "../atoms/articleItem";
+import AsideItemWrapper from "../atoms/asideItemWrapper";
 
 interface BookmarkAsideProps {
   articles?: ArticleItemProps[];
@@ -22,20 +23,25 @@ const BookmarkAside: FC<BookmarkAsideProps> = ({
   }
 
   return (
-    <section className={`${styles.bookmark} b-color-bg__black-cool--050`}>
-      <h6 className="b-typography__h6 b-color-text__onsurface--high-emphasis">
-        {title}
-      </h6>
+    <AsideItemWrapper
+      title={title}
+      className={`${styles.bookmark} b-color-bg__black-cool--050`}
+    >
       {articlesLength ? (
         <>
           {[...articles].splice(0, 3).map((articleItem) => (
-            <ArticleItem key={articleItem.url} {...articleItem} variant='aside' published="" />
+            <ArticleItem
+              key={articleItem.url}
+              {...articleItem}
+              variant="aside"
+              published=""
+            />
           ))}
 
           {articlesLength > 3 && (
             <Link
               href={`/bookmark`}
-              className={`b-typography__button b-color-text__primary--800 ${styles.link}`}
+              className={`b-typography__button b-color-text__primary--800 top-link`}
             >
               Lihat Semua
             </Link>
@@ -57,7 +63,7 @@ const BookmarkAside: FC<BookmarkAsideProps> = ({
 
                 <Link
                   href={`${BASE_URL}/id/member/login?q=news`}
-                  className={`b-typography__button b-color-text__primary--800 ${styles.link}`}
+                  className={`b-typography__button b-color-text__primary--800 top-link`}
                 >
                   Login Bareksa
                 </Link>
@@ -72,7 +78,7 @@ const BookmarkAside: FC<BookmarkAsideProps> = ({
           />
         </div>
       )}
-    </section>
+    </AsideItemWrapper>
   );
 };
 

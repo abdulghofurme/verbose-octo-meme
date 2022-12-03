@@ -1,10 +1,6 @@
 .bookmark {
   border-radius: 10px;
 
-  h6 {
-    margin: 0 0 24px;
-  }
-
   > div {
     display: flex;
     align-items: flex-start;
@@ -15,11 +11,7 @@
     }
   }
 
-	article {
-		margin: 16px 0 0;
-	}
-}
-
-.link {
-  margin: 16px 0 0;
+  article {
+    margin: 16px 0 0;
+  }
 }

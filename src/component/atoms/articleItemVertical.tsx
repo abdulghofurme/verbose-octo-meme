@@ -2,11 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import styles from '../../../styles/atoms/articleItemVertical.module.scss'
+import { ArticleItemProps } from "./articleItem";
 
-export interface ArticleItemVerticalProps {
-  title: string;
-  thumbnail: string;
-  url: string;
+export interface ArticleItemVerticalProps extends ArticleItemProps {
   badge?: string;
 }
 

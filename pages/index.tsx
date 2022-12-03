@@ -48,7 +48,7 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
     (r, v) => [...r, ...(v?.news || [])],
     []
   );
-  const { data: categories } = useCategories();
+  const { data: categories } = useCategories({userAgent});
 
   const homeProps: HomeTemplateProps = {
     userAgent,
@@ -67,6 +67,9 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
     },
     categoryAside: {
       categories: categories || [],
+    },
+    pemulaAside: {
+      articles: pemulaNews || [],
     },
   };
 
@@ -113,9 +116,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   await ServerQueryClient.prefetchInfiniteQuery([KEYS_ARTICLE.recentNews], () =>
     article.getRecent({})
   );
-  await ServerQueryClient.prefetchQuery([KEYS_CATEGORY.categories], () =>
-    category.getCategories()
-  );
+  if (!userAgent.isUserMobile) {
+    await ServerQueryClient.prefetchQuery([KEYS_CATEGORY.categories], () =>
+      category.getCategories()
+    );
+  }
   ServerQueryClient.setQueriesData<{
     pages?: GetRecentNewsResultInterface[];
     pageParams?: string[];

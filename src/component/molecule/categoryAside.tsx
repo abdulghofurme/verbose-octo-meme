@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styles from "../../../styles/molecule/categoryAside.module.scss";
+import AsideItemWrapper from "../atoms/asideItemWrapper";
 import CategoryAsideItem, {
   CategoryAsideItemProps,
 } from "../atoms/categoryAsideItem";
@@ -12,13 +13,9 @@ export interface CategoryAsideProps {
   categories: CategoryAsideListInterface[];
 }
 
-const CategoryAside: FC<CategoryAsideProps> = ({categories}) => {
+const CategoryAside: FC<CategoryAsideProps> = ({ categories }) => {
   return (
-    <section className={styles.section}>
-      <h6 className="b-typography__h6 b-color-text__onsurface--high-emphasis">
-        Kategori Artikel
-      </h6>
-
+    <AsideItemWrapper title="Kategori Artikel" className={styles.section}>
       {[...categories].splice(0, 8).map((category) =>
         category.subCategories?.length || 0 > 0 ? (
           <details key={category.url}>
@@ -39,7 +36,7 @@ const CategoryAside: FC<CategoryAsideProps> = ({categories}) => {
           />
         )
       )}
-    </section>
+    </AsideItemWrapper>
   );
 };
 

@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import category, { GetCategoriesInterface } from "../../api/category";
+import { PropsWithUserAgent } from "../../interface/props";
 
 export const KEYS_CATEGORY = {
   category: "category",
@@ -11,5 +12,17 @@ export const useCategory = (param: GetCategoriesInterface) =>
     category.getCategory(param)
   );
 
-export const useCategories = () =>
-  useQuery([KEYS_CATEGORY.categories], () => category.getCategories());
+export const useCategories = (params: PropsWithUserAgent) => {
+  const { isUserMobile } = params.userAgent;
+  return useQuery(
+    isUserMobile
+      ? {
+          queryKey: [''],
+          queryFn() {},
+        }
+      : {
+          queryKey: [KEYS_CATEGORY.categories],
+          queryFn: () => category.getCategories(),
+        }
+  );
+};

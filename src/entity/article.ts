@@ -124,6 +124,7 @@ export class ArticlePemula {
       title: this.article.title,
       thumbnail: this.article.thumbnailUrl,
       badge: this.article.wajib_baca ? "Wajib baca" : "",
+      category: this.article.wajib_baca ? "Wajib baca" : this.mainCategory?.name,
     };
   }
 }
