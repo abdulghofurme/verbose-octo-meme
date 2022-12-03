@@ -6,11 +6,11 @@ import {
   useRef,
 } from "react";
 
-interface InfiniteScrollProps extends PropsWithChildren {
+export interface InfiniteScrollProps extends PropsWithChildren {
   hasMore: boolean;
   isLoading: boolean;
   loadFunction: () => void;
-  LoadingComponent: ReactElement;
+  LoadingComponent?: ReactElement;
 }
 
 const InfiniteScroll: FC<InfiniteScrollProps> = ({

@@ -1,9 +1,6 @@
 import { GetServerSideProps, NextPage } from "next";
 import PageSEO from "../src/component/atoms/pageSEO";
 import getCurrentURL from "../src/lib/getURL";
-import HomeTemplate, {
-  HomeTemplateProps,
-} from "../src/component/template/home";
 import { useRouter } from "next/router";
 import { dehydrate } from "@tanstack/react-query";
 import article, { GetRecentNewsResultInterface } from "../src/api/article";
@@ -15,18 +12,14 @@ import {
 } from "../src/hooks/api/article";
 import uaParser from "../src/lib/userAgent";
 import { ArticleItemProps } from "../src/component/atoms/articleItem";
-import dynamic from "next/dynamic";
-import InfiniteScroll from "../src/component/atoms/infiniteScroll";
 import { PropsWithUserAgent } from "../src/interface/props";
 import { ServerQueryClient } from "../src/lib/queryClient";
 import { KEYS_CATEGORY, useCategories } from "../src/hooks/api/category";
 import category from "../src/api/category";
-
-const CircularLoader = dynamic(
-  () => import("../src/component/atoms/circularLoader"),
-  {
-    ssr: false,
-  }
+import dynamic from "next/dynamic";
+const HomeTemplate = dynamic(import("../src/component/template/home"));
+const HomeDesktopTemplate = dynamic(
+  import("../src/component/template/homeDesktop")
 );
 
 const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
@@ -48,31 +41,21 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
     (r, v) => [...r, ...(v?.news || [])],
     []
   );
-  const { data: categories } = useCategories({userAgent});
+  const { data: categories } = useCategories({ userAgent });
 
-  const homeProps: HomeTemplateProps = {
+  const homeTitle = "Berita dan Analisis Investasi";
+  const homeHeadline = {
+    url: "/terpopuler",
+    title: "BERITA TERPOPULER MINGGU INI",
+    articles: headlinesData || [],
     userAgent,
-    title: "Berita dan Analisis Investasi",
-    headline: {
-      url: "/terpopuler",
-      title: "BERITA TERPOPULER MINGGU INI",
-      articles: headlinesData || [],
-      userAgent,
-    },
-    articles: recentArticles || [],
-    horizontalSection: {
-      url: "/belajar-investasi",
-      title: "BELAJAR INVESTASI",
-      articles: pemulaNews || [],
-    },
-    categoryAside: {
-      categories: categories || [],
-    },
-    pemulaAside: {
-      articles: pemulaNews || [],
-    },
   };
-
+  const articles = recentArticles || [];
+  const homePemula = {
+    url: "/belajar-investasi",
+    title: "BELAJAR INVESTASI",
+    articles: pemulaNews || [],
+  };
   return (
     <>
       <PageSEO
@@ -89,16 +72,31 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
       />
 
       {userAgent.isUserMobile ? (
-        <InfiniteScroll
-          hasMore={Boolean(hasNextPage)}
-          isLoading={isFetchingNextPage}
-          loadFunction={fetchNextPage}
-          LoadingComponent={<CircularLoader marginTop={8} marginBottom={44} />}
-        >
-          <HomeTemplate {...homeProps} />
-        </InfiniteScroll>
+        <HomeTemplate
+          userAgent={userAgent}
+          title={homeTitle}
+          headline={homeHeadline}
+          horizontalSection={homePemula}
+          articles={articles}
+          infiniteScroll={{
+            hasMore: Boolean(hasNextPage),
+            isLoading: isFetchingNextPage,
+            loadFunction: fetchNextPage,
+          }}
+        />
       ) : (
-        <HomeTemplate {...homeProps} />
+        <HomeDesktopTemplate
+          userAgent={userAgent}
+          title={homeTitle}
+          headline={homeHeadline}
+          articles={articles}
+          categoryAside={{
+            categories: categories || [],
+          }}
+          pemulaAside={{
+            articles: pemulaNews || [],
+          }}
+        />
       )}
     </>
   );
