@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
-import styles from "../../../styles/molecule/bookmarkAside.module.scss";
-import { BASE_IMAGE_URL, BASE_URL } from "../../config/env";
-import ArticleItem, { ArticleItemProps } from "../atoms/articleItem";
-import AsideItemWrapper from "../atoms/asideItemWrapper";
+import styles from "@styles/molecule/bookmarkAside.module.scss";
+import { BASE_IMAGE_URL, BASE_URL } from "@config/env";
+import ArticleItemSmall, {
+  ArticleItemSmallProps,
+} from "@component/molecule/articleItem/articleItemSmall";
+import AsideItemWrapper from "@component/atoms/asideItemWrapper";
 
 interface BookmarkAsideProps {
-  articles?: ArticleItemProps[];
+  articles?: ArticleItemSmallProps[];
   isLogin?: boolean;
 }
 
@@ -30,11 +32,12 @@ const BookmarkAside: FC<BookmarkAsideProps> = ({
       {articlesLength ? (
         <>
           {[...articles].splice(0, 3).map((articleItem) => (
-            <ArticleItem
+            <ArticleItemSmall
               key={articleItem.url}
-              {...articleItem}
-              variant="aside"
-              published=""
+              url={articleItem.url}
+              title={articleItem.title}
+              category={articleItem.category}
+              thumbnail={articleItem.thumbnail}
             />
           ))}
 

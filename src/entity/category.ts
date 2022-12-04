@@ -1,6 +1,6 @@
-import { CategoryHeaderProps } from "../component/atoms/categoryHeader";
-import { CategoryAsideListInterface } from "../component/molecule/categoryAside";
-import { CategoryInterface } from "./categoryInterface";
+import { CategoryHeaderProps } from "@component/atoms/categoryHeader";
+import { CategoryAsideListInterface } from "@component/molecule/categoryAside";
+import { CategoryInterface } from "@entity/categoryInterface";
 
 class CategoryEntity {
   category: CategoryInterface;

@@ -1,10 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { CategoryHeaderProps } from "../component/atoms/categoryHeader";
-import CategoryEntity from "../entity/category";
-import { GENERAL_HEADERS } from "../config/api";
-import { BASE_API } from "../config/env";
-import { CategoryAsideListInterface } from "../component/molecule/categoryAside";
-import { CategoryInterface } from "../entity/categoryInterface";
+import { CategoryHeaderProps } from "@component/atoms/categoryHeader";
+import CategoryEntity from "@entity/category";
+import { GENERAL_HEADERS } from "@config/api";
+import { BASE_API } from "@config/env";
+import { CategoryAsideListInterface } from "@component/molecule/categoryAside";
+import { CategoryInterface } from "@entity/categoryInterface";
 
 export interface GetCategoriesInterface {
   categorySlug?: string;

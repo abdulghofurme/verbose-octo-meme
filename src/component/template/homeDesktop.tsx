@@ -1,16 +1,19 @@
 import { FC } from "react";
-import HeaderDesktop from "../atoms/headerDesktop";
-import CategoryAside, { CategoryAsideProps } from "../molecule/categoryAside";
-import Footer from "../molecule/footer";
-import Headline from "../molecule/headline";
-import PemulaAside, { PemulaAsideProps } from "../molecule/pemulaAside";
+import HeaderDesktop from "@component/atoms/headerDesktop";
+import CategoryAside, {
+  CategoryAsideProps,
+} from "@component/molecule/categoryAside";
+import Footer from "@component/molecule/footer";
+import Headline from "@component/molecule/headline";
+import PemulaAside, { PemulaAsideProps } from "@component/organism/pemulaAside";
 import { HomeGeneralTemplateProps } from "./home";
-import ArticleItem from "../atoms/articleItem";
-import SearchInput from "../atoms/searchInput";
-import BookmarkAside from "../molecule/bookmarkAside";
-import SocialMediaAside from "../molecule/socialMediaAside";
+import ArticleItem from "@component/molecule/articleItem/articleItem";
+import SearchInput from "@component/atoms/searchInput";
+import BookmarkAside from "@component/molecule/bookmarkAside";
+import SocialMediaAside from "@component/molecule/socialMediaAside";
 
-import styles from "../../../styles/template/homeDesktop.module.scss";
+import styles from "@styles/template/homeDesktop.module.scss";
+import BareksaCommunityAside from "@component/molecule/bareksaCommunityAside";
 
 export interface HomeDesktopTemplateProps extends HomeGeneralTemplateProps {
   categoryAside: CategoryAsideProps;
@@ -47,6 +50,7 @@ const HomeDesktopTemplate: FC<HomeDesktopTemplateProps> = ({
           <CategoryAside {...categoryAside} />
           <PemulaAside {...pemulaAside} />
           <SocialMediaAside />
+          <BareksaCommunityAside />
         </aside>
       </main>
 

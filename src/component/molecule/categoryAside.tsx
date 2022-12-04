@@ -1,9 +1,9 @@
 import { FC } from "react";
-import styles from "../../../styles/molecule/categoryAside.module.scss";
-import AsideItemWrapper from "../atoms/asideItemWrapper";
+import styles from "@styles/molecule/categoryAside.module.scss";
+import AsideItemWrapper from "@component/atoms/asideItemWrapper";
 import CategoryAsideItem, {
   CategoryAsideItemProps,
-} from "../atoms/categoryAsideItem";
+} from "@component/atoms/categoryAsideItem";
 
 export interface CategoryAsideListInterface extends CategoryAsideItemProps {
   subCategories?: CategoryAsideItemProps[];

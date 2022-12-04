@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from "react";
-import styles from "../../../styles/atoms/asideItemWrapper.module.scss";
+import styles from "@styles/atoms/asideItemWrapper.module.scss";
 
 interface AsideItemWrapperProps extends PropsWithChildren {
   title: string;

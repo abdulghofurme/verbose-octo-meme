@@ -1,19 +1,21 @@
 import { FC, PropsWithChildren, useEffect, useRef } from "react";
-import styles from "../../../styles/atoms/dialog.module.scss";
+import styles from "@styles/atoms/dialog.module.scss";
 
 export interface DialogProps extends PropsWithChildren {
   open?: boolean;
   onClose?: () => void;
   className?: string;
-  dataDialog?: string
+  dataDialog?: string;
 }
 
 const Dialog: FC<DialogProps> = ({
   open = false,
-  onClose = () => {},
+  onClose = () => {
+    console.log("close");
+  },
   children,
-  dataDialog = '',
-  className = ''
+  dataDialog = "",
+  className = "",
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 

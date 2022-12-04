@@ -1,0 +1,15 @@
+@import "../../mixins.scss";
+
+.article_item {
+  > a {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    > div {
+      h4 {
+        @include lineClamp(100%, 2);
+      }
+    }
+  }
+}

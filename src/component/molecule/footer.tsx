@@ -1,12 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
-import styles from "../../../styles/molecule/footer.module.scss";
-import { BASE_IMAGE_URL, BASE_URL } from "../../config/env";
-import SocialMedia from "../atoms/socialMedia";
-import apps, { downloadsItemType } from "../../config/apps";
-
-interface FooterProps {}
+import styles from "@styles/molecule/footer.module.scss";
+import { BASE_IMAGE_URL, BASE_URL } from "@config/env";
+import SocialMedia from "@component/atoms/socialMedia";
+import apps, { downloadsItemType } from "@config/apps";
 
 type FooterLink = {
   label: string;
@@ -14,7 +12,7 @@ type FooterLink = {
   onClick?: () => void;
 };
 
-const Footer: FC<FooterProps> = () => {
+const Footer: FC = () => {
   const footerLinks: FooterLink[][] = [
     [
       { label: "Tentang Bareksa", url: `${BASE_URL}/tentangkami` },
@@ -26,7 +24,12 @@ const Footer: FC<FooterProps> = () => {
     [
       { label: "Berita & Analisis", url: `/` },
       { label: "Kamus Investasi", url: `${BASE_URL}/kamus` },
-      { label: "Bareksa Community", onClick() {} },
+      {
+        label: "Bareksa Community",
+        onClick() {
+          // TODO: implement Bareksa Community Dialog
+        },
+      },
       { label: "Karir", url: `${BASE_URL}/karir` },
     ],
   ];

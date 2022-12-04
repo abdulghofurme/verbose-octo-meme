@@ -1,0 +1,18 @@
+.section {
+  padding: 16px;
+  border-radius: 8px;
+
+  > div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    img {
+      margin: 0 0 0 24px;
+    }
+  }
+
+  button {
+    margin: 16px 0 0;
+  }
+}

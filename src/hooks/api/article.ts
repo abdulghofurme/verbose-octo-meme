@@ -3,7 +3,7 @@ import article, {
   GetPemulaInterface,
   GetRecentNewsInterface,
   GetRecentNewsByCategoryInterface,
-} from "../../api/article";
+} from "@api/article";
 
 export const KEYS_ARTICLE = {
   headlines: "headlines",

@@ -1,27 +1,21 @@
-import { NextPage } from "next";
-import { dehydrate } from "@tanstack/react-query";
-import { GetServerSideProps } from "next";
-import PageSEO from "../../src/component/atoms/pageSEO";
-import CategoryTemplate from "../../src/component/template/category";
-import { KEYS_CATEGORY, useCategory } from "../../src/hooks/api/category";
-import {
-  KEYS_ARTICLE,
-  useRecentNewsByCategory,
-} from "../../src/hooks/api/article";
-import { ArticleItemProps } from "../../src/component/atoms/articleItem";
-import InfiniteScroll from "../../src/component/atoms/infiniteScroll";
-import dynamic from "next/dynamic";
-import category from "../../src/api/category";
-import article, {
-  GetRecentNewsByCategoryResultInterface,
-} from "../../src/api/article";
+import { NextPage, GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import getCurrentURL from "../../src/lib/getURL";
-import seoConfig from "../../src/config/seo.json";
-import { ServerQueryClient } from "../../src/lib/queryClient";
-const CircularLoader = dynamic(
-  () => import("../../src/component/atoms/circularLoader")
-);
+import dynamic from "next/dynamic";
+import { dehydrate } from "@tanstack/react-query";
+
+import category from "@api/category";
+import { KEYS_CATEGORY, useCategory } from "@hooks/api/category";
+import article, { GetRecentNewsByCategoryResultInterface } from "@api/article";
+import { KEYS_ARTICLE, useRecentNewsByCategory } from "@hooks/api/article";
+import getCurrentURL from "@lib/getURL";
+import { ServerQueryClient } from "@lib/queryClient";
+
+import InfiniteScroll from "@component/atoms/infiniteScroll";
+import { ArticleItemProps } from "@component/molecule/articleItem/articleItem";
+import PageSEO from "@component/atoms/head/pageSEO";
+import seoConfig from "@config/seo.json";
+import CategoryTemplate from "@component/template/category";
+const CircularLoader = dynamic(() => import("@component/atoms/circularLoader"));
 
 const Category: NextPage<{
   params: {

@@ -1,16 +1,17 @@
+import { FC, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { FC, useState } from "react";
-import styles from "../../../styles/atoms/headerDesktop.module.scss";
-const RegisterDialog = dynamic(() => import("../molecule/registerDialog"), {
-  ssr: false,
-});
-import { BASE_IMAGE_URL, BASE_URL } from '../../config/env' 
+import styles from "@styles/atoms/headerDesktop.module.scss";
+const RegisterDialog = dynamic(
+  () => import("@component/molecule/registerDialog"),
+  {
+    ssr: false,
+  }
+);
+import { BASE_IMAGE_URL, BASE_URL } from "@config/env";
 
-interface HeaderDesktopProps {}
-
-const HeaderDesktop: FC<HeaderDesktopProps> = () => {
+const HeaderDesktop: FC = () => {
   const links: { url: string; label: string }[] = [
     { url: `${BASE_URL}/reksadana`, label: "Reksadana" },
     { url: `${BASE_URL}/robo-advisor`, label: "Robo Advisor" },

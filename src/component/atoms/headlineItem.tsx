@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
-import styles from "../../../styles/atoms/headlineItem.module.scss";
-import { UserAgentInterface } from "../../lib/userAgent";
+import styles from "@styles/atoms/headlineItem.module.scss";
+import { UserAgentInterface } from "@lib/userAgent";
 
 export interface HeadlineItemProps {
   background: string;
@@ -39,7 +39,9 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
   return (
     <article
       className={`${styles.article} ${
-        userAgent?.isUserMobile ? styles["article--mobile"] : styles["article--desktop"]
+        userAgent?.isUserMobile
+          ? styles["article--mobile"]
+          : styles["article--desktop"]
       } ${bigHeadline ? styles.article_big : styles.article_small}`}
     >
       <Link href={url}>

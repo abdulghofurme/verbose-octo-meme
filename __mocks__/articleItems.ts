@@ -1,4 +1,4 @@
-import { ArticleItemProps } from "../src/component/atoms/articleItem";
+import { ArticleItemProps } from "../src/component/molecule/articleItem/articleItem";
 
 export const articleItems: ArticleItemProps[] = [
   {

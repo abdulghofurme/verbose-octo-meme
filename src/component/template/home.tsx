@@ -1,15 +1,19 @@
 import { FC } from "react";
-import ArticleItem, { ArticleItemProps } from "../atoms/articleItem";
-import styles from "../../../styles/template/home.module.scss";
-import Headline, { HeadlineProps } from "../molecule/headline";
-import { PropsWithUserAgent } from "../../interface/props";
+import ArticleItem, {
+  ArticleItemProps,
+} from "@component/molecule/articleItem/articleItem";
+import styles from "@styles/template/home.module.scss";
+import Headline, { HeadlineProps } from "@component/molecule/headline";
+import { PropsWithUserAgent } from "@interface/props";
 import SectionHorizontal, {
   SectionHorizontalProps,
-} from "../molecule/sectionHorizontal";
-import Header from "../molecule/header";
-import InfiniteScroll, { InfiniteScrollProps } from "../atoms/infiniteScroll";
+} from "@component/molecule/sectionHorizontal";
+import Header from "@component/molecule/header";
+import InfiniteScroll, {
+  InfiniteScrollProps,
+} from "@component/atoms/infiniteScroll";
 import dynamic from "next/dynamic";
-const CircularLoader = dynamic(import("../atoms/circularLoader"), {
+const CircularLoader = dynamic(import("@component/atoms/circularLoader"), {
   ssr: false,
 });
 

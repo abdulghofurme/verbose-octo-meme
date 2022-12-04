@@ -1,10 +1,10 @@
 import { FC } from "react";
 import dynamic from "next/dynamic";
-import styles from "../../../styles/molecule/headline.module.scss";
-import HeadlineItem, { HeadlineItemProps } from "../atoms/headlineItem";
+import styles from "@styles/molecule/headline.module.scss";
+import HeadlineItem, { HeadlineItemProps } from "@component/atoms/headlineItem";
 import Link from "next/link";
-import { UserAgentInterface } from "../../lib/userAgent";
-const HeadlineSlider = dynamic(() => import("../atoms/headlineSlider"));
+import { UserAgentInterface } from "@lib/userAgent";
+const HeadlineSlider = dynamic(() => import("@component/atoms/headlineSlider"));
 
 export interface HeadlineProps {
   url: string;

@@ -1,11 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { ArticleItemProps } from "../component/atoms/articleItem";
-import { ArticleItemVerticalProps } from "../component/atoms/articleItemVertical";
-import { HeadlineItemProps } from "../component/atoms/headlineItem";
-import Article, { ArticlePemula } from "../entity/article";
-import { ArticleInterface } from "../entity/articleInterface";
-import { GENERAL_HEADERS } from "../config/api";
-import { BASE_API } from "../config/env";
+import { ArticleItemProps } from "@component/molecule/articleItem/articleItem";
+import { ArticleItemVerticalProps } from "@component/molecule/articleItem/articleItemVertical";
+import { HeadlineItemProps } from "@component/atoms/headlineItem";
+import Article, { ArticlePemula } from "@entity/article";
+import { ArticleInterface } from "@entity/articleInterface";
+import { GENERAL_HEADERS } from "@config/api";
+import { BASE_API } from "@config/env";
 
 export interface GetPemulaInterface {
   limit?: number;
@@ -26,8 +26,8 @@ export interface GetRecentNewsByCategoryInterface
   categorySlug: string;
   subCategorySlug?: string;
 }
-export interface GetRecentNewsByCategoryResultInterface
-  extends GetRecentNewsResultInterface {}
+export type GetRecentNewsByCategoryResultInterface =
+  GetRecentNewsResultInterface;
 
 export default {
   getHeadlines: async () => {
@@ -131,7 +131,7 @@ export default {
     subCategorySlug = "",
     categorySlug,
   }: GetRecentNewsByCategoryInterface) => {
-    let result: GetRecentNewsByCategoryResultInterface = {
+    const result: GetRecentNewsByCategoryResultInterface = {
       scrollId: "",
       news: [],
       total: 0,

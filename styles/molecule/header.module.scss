@@ -1,5 +1,5 @@
 @import "../variables.scss";
-@import '../mixins.scss';
+@import "../mixins.scss";
 
 $content_distance_mobile: calc($side_padding_mobile + 16px);
 $content_distance_tablet: calc($side_padding_tablet + 16px);
@@ -15,7 +15,7 @@ $content_distance_tablet: calc($side_padding_tablet + 16px);
   align-items: center;
   justify-content: space-between;
   padding: 0 $side_padding_mobile;
-  transition: all ease .5s;
+  transition: all ease 0.5s;
 
   h6 {
     margin: 0 $content_distance_mobile;

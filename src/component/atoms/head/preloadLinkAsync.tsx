@@ -1,6 +1,6 @@
 import { FC, LinkHTMLAttributes } from "react";
 
-const PreloadLink: FC<LinkHTMLAttributes<HTMLLinkElement>> = (props) => (
+const PreloadLinkAsync: FC<LinkHTMLAttributes<HTMLLinkElement>> = (props) => (
   <>
     {/* preconnect & load css asynchronously to eliminate render blocker css
       references:
@@ -17,23 +17,7 @@ const PreloadLink: FC<LinkHTMLAttributes<HTMLLinkElement>> = (props) => (
         __html: `</style><link rel="${props.rel}" href="${props.href}" media="print" onload="this.media='all';"/><style>`,
       }}
     ></style>
-    {/* <link
-      rel="preload"
-      as={props.as}
-      href={props.href}
-      onLoad={function (this: HTMLLinkElement) {
-        this.rel = props.rel || '';
-      }}
-    /> */}
-    {/* <link
-      rel={props.rel}
-      href={props.href}
-      media="print"
-      onLoad={function (this:HTMLLinkElement) {
-        this.media = "all";
-      }}
-    /> */}
   </>
 );
 
-export default PreloadLink;
+export default PreloadLinkAsync;

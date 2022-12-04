@@ -1,4 +1,4 @@
-import { BASE_IMAGE_URL } from "./env";
+import { BASE_IMAGE_URL } from "@config/env";
 
 const socialMediaConfig = [
   {

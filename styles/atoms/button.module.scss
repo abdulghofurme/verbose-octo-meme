@@ -1,0 +1,19 @@
+.button {
+  min-height: 36px;
+  border-radius: 4px;
+  padding: 0 16px;
+  background: initial;
+
+  &[data-fullwidth="true"] {
+    width: 100%;
+  }
+}
+
+.outlined {
+  border: 1px solid;
+}
+
+.outlined--primary {
+  color: var(--primary--800);
+  border-color: var(--primary--800);
+}

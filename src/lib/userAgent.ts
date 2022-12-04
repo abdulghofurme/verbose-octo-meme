@@ -2,7 +2,7 @@ import UAParser from "ua-parser-js";
 
 export interface UserAgentInterface {
   device: UAParser.IDevice;
-  isUserMobile: boolean
+  isUserMobile: boolean;
 }
 
 export default function uaParser(header?: string): UserAgentInterface {
@@ -13,6 +13,8 @@ export default function uaParser(header?: string): UserAgentInterface {
       model: uaParsed?.device?.model || "",
       type: uaParsed?.device?.type || "",
     },
-    isUserMobile: uaParsed?.device?.type === 'mobile' || uaParsed?.device?.type === 'tablet'
+    isUserMobile:
+      uaParsed?.device?.type === "mobile" ||
+      uaParsed?.device?.type === "tablet",
   };
 }

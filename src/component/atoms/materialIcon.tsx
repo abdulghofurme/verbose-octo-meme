@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "../../../styles/atoms/materialIcon.module.scss";
+import styles from "@styles/atoms/materialIcon.module.scss";
 
 interface MaterialIconProps {
   icon: string;

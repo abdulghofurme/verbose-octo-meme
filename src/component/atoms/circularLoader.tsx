@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "../../../styles/atoms/circularLoader.module.scss";
+import styles from "@styles/atoms/circularLoader.module.scss";
 
 interface CircularLoaderProps {
   marginTop?: number;

@@ -1,44 +1,45 @@
-import { Html, Head, Main, NextScript } from "next/document";
 import { FC } from "react";
-import PreloadLink from "../src/component/atoms/preloadLink";
+import { Html, Head, Main, NextScript } from "next/document";
+import PreloadLink from "@component/atoms/head/preloadLink";
+import PreloadLinkAsync from "@component/atoms/head/preloadLinkAsync";
 
 const Document: FC = () => {
   return (
     <Html lang="id">
       <Head>
-        {/* COLOR VARIABLE */}
-        <PreloadLink
-          rel="stylesheet"
-          as="style"
-          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/variables.min.css"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         {/* TYPOGRAPHY */}
         <PreloadLink
           rel="stylesheet"
           as="style"
           href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.3/dist/typography.min.css"
         />
+        {/* MATERIAL ICON */}
+        {/* <PreloadLink
+          rel="stylesheet"
+          as="font"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+        /> */}
+        {/* COLOR VARIABLE */}
+        <PreloadLinkAsync
+          rel="stylesheet"
+          as="style"
+          href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/variables.min.css"
+        />
         {/* COLOR TEXT */}
-        <PreloadLink
+        <PreloadLinkAsync
           rel="stylesheet"
           as="style"
           href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/text.min.css"
         />
-        {/* MATERIAL ICON */}
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com"/> */}
-        <PreloadLink
-          rel="stylesheet"
-          as="font"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
-        />
         {/* BACKGROUND */}
-        <PreloadLink
-          as='style'
+        <PreloadLinkAsync
+          as="style"
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-color@v1.1.4/dist/background.min.css"
         />
         {/* TYPOGRAPHY VARS */}
-        <PreloadLink
+        <PreloadLinkAsync
           as="style"
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/abdulghofurme/b-typography@v1.0.3/dist/variable.min.css"

@@ -1,6 +1,5 @@
-import { UserAgentInterface } from "../lib/userAgent";
+import { UserAgentInterface } from "@lib/userAgent";
 
 export interface PropsWithUserAgent {
   userAgent: UserAgentInterface;
 }
-

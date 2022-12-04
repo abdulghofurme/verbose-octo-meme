@@ -1,4 +1,4 @@
-@import "../mixins.scss";
+@import "../../mixins.scss";
 
 .article_item {
   position: relative;
@@ -20,36 +20,16 @@
 
   > div {
     width: calc(100% - 24px - 64px);
-  }
 
-  h4 {
-    @include lineClamp(calc(100%), 3);
-  }
-
-  img {
-    margin: 0 0 0 24px;
-    border-radius: 4px;
-    object-fit: cover;
+    h4 {
+      @include lineClamp(calc(100%), 3);
+    }
   }
 }
 
 .no_border {
   &::before {
     display: none;
-  }
-}
-
-.article_item--aside {
-  @extend .no_border;
-  padding: 0;
-  margin: 24px 0 0;
-
-  &:first-of-type {
-    margin: 0;
-  }
-
-  h4 {
-    @include lineClamp(calc(100%), 2);
   }
 }
 

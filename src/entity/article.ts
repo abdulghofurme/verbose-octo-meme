@@ -1,13 +1,14 @@
-import { ArticleItemProps } from "../component/atoms/articleItem";
-import { HeadlineItemProps } from "../component/atoms/headlineItem";
+import { format, formatDistanceToNow } from "date-fns";
+import idLocale from "date-fns/locale/id";
+
+import { ArticleItemProps } from "@component/molecule/articleItem/articleItem";
+import { HeadlineItemProps } from "@component/atoms/headlineItem";
 import {
   ArticleCategory,
   ArticleInterface,
   ArticlePemulaInterface,
-} from "./articleInterface";
-import { format, formatDistanceToNow } from "date-fns";
-import idLocale from "date-fns/locale/id";
-import { ArticleItemVerticalProps } from "../component/atoms/articleItemVertical";
+} from "@entity/articleInterface";
+import { ArticleItemVerticalProps } from "@component/molecule/articleItem/articleItemVertical";
 
 class Article {
   private article!: ArticleInterface;
@@ -93,7 +94,7 @@ class Article {
       url: this.url,
       title: this.article.title,
       thumbnail: this.article.thumbnailUrl,
-      category: this.mainCategory?.name,
+      category: this.mainCategory?.name || "Kategori",
       categoryURL: this.mainCategory?.slug ? `/${this.mainCategory.slug}` : "",
       published: this.published,
     };
@@ -124,7 +125,9 @@ export class ArticlePemula {
       title: this.article.title,
       thumbnail: this.article.thumbnailUrl,
       badge: this.article.wajib_baca ? "Wajib baca" : "",
-      category: this.article.wajib_baca ? "Wajib baca" : this.mainCategory?.name,
+      category: this.article.wajib_baca
+        ? "Wajib baca"
+        : this.mainCategory?.name || "Kategori",
     };
   }
 }

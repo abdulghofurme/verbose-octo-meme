@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FC, useCallback } from "react";
-import styles from "../../../styles/atoms/categoryHeader.module.scss";
-import headerStyles from "../../../styles/molecule/header.module.scss";
+import styles from "@styles/atoms/categoryHeader.module.scss";
+import headerStyles from "@styles/molecule/header.module.scss";
 
 export interface CategoryHeaderProps {
   title?: string;
@@ -54,20 +54,20 @@ const CategoryHeader: FC<CategoryHeaderProps> = ({
 
       {subCategories.length > 0 && (
         <div className={styles.sub_categories}>
-            {subCategories.map(({ url, label, slug }) => (
-              <Link
-                key={url}
-                href={url || ""}
-                className={`b-typography__body-2--medium ${
-                  currentSubCategory === slug
-                    ? "b-color-text__primary--800 " +
-                      styles["sub_category--active"]
-                    : "b-color-text__onsurface--disabled"
-                } `}
-              >
-                {label}
-              </Link>
-            ))}
+          {subCategories.map(({ url, label, slug }) => (
+            <Link
+              key={url}
+              href={url || ""}
+              className={`b-typography__body-2--medium ${
+                currentSubCategory === slug
+                  ? "b-color-text__primary--800 " +
+                    styles["sub_category--active"]
+                  : "b-color-text__onsurface--disabled"
+              } `}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       )}
     </section>

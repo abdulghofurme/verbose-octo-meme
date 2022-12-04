@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 // import { screen } from "@testing-library/jest-dom";
-import ArticleItem from "../../src/component/atoms/articleItem";
+import ArticleItem from "../../src/component/molecule/articleItem/articleItem";
 import { articleItems } from "../../__mocks__/articleItems";
 
 describe("Article Item", () => {

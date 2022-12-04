@@ -1,26 +1,28 @@
 import { GetServerSideProps, NextPage } from "next";
-import PageSEO from "../src/component/atoms/pageSEO";
-import getCurrentURL from "../src/lib/getURL";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import { dehydrate } from "@tanstack/react-query";
-import article, { GetRecentNewsResultInterface } from "../src/api/article";
+
+import article, { GetRecentNewsResultInterface } from "@api/article";
 import {
   KEYS_ARTICLE,
   useHeadlines,
   usePemulaNews,
   useRecentNews,
-} from "../src/hooks/api/article";
-import uaParser from "../src/lib/userAgent";
-import { ArticleItemProps } from "../src/component/atoms/articleItem";
-import { PropsWithUserAgent } from "../src/interface/props";
-import { ServerQueryClient } from "../src/lib/queryClient";
-import { KEYS_CATEGORY, useCategories } from "../src/hooks/api/category";
-import category from "../src/api/category";
-import dynamic from "next/dynamic";
-const HomeTemplate = dynamic(import("../src/component/template/home"));
-const HomeDesktopTemplate = dynamic(
-  import("../src/component/template/homeDesktop")
-);
+} from "@hooks/api/article";
+import category from "@api/category";
+import { KEYS_CATEGORY, useCategories } from "@hooks/api/category";
+import getCurrentURL from "@lib/getURL";
+import uaParser from "@lib/userAgent";
+import { ServerQueryClient } from "@lib/queryClient";
+
+import { PropsWithUserAgent } from "@interface/props";
+
+import PageSEO from "@component/atoms/head/pageSEO";
+import { ArticleItemProps } from "@component/molecule/articleItem/articleItem";
+
+const HomeTemplate = dynamic(import("@component/template/home"));
+const HomeDesktopTemplate = dynamic(import("@component/template/homeDesktop"));
 
 const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
   const image = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/default-image-news.jpg`;
