@@ -1,9 +1,7 @@
 import { FC, useCallback } from "react"
 import Router, { useRouter } from "next/router"
-// import MaterialIcon from "@component/atoms/materialIcon";
+import MaterialIcon from "@component/atoms/materialIcon"
 import styles from "@styles/molecule/header.module.scss"
-import { ArrowBack, BookmarksOutlined, Menu, Search } from "@mui/icons-material"
-// import Icon from "@mui/material/Icon";
 
 interface HeaderProps {
   className?: string
@@ -34,20 +32,12 @@ const Header: FC<HeaderProps> = ({
       id="header--mobile"
       className={`${styles.header} ${className}`}
     >
-      {/* <Icon className={iconColorClassName}>arrow_bank</Icon> */}
-      <ArrowBack className={iconColorClassName} />
-      {/* <MaterialIcon icon="arrow_back" className={iconColorClassName} /> */}
+      <MaterialIcon icon="arrow_back" className={iconColorClassName} />
       {title && <h6 className="title b-typography__h6">{title}</h6>}
       <div>
-        {/* <Icon className={iconColorClassName}>bookmarks</Icon> */}
-        <BookmarksOutlined className={iconColorClassName} />
-        {/* <MaterialIcon icon="bookmarks" className={iconColorClassName} /> */}
-        {/* <Icon className={iconColorClassName}>search</Icon> */}
-        <Search className={iconColorClassName} />
-        {/* <MaterialIcon icon="search" className={iconColorClassName} /> */}
-        {/* <Icon className={iconColorClassName}>menu</Icon> */}
-        <Menu className={iconColorClassName} />
-        {/* <MaterialIcon icon="menu" className={iconColorClassName} /> */}
+        <MaterialIcon icon="bookmarks" className={iconColorClassName} />
+        <MaterialIcon icon="search" className={iconColorClassName} />
+        <MaterialIcon icon="menu" className={iconColorClassName} />
       </div>
     </header>
   )

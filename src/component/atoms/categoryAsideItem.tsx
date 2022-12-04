@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { FC } from "react"
 import styles from "@styles/atoms/categoryAsideItem.module.scss"
-// import MaterialIcon from "@component/atoms/materialIcon";
-import { ExpandMore } from "@mui/icons-material"
+import MaterialIcon from "@component/atoms/materialIcon"
 
 export interface CategoryAsideItemProps {
   title: string
@@ -18,8 +17,8 @@ const CategoryAsideItem: FC<CategoryAsideItemProps> = ({ title, url }) => {
     </Link>
   ) : (
     <summary className={className}>
-      {title} <ExpandMore className="b-color-text__primary--800" />
-      {/* <MaterialIcon icon="expand_more" className="b-color-text__primary--800" /> */}
+      {title}
+      <MaterialIcon icon="expand_more" className="b-color-text__primary--800" />
     </summary>
   )
 }

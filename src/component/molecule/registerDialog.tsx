@@ -3,9 +3,8 @@ import Dialog, { DialogProps } from "../atoms/dialog"
 import styles from "@styles/molecule/registerDialog.module.scss"
 import Link from "next/link"
 import Image from "next/image"
-// import MaterialIcon from "@component/atoms/materialIcon";
+import MaterialIcon from "@component/atoms/materialIcon"
 import { BASE_IMAGE_URL, BASE_URL } from "@config/env"
-import { ChevronRight } from "@mui/icons-material"
 
 const navigations: {
   url: string
@@ -57,8 +56,7 @@ const RegisterDialog: FC<DialogProps> = ({ open, onClose }) => {
                 {subtitle}
               </p>
             </div>
-            <ChevronRight />
-            {/* <MaterialIcon icon="chevron_right" /> */}
+            <MaterialIcon icon="chevron_right" />
           </Link>
         ))}
       </nav>

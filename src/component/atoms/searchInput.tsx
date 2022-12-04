@@ -1,7 +1,6 @@
 import { FC } from "react"
-// import MaterialIcon from "@component/atoms/materialIcon";
+import MaterialIcon from "@component/atoms/materialIcon"
 import styles from "@styles/atoms/searchInput.module.scss"
-import { Search } from "@mui/icons-material"
 
 // export interface SearchInputProps extends HTMLInputElement {}
 export interface SearchInputProps {
@@ -18,11 +17,10 @@ const SearchInput: FC<SearchInputProps> = ({
         placeholder={placeholder}
         className="b-typography__subtitle-1--medium b-color-text__onsurface--high-emphasis"
       />
-      <Search className="b-color-text__onsurface--high-emphasis" />
-      {/* <MaterialIcon
+      <MaterialIcon
         icon="search"
         className="b-color-text__onsurface--high-emphasis"
-      /> */}
+      />
     </label>
   )
 }

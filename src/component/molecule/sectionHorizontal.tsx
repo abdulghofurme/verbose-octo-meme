@@ -4,8 +4,7 @@ import ArticleItemVertical, {
 } from "@component/molecule/articleItem/articleItemVertical"
 import styles from "@styles/molecule/sectionHorizontal.module.scss"
 import Link from "next/link"
-// import MaterialIcon from "@component/atoms/materialIcon";
-import { ArrowRight } from "@mui/icons-material"
+import MaterialIcon from "@component/atoms/materialIcon"
 
 export interface SectionHorizontalProps {
   title: string
@@ -28,8 +27,7 @@ const SectionHorizontal: FC<SectionHorizontalProps> = ({
         </h2>
 
         <Link href={url}>
-          <ArrowRight />
-          {/* <MaterialIcon icon="arrow_forward" /> */}
+          <MaterialIcon icon="arrow_forward" />
         </Link>
       </div>
 
