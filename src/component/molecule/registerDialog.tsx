@@ -1,17 +1,17 @@
-import { FC } from "react";
-import Dialog, { DialogProps } from "../atoms/dialog";
-import styles from "@styles/molecule/registerDialog.module.scss";
-import Link from "next/link";
-import Image from "next/image";
+import { FC } from "react"
+import Dialog, { DialogProps } from "../atoms/dialog"
+import styles from "@styles/molecule/registerDialog.module.scss"
+import Link from "next/link"
+import Image from "next/image"
 // import MaterialIcon from "@component/atoms/materialIcon";
-import { BASE_IMAGE_URL, BASE_URL } from "@config/env";
-import { ChevronRight } from "@mui/icons-material";
+import { BASE_IMAGE_URL, BASE_URL } from "@config/env"
+import { ChevronRight } from "@mui/icons-material"
 
 const navigations: {
-  url: string;
-  imageURL: string;
-  title: string;
-  subtitle: string;
+  url: string
+  imageURL: string
+  title: string
+  subtitle: string
 }[] = [
   {
     url: `${BASE_URL}/register`,
@@ -27,7 +27,7 @@ const navigations: {
     subtitle:
       "Untuk perusahaan / organisasi berbadan hukum & memiliki rekening a/n perusahaan",
   },
-];
+]
 
 const RegisterDialog: FC<DialogProps> = ({ open, onClose }) => {
   return (
@@ -63,7 +63,7 @@ const RegisterDialog: FC<DialogProps> = ({ open, onClose }) => {
         ))}
       </nav>
     </Dialog>
-  );
-};
+  )
+}
 
-export default RegisterDialog;
+export default RegisterDialog

@@ -1,27 +1,27 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
-import styles from "@styles/molecule/bookmarkAside.module.scss";
-import { BASE_IMAGE_URL, BASE_URL } from "@config/env";
+import Image from "next/image"
+import Link from "next/link"
+import { FC } from "react"
+import styles from "@styles/molecule/bookmarkAside.module.scss"
+import { BASE_IMAGE_URL, BASE_URL } from "@config/env"
 import ArticleItemSmall, {
   ArticleItemSmallProps,
-} from "@component/molecule/articleItem/articleItemSmall";
-import AsideItemWrapper from "@component/atoms/asideItemWrapper";
+} from "@component/molecule/articleItem/articleItemSmall"
+import AsideItemWrapper from "@component/atoms/asideItemWrapper"
 
 interface BookmarkAsideProps {
-  articles?: ArticleItemSmallProps[];
-  isLogin?: boolean;
+  articles?: ArticleItemSmallProps[]
+  isLogin?: boolean
 }
 
 const BookmarkAside: FC<BookmarkAsideProps> = ({
   articles = [],
   isLogin = false,
 }) => {
-  let title = "Tidak Ada Artikel Disimpan";
-  const articlesLength = articles.length;
+  let title = "Tidak Ada Artikel Disimpan"
+  const articlesLength = articles.length
 
   if (articlesLength > 0) {
-    title = `${articlesLength} Artikel Disimpan`;
+    title = `${articlesLength} Artikel Disimpan`
   }
 
   return (
@@ -82,7 +82,7 @@ const BookmarkAside: FC<BookmarkAsideProps> = ({
         </div>
       )}
     </AsideItemWrapper>
-  );
-};
+  )
+}
 
-export default BookmarkAside;
+export default BookmarkAside

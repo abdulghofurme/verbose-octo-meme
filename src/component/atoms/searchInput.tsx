@@ -1,11 +1,11 @@
-import { FC } from "react";
+import { FC } from "react"
 // import MaterialIcon from "@component/atoms/materialIcon";
-import styles from "@styles/atoms/searchInput.module.scss";
-import { Search } from "@mui/icons-material";
+import styles from "@styles/atoms/searchInput.module.scss"
+import { Search } from "@mui/icons-material"
 
 // export interface SearchInputProps extends HTMLInputElement {}
 export interface SearchInputProps {
-  placeholder?: string;
+  placeholder?: string
 }
 
 const SearchInput: FC<SearchInputProps> = ({
@@ -24,7 +24,7 @@ const SearchInput: FC<SearchInputProps> = ({
         className="b-color-text__onsurface--high-emphasis"
       /> */}
     </label>
-  );
-};
+  )
+}
 
-export default SearchInput;
+export default SearchInput

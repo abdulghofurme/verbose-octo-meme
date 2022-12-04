@@ -1,11 +1,11 @@
-import { FC } from "react";
-import Link from "next/link";
-import styles from "@styles/molecule/articleItem/articleItemVertical.module.scss";
-import ArticleThumbnail from "@component/atoms/articleThumbnail";
-import { ArticleItemSmallProps } from "@component/molecule/articleItem/articleItemSmall";
+import { FC } from "react"
+import Link from "next/link"
+import styles from "@styles/molecule/articleItem/articleItemVertical.module.scss"
+import ArticleThumbnail from "@component/atoms/articleThumbnail"
+import { ArticleItemSmallProps } from "@component/molecule/articleItem/articleItemSmall"
 
 export interface ArticleItemVerticalProps extends ArticleItemSmallProps {
-  badge?: string;
+  badge?: string
 }
 
 const ArticleItemVertical: FC<ArticleItemVerticalProps> = ({
@@ -27,6 +27,6 @@ const ArticleItemVertical: FC<ArticleItemVerticalProps> = ({
       </h4>
     </Link>
   </article>
-);
+)
 
-export default ArticleItemVertical;
+export default ArticleItemVertical

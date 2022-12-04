@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { FC } from "react";
-import styles from "@styles/molecule/bareksaCommunityAside.module.scss";
-import { BASE_IMAGE_URL } from "@config/env";
-import Button from "@component/atoms/button";
+import Image from "next/image"
+import { FC } from "react"
+import styles from "@styles/molecule/bareksaCommunityAside.module.scss"
+import { BASE_IMAGE_URL } from "@config/env"
+import Button from "@component/atoms/button"
 
 const BareksaCommunityAside: FC = () => {
   return (
@@ -23,7 +23,7 @@ const BareksaCommunityAside: FC = () => {
         Gabung Telegram Bareksa
       </Button>
     </section>
-  );
-};
+  )
+}
 
-export default BareksaCommunityAside;
+export default BareksaCommunityAside

@@ -1,20 +1,20 @@
-import { FC } from "react";
-import dynamic from "next/dynamic";
-import styles from "@styles/molecule/headline.module.scss";
-import HeadlineItem, { HeadlineItemProps } from "@component/atoms/headlineItem";
-import Link from "next/link";
-import { UserAgentInterface } from "@lib/userAgent";
-const HeadlineSlider = dynamic(() => import("@component/atoms/headlineSlider"));
+import { FC } from "react"
+import dynamic from "next/dynamic"
+import styles from "@styles/molecule/headline.module.scss"
+import HeadlineItem, { HeadlineItemProps } from "@component/atoms/headlineItem"
+import Link from "next/link"
+import { UserAgentInterface } from "@lib/userAgent"
+const HeadlineSlider = dynamic(() => import("@component/atoms/headlineSlider"))
 
 export interface HeadlineProps {
-  url: string;
-  title: string;
-  articles?: HeadlineItemProps[];
-  userAgent?: UserAgentInterface;
+  url: string
+  title: string
+  articles?: HeadlineItemProps[]
+  userAgent?: UserAgentInterface
 }
 
 const Headline: FC<HeadlineProps> = ({ title, url, articles, userAgent }) => {
-  if (!articles || articles?.length === 0) return null;
+  if (!articles || articles?.length === 0) return null
 
   const renderHeadlines = () => {
     return articles.map((articleItem, idx) => (
@@ -24,8 +24,8 @@ const Headline: FC<HeadlineProps> = ({ title, url, articles, userAgent }) => {
         userAgent={userAgent}
         bigHeadline={[0, 1, 4].includes(idx)}
       />
-    ));
-  };
+    ))
+  }
 
   return (
     <section
@@ -48,7 +48,7 @@ const Headline: FC<HeadlineProps> = ({ title, url, articles, userAgent }) => {
         <div>{renderHeadlines()}</div>
       )}
     </section>
-  );
-};
+  )
+}
 
-export default Headline;
+export default Headline

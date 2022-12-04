@@ -1,4 +1,4 @@
-import { ArticleItemProps } from "../src/component/molecule/articleItem/articleItem";
+import { ArticleItemProps } from "../src/component/molecule/articleItem/articleItem"
 
 export const articleItems: ArticleItemProps[] = [
   {
@@ -23,4 +23,4 @@ export const articleItems: ArticleItemProps[] = [
     published: "29 menit yang lalu",
     noBorder: false,
   },
-];
+]

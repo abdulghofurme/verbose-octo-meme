@@ -1,12 +1,12 @@
-import Head from "next/head";
-import { FC } from "react";
+import Head from "next/head"
+import { FC } from "react"
 
 interface PageSEOProps {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
-  keywords?: string[];
+  title: string
+  description: string
+  image: string
+  url: string
+  keywords?: string[]
 }
 
 const PageSEO: FC<PageSEOProps> = ({
@@ -34,7 +34,7 @@ const PageSEO: FC<PageSEOProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
     </Head>
-  );
-};
+  )
+}
 
-export default PageSEO;
+export default PageSEO

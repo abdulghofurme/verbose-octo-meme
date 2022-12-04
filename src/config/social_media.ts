@@ -1,4 +1,4 @@
-import { BASE_IMAGE_URL } from "@config/env";
+import { BASE_IMAGE_URL } from "@config/env"
 
 const socialMediaConfig = [
   {
@@ -21,5 +21,5 @@ const socialMediaConfig = [
     url: "https://www.instagram.com/bareksa/",
     imageURL: `${BASE_IMAGE_URL}/bareksa/img/icons/icon_social-ig.svg`,
   },
-];
-export default socialMediaConfig;
+]
+export default socialMediaConfig

@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { FC, useCallback } from "react";
-import styles from "@styles/atoms/categoryHeader.module.scss";
-import headerStyles from "@styles/molecule/header.module.scss";
+import Link from "next/link"
+import { FC, useCallback } from "react"
+import styles from "@styles/atoms/categoryHeader.module.scss"
+import headerStyles from "@styles/molecule/header.module.scss"
 
 export interface CategoryHeaderProps {
-  title?: string;
-  totalArticle?: number;
-  subCategories?: { url: string; label: string; slug: string }[];
-  currentSubCategory?: string;
+  title?: string
+  totalArticle?: number
+  subCategories?: { url: string; label: string; slug: string }[]
+  currentSubCategory?: string
 }
 
 const CategoryHeader: FC<CategoryHeaderProps> = ({
@@ -19,20 +19,20 @@ const CategoryHeader: FC<CategoryHeaderProps> = ({
   const sectionRef = useCallback((node: HTMLElement) => {
     window.addEventListener("scroll", () => {
       if (node) {
-        const { bottom } = node.getBoundingClientRect();
-        const headerMobileElement = document.getElementById("header--mobile");
+        const { bottom } = node.getBoundingClientRect()
+        const headerMobileElement = document.getElementById("header--mobile")
         if (bottom <= 56) {
-          headerMobileElement?.classList.add("b-color-bg__surface--light");
-          headerMobileElement?.classList.add(headerStyles.section__border);
-          headerMobileElement?.classList.remove("b-color-bg__surface--dark");
+          headerMobileElement?.classList.add("b-color-bg__surface--light")
+          headerMobileElement?.classList.add(headerStyles.section__border)
+          headerMobileElement?.classList.remove("b-color-bg__surface--dark")
         } else {
-          headerMobileElement?.classList.remove(headerStyles.section__border);
-          headerMobileElement?.classList.remove("b-color-bg__surface--light");
-          headerMobileElement?.classList.add("b-color-bg__surface--dark");
+          headerMobileElement?.classList.remove(headerStyles.section__border)
+          headerMobileElement?.classList.remove("b-color-bg__surface--light")
+          headerMobileElement?.classList.add("b-color-bg__surface--dark")
         }
       }
-    });
-  }, []);
+    })
+  }, [])
   return (
     <section
       ref={sectionRef}
@@ -71,7 +71,7 @@ const CategoryHeader: FC<CategoryHeaderProps> = ({
         </div>
       )}
     </section>
-  );
-};
+  )
+}
 
-export default CategoryHeader;
+export default CategoryHeader

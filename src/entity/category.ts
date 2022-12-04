@@ -1,16 +1,16 @@
-import { CategoryHeaderProps } from "@component/atoms/categoryHeader";
-import { CategoryAsideListInterface } from "@component/molecule/categoryAside";
-import { CategoryInterface } from "@entity/categoryInterface";
+import { CategoryHeaderProps } from "@component/atoms/categoryHeader"
+import { CategoryAsideListInterface } from "@component/molecule/categoryAside"
+import { CategoryInterface } from "@entity/categoryInterface"
 
 class CategoryEntity {
-  category: CategoryInterface;
+  category: CategoryInterface
 
   constructor(category: CategoryInterface) {
-    this.category = category;
+    this.category = category
   }
 
   get categoryURL(): string {
-    return `/${this.category.slug}`;
+    return `/${this.category.slug}`
   }
 
   get categoryHeader(): CategoryHeaderProps {
@@ -28,7 +28,7 @@ class CategoryEntity {
               })) || []),
             ]
           : [],
-    };
+    }
   }
 
   get categoryAsideItem(): CategoryAsideListInterface {
@@ -48,8 +48,8 @@ class CategoryEntity {
               })) || []),
             ]
           : [],
-    };
+    }
   }
 }
 
-export default CategoryEntity;
+export default CategoryEntity

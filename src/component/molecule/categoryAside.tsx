@@ -1,16 +1,16 @@
-import { FC } from "react";
-import styles from "@styles/molecule/categoryAside.module.scss";
-import AsideItemWrapper from "@component/atoms/asideItemWrapper";
+import { FC } from "react"
+import styles from "@styles/molecule/categoryAside.module.scss"
+import AsideItemWrapper from "@component/atoms/asideItemWrapper"
 import CategoryAsideItem, {
   CategoryAsideItemProps,
-} from "@component/atoms/categoryAsideItem";
+} from "@component/atoms/categoryAsideItem"
 
 export interface CategoryAsideListInterface extends CategoryAsideItemProps {
-  subCategories?: CategoryAsideItemProps[];
+  subCategories?: CategoryAsideItemProps[]
 }
 
 export interface CategoryAsideProps {
-  categories: CategoryAsideListInterface[];
+  categories: CategoryAsideListInterface[]
 }
 
 const CategoryAside: FC<CategoryAsideProps> = ({ categories }) => {
@@ -37,7 +37,7 @@ const CategoryAside: FC<CategoryAsideProps> = ({ categories }) => {
         )
       )}
     </AsideItemWrapper>
-  );
-};
+  )
+}
 
-export default CategoryAside;
+export default CategoryAside

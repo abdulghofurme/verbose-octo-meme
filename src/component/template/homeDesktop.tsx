@@ -1,23 +1,23 @@
-import { FC } from "react";
-import HeaderDesktop from "@component/atoms/headerDesktop";
+import { FC } from "react"
+import HeaderDesktop from "@component/atoms/headerDesktop"
 import CategoryAside, {
   CategoryAsideProps,
-} from "@component/molecule/categoryAside";
-import Footer from "@component/molecule/footer";
-import Headline from "@component/molecule/headline";
-import PemulaAside, { PemulaAsideProps } from "@component/organism/pemulaAside";
-import { HomeGeneralTemplateProps } from "./home";
-import ArticleItem from "@component/molecule/articleItem/articleItem";
-import SearchInput from "@component/atoms/searchInput";
-import BookmarkAside from "@component/molecule/bookmarkAside";
-import SocialMediaAside from "@component/molecule/socialMediaAside";
+} from "@component/molecule/categoryAside"
+import Footer from "@component/molecule/footer"
+import Headline from "@component/molecule/headline"
+import PemulaAside, { PemulaAsideProps } from "@component/organism/pemulaAside"
+import { HomeGeneralTemplateProps } from "./home"
+import ArticleItem from "@component/molecule/articleItem/articleItem"
+import SearchInput from "@component/atoms/searchInput"
+import BookmarkAside from "@component/molecule/bookmarkAside"
+import SocialMediaAside from "@component/molecule/socialMediaAside"
 
-import styles from "@styles/template/homeDesktop.module.scss";
-import BareksaCommunityAside from "@component/molecule/bareksaCommunityAside";
+import styles from "@styles/template/homeDesktop.module.scss"
+import BareksaCommunityAside from "@component/molecule/bareksaCommunityAside"
 
 export interface HomeDesktopTemplateProps extends HomeGeneralTemplateProps {
-  categoryAside: CategoryAsideProps;
-  pemulaAside: PemulaAsideProps;
+  categoryAside: CategoryAsideProps
+  pemulaAside: PemulaAsideProps
 }
 
 const HomeDesktopTemplate: FC<HomeDesktopTemplateProps> = ({
@@ -56,7 +56,7 @@ const HomeDesktopTemplate: FC<HomeDesktopTemplateProps> = ({
 
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default HomeDesktopTemplate;
+export default HomeDesktopTemplate

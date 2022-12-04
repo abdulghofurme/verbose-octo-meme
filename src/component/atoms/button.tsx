@@ -1,10 +1,10 @@
-import { FC, PropsWithChildren, HtmlHTMLAttributes } from "react";
-import styles from "@styles/atoms/button.module.scss";
+import { FC, PropsWithChildren, HtmlHTMLAttributes } from "react"
+import styles from "@styles/atoms/button.module.scss"
 
 interface ButtonProps extends PropsWithChildren {
-  variant: "outlined";
-  color: "primary";
-  fullWidth?: boolean;
+  variant: "outlined"
+  color: "primary"
+  fullWidth?: boolean
 }
 
 const Button: FC<ButtonProps & HtmlHTMLAttributes<HTMLButtonElement>> = ({
@@ -25,7 +25,7 @@ const Button: FC<ButtonProps & HtmlHTMLAttributes<HTMLButtonElement>> = ({
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

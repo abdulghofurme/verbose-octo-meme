@@ -1,40 +1,40 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { ArticleItemProps } from "@component/molecule/articleItem/articleItem";
-import { ArticleItemVerticalProps } from "@component/molecule/articleItem/articleItemVertical";
-import { HeadlineItemProps } from "@component/atoms/headlineItem";
-import Article, { ArticlePemula } from "@entity/article";
-import { ArticleInterface } from "@entity/articleInterface";
-import { GENERAL_HEADERS } from "@config/api";
-import { BASE_API } from "@config/env";
+import { ArticleItemProps } from "@component/molecule/articleItem/articleItem"
+import { ArticleItemVerticalProps } from "@component/molecule/articleItem/articleItemVertical"
+import { HeadlineItemProps } from "@component/atoms/headlineItem"
+import Article, { ArticlePemula } from "@entity/article"
+import { ArticleInterface } from "@entity/articleInterface"
+import { GENERAL_HEADERS } from "@config/api"
+import { BASE_API } from "@config/env"
 
 export interface GetPemulaInterface {
-  limit?: number;
-  page?: number;
+  limit?: number
+  page?: number
 }
 
 export interface GetRecentNewsInterface {
-  limit?: number;
-  scrollId?: string;
+  limit?: number
+  scrollId?: string
 }
 export interface GetRecentNewsResultInterface {
-  news: ArticleItemProps[];
-  scrollId: string;
-  total: number;
+  news: ArticleItemProps[]
+  scrollId: string
+  total: number
 }
 export interface GetRecentNewsByCategoryInterface
   extends GetRecentNewsInterface {
-  categorySlug: string;
-  subCategorySlug?: string;
+  categorySlug: string
+  subCategorySlug?: string
 }
 export type GetRecentNewsByCategoryResultInterface =
-  GetRecentNewsResultInterface;
+  GetRecentNewsResultInterface
 
 export default {
   getHeadlines: async () => {
-    let response: HeadlineItemProps[];
+    let response: HeadlineItemProps[]
 
     try {
-      const url = `${BASE_API}/news/v1/list-news`;
+      const url = `${BASE_API}/news/v1/list-news`
       const smallHeadlineResponse = await fetch(
         url +
           `?${new URLSearchParams({
@@ -45,8 +45,8 @@ export default {
           headers: GENERAL_HEADERS,
         }
       ).then((res) => {
-        return res.json();
-      });
+        return res.json()
+      })
 
       const bigHeadlineResponse = await fetch(
         url +
@@ -56,48 +56,48 @@ export default {
           })}`,
         { headers: GENERAL_HEADERS }
       ).then((res) => {
-        return res.json();
-      });
+        return res.json()
+      })
 
       const {
         status: smallHeadlineResponseStatus,
         data: smallHeadlineResponseData,
-      } = smallHeadlineResponse;
+      } = smallHeadlineResponse
       const {
         status: bigHeadlineResponseStatus,
         data: bigHeadlineResponseData,
-      } = bigHeadlineResponse;
+      } = bigHeadlineResponse
 
       if (
         smallHeadlineResponseStatus === 200 ||
         bigHeadlineResponseStatus === 200
       ) {
         const [firstBigHeadline, secondBigHeadline, lastBigHeadline] =
-          bigHeadlineResponseData?.news || [];
-        const smallHeadlines = smallHeadlineResponseData?.news || [];
+          bigHeadlineResponseData?.news || []
+        const smallHeadlines = smallHeadlineResponseData?.news || []
         const headlinesOrder = [
           firstBigHeadline,
           secondBigHeadline,
           ...smallHeadlines,
           lastBigHeadline,
-        ];
+        ]
         response = headlinesOrder.map((article, idx) => ({
           ...new Article(article).headline,
           priority: idx === 0,
-        }));
-      } else response = [];
+        }))
+      } else response = []
     } catch (error) {
-      response = [];
+      response = []
     }
 
-    return response;
+    return response
   },
   getRecent: async ({ limit = 15, scrollId = "" }: GetRecentNewsInterface) => {
     const result: GetRecentNewsResultInterface = {
       scrollId: "",
       news: [],
       total: 0,
-    };
+    }
     try {
       const response = await fetch(
         `${BASE_API}/news/v1/list-news` +
@@ -107,23 +107,23 @@ export default {
           })}`,
         { headers: GENERAL_HEADERS }
       ).then((res) => {
-        return res.json();
-      });
-      const { status: responseStatus, data: responseData } = response;
+        return res.json()
+      })
+      const { status: responseStatus, data: responseData } = response
       if (responseStatus === 200) {
         result.news = responseData?.news?.map(
           (article: ArticleInterface) => new Article(article).articleItem
-        );
-        result.scrollId = responseData?.scrollId;
-        result.total = responseData?.total;
+        )
+        result.scrollId = responseData?.scrollId
+        result.total = responseData?.total
       } else {
-        result.news = [];
+        result.news = []
       }
     } catch (error) {
-      result.news = [];
+      result.news = []
     }
 
-    return result;
+    return result
   },
   getRecentNewsByCategory: async ({
     scrollId = "",
@@ -135,7 +135,7 @@ export default {
       scrollId: "",
       news: [],
       total: 0,
-    };
+    }
     try {
       const response = await fetch(
         `${BASE_API}/news/v1/home/category/${categorySlug}` +
@@ -146,25 +146,25 @@ export default {
           })}`,
         { headers: GENERAL_HEADERS }
       ).then((res) => {
-        return res.json();
-      });
-      const { status: responseStatus, data: responseData } = response;
+        return res.json()
+      })
+      const { status: responseStatus, data: responseData } = response
       if (responseStatus === 200) {
         result.news = responseData?.news?.map(
           (article: ArticleInterface) => new Article(article).articleItem
-        );
-        result.scrollId = responseData?.scrollId;
-        result.total = responseData?.total;
+        )
+        result.scrollId = responseData?.scrollId
+        result.total = responseData?.total
       } else {
-        result.news = [];
+        result.news = []
       }
     } catch (error) {
-      result.news = [];
+      result.news = []
     }
-    return result;
+    return result
   },
   getPemula: async ({ limit = 15, page = 1 }: GetPemulaInterface) => {
-    let result: ArticleItemVerticalProps[] = [];
+    let result: ArticleItemVerticalProps[] = []
     try {
       const response = await fetch(
         `${BASE_API}/news/v1/home/news/belajar-investasi` +
@@ -174,23 +174,23 @@ export default {
           })}`,
         { headers: GENERAL_HEADERS }
       ).then((res) => {
-        return res.json();
-      });
-      const { status: responseStatus, data: responseData } = response;
+        return res.json()
+      })
+      const { status: responseStatus, data: responseData } = response
 
       if (responseStatus === 200) {
         for (const article of responseData?.news) {
           if (article.wajib_baca)
-            result.unshift(new ArticlePemula(article).articleItemVertical);
-          else result.push(new ArticlePemula(article).articleItemVertical);
+            result.unshift(new ArticlePemula(article).articleItemVertical)
+          else result.push(new ArticlePemula(article).articleItemVertical)
         }
 
-        result = result.splice(0, 5);
+        result = result.splice(0, 5)
       }
     } catch (error) {
-      result = [];
+      result = []
     }
 
-    return result;
+    return result
   },
-};
+}

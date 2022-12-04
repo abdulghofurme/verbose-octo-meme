@@ -1,15 +1,15 @@
-import { FC, useState } from "react";
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "@styles/atoms/headerDesktop.module.scss";
+import { FC, useState } from "react"
+import dynamic from "next/dynamic"
+import Image from "next/image"
+import Link from "next/link"
+import styles from "@styles/atoms/headerDesktop.module.scss"
 const RegisterDialog = dynamic(
   () => import("@component/molecule/registerDialog"),
   {
     ssr: false,
   }
-);
-import { BASE_IMAGE_URL, BASE_URL } from "@config/env";
+)
+import { BASE_IMAGE_URL, BASE_URL } from "@config/env"
 
 const HeaderDesktop: FC = () => {
   const links: { url: string; label: string }[] = [
@@ -22,9 +22,9 @@ const HeaderDesktop: FC = () => {
     { url: `${BASE_URL}/bisnis`, label: "Bisnis" },
     { url: `${BASE_URL}/id/data`, label: "Data" },
     { url: `/`, label: "Berita" },
-  ];
+  ]
 
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   return (
     <>
       <header className={`${styles.header} b-color-bg__surface--light`}>
@@ -75,7 +75,7 @@ const HeaderDesktop: FC = () => {
         onClose={() => setIsDialogOpen(false)}
       />
     </>
-  );
-};
+  )
+}
 
-export default HeaderDesktop;
+export default HeaderDesktop

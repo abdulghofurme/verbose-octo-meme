@@ -1,13 +1,13 @@
-import { FC } from "react";
-import styles from "@styles/molecule/articleItem/articleItem.module.scss";
-import Link from "next/link";
-import ArticleThumbnail from "@component/atoms/articleThumbnail";
-import { ArticleItemSmallProps } from "@component/molecule/articleItem/articleItemSmall";
+import { FC } from "react"
+import styles from "@styles/molecule/articleItem/articleItem.module.scss"
+import Link from "next/link"
+import ArticleThumbnail from "@component/atoms/articleThumbnail"
+import { ArticleItemSmallProps } from "@component/molecule/articleItem/articleItemSmall"
 
 export interface ArticleItemProps extends ArticleItemSmallProps {
-  categoryURL?: string;
-  published: string;
-  noBorder?: boolean;
+  categoryURL?: string
+  published: string
+  noBorder?: boolean
 }
 
 const ArticleItem: FC<ArticleItemProps> = ({
@@ -19,8 +19,8 @@ const ArticleItem: FC<ArticleItemProps> = ({
   categoryURL = "",
   noBorder = false,
 }) => {
-  if (!url) return null;
-  const categoryClassName = "b-typography__button b-color-text__primary--800";
+  if (!url) return null
+  const categoryClassName = "b-typography__button b-color-text__primary--800"
 
   return (
     <article
@@ -67,7 +67,7 @@ const ArticleItem: FC<ArticleItemProps> = ({
         />
       </Link>
     </article>
-  );
-};
+  )
+}
 
-export default ArticleItem;
+export default ArticleItem

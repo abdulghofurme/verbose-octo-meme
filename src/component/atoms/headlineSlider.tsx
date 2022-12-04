@@ -1,9 +1,9 @@
-import { FC, PropsWithChildren } from "react";
-import Slider from "react-slick";
-import styles from "@styles/atoms/headlineSlider.module.scss";
+import { FC, PropsWithChildren } from "react"
+import Slider from "react-slick"
+import styles from "@styles/atoms/headlineSlider.module.scss"
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const SLIDERSETTING = {
   dots: true,
@@ -15,12 +15,12 @@ const SLIDERSETTING = {
   pauseOnHover: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-};
+}
 
 const HeadlineSlider: FC<PropsWithChildren> = ({ children }) => (
   <Slider {...SLIDERSETTING} className={styles.headline_slider}>
     {children}
   </Slider>
-);
+)
 
-export default HeadlineSlider;
+export default HeadlineSlider

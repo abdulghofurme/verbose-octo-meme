@@ -1,9 +1,9 @@
-import { FC, PropsWithChildren } from "react";
-import styles from "@styles/atoms/asideItemWrapper.module.scss";
+import { FC, PropsWithChildren } from "react"
+import styles from "@styles/atoms/asideItemWrapper.module.scss"
 
 interface AsideItemWrapperProps extends PropsWithChildren {
-  title: string;
-  className?: string;
+  title: string
+  className?: string
 }
 
 const AsideItemWrapper: FC<AsideItemWrapperProps> = ({
@@ -17,6 +17,6 @@ const AsideItemWrapper: FC<AsideItemWrapperProps> = ({
     </h6>
     {children}
   </section>
-);
+)
 
-export default AsideItemWrapper;
+export default AsideItemWrapper

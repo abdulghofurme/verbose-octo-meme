@@ -1,14 +1,14 @@
-import { useState } from "react";
-import type { AppProps } from "next/app";
-import Head from "next/head";
-import { Hydrate, QueryClientProvider } from "@tanstack/react-query";
-import { AppQueryClient } from "@lib/queryClient";
-import "@styles/globals.scss";
+import { useState } from "react"
+import type { AppProps } from "next/app"
+import Head from "next/head"
+import { Hydrate, QueryClientProvider } from "@tanstack/react-query"
+import { AppQueryClient } from "@lib/queryClient"
+import "@styles/globals.scss"
 
-const FAVICON_URL = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/favicon.ico`;
+const FAVICON_URL = `${process.env.NEXT_PUBLIC_BASE_IMAGE_URL}/logo/1.0.0/favicon.ico`
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(() => AppQueryClient);
+  const [queryClient] = useState(() => AppQueryClient)
 
   return (
     <>
@@ -54,5 +54,5 @@ export default function App({ Component, pageProps }: AppProps) {
         </Hydrate>
       </QueryClientProvider>
     </>
-  );
+  )
 }

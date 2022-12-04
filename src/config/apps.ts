@@ -1,9 +1,9 @@
-import { BASE_IMAGE_URL } from "@config/env";
+import { BASE_IMAGE_URL } from "@config/env"
 
 export type downloadsItemType = {
-  url: string;
-  imageURL: string;
-};
+  url: string
+  imageURL: string
+}
 
 const appsConfig = {
   downloads: {
@@ -16,6 +16,6 @@ const appsConfig = {
       imageURL: `${BASE_IMAGE_URL}/bareksa/img/logo/badge_google-play.png`,
     },
   },
-};
+}
 
-export default appsConfig;
+export default appsConfig

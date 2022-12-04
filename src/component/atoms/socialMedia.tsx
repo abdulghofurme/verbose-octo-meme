@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { FC } from "react";
-import socialMedia from "@config/social_media";
-import styles from "@styles/atoms/socialMedia.module.scss";
-import Link from "next/link";
+import Image from "next/image"
+import { FC } from "react"
+import socialMedia from "@config/social_media"
+import styles from "@styles/atoms/socialMedia.module.scss"
+import Link from "next/link"
 
 interface SocialMediaProps {
-  size: number;
+  size: number
 }
 
 const SocialMedia: FC<SocialMediaProps> = ({ size }) => (
@@ -16,6 +16,6 @@ const SocialMedia: FC<SocialMediaProps> = ({ size }) => (
       </Link>
     ))}
   </div>
-);
+)
 
-export default SocialMedia;
+export default SocialMedia

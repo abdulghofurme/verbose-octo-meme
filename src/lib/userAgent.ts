@@ -1,12 +1,12 @@
-import UAParser from "ua-parser-js";
+import UAParser from "ua-parser-js"
 
 export interface UserAgentInterface {
-  device: UAParser.IDevice;
-  isUserMobile: boolean;
+  device: UAParser.IDevice
+  isUserMobile: boolean
 }
 
 export default function uaParser(header?: string): UserAgentInterface {
-  const uaParsed = UAParser(header);
+  const uaParsed = UAParser(header)
   return {
     device: {
       vendor: uaParsed?.device?.vendor || "",
@@ -16,5 +16,5 @@ export default function uaParser(header?: string): UserAgentInterface {
     isUserMobile:
       uaParsed?.device?.type === "mobile" ||
       uaParsed?.device?.type === "tablet",
-  };
+  }
 }

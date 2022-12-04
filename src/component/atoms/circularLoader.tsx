@@ -1,9 +1,9 @@
-import { FC } from "react";
-import styles from "@styles/atoms/circularLoader.module.scss";
+import { FC } from "react"
+import styles from "@styles/atoms/circularLoader.module.scss"
 
 interface CircularLoaderProps {
-  marginTop?: number;
-  marginBottom?: number;
+  marginTop?: number
+  marginBottom?: number
 }
 
 const CircularLoader: FC<CircularLoaderProps> = ({
@@ -24,6 +24,6 @@ const CircularLoader: FC<CircularLoaderProps> = ({
       <div />
     </div>
   </section>
-);
+)
 
-export default CircularLoader;
+export default CircularLoader

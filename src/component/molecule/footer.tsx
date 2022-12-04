@@ -1,16 +1,16 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
-import styles from "@styles/molecule/footer.module.scss";
-import { BASE_IMAGE_URL, BASE_URL } from "@config/env";
-import SocialMedia from "@component/atoms/socialMedia";
-import apps, { downloadsItemType } from "@config/apps";
+import Image from "next/image"
+import Link from "next/link"
+import { FC } from "react"
+import styles from "@styles/molecule/footer.module.scss"
+import { BASE_IMAGE_URL, BASE_URL } from "@config/env"
+import SocialMedia from "@component/atoms/socialMedia"
+import apps, { downloadsItemType } from "@config/apps"
 
 type FooterLink = {
-  label: string;
-  url?: string;
-  onClick?: () => void;
-};
+  label: string
+  url?: string
+  onClick?: () => void
+}
 
 const Footer: FC = () => {
   const footerLinks: FooterLink[][] = [
@@ -32,8 +32,8 @@ const Footer: FC = () => {
       },
       { label: "Karir", url: `${BASE_URL}/karir` },
     ],
-  ];
-  const downloads: { [index: string]: downloadsItemType } = apps.downloads;
+  ]
+  const downloads: { [index: string]: downloadsItemType } = apps.downloads
   return (
     <footer className={styles.footer}>
       <section>
@@ -77,7 +77,7 @@ const Footer: FC = () => {
         ))}
         <div>
           {Object.keys(downloads).map((key) => {
-            const appsItem = downloads[key];
+            const appsItem = downloads[key]
             return (
               <Link key={appsItem.url} href={appsItem.url} target="_blank">
                 <Image
@@ -87,7 +87,7 @@ const Footer: FC = () => {
                   width={135}
                 />
               </Link>
-            );
+            )
           })}
         </div>
       </section>
@@ -95,7 +95,7 @@ const Footer: FC = () => {
         Copyright 2020 © PT. Bareksa Portal Investasi.
       </span>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

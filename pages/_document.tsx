@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { Html, Head, Main, NextScript } from "next/document";
-import PreloadLink from "@component/atoms/head/preloadLink";
-import PreloadLinkAsync from "@component/atoms/head/preloadLinkAsync";
+import { FC } from "react"
+import { Html, Head, Main, NextScript } from "next/document"
+import PreloadLink from "@component/atoms/head/preloadLink"
+import PreloadLinkAsync from "@component/atoms/head/preloadLinkAsync"
 
 const Document: FC = () => {
   return (
@@ -50,7 +50,7 @@ const Document: FC = () => {
         <NextScript />
       </body>
     </Html>
-  );
-};
+  )
+}
 
-export default Document;
+export default Document

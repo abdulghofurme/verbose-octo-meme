@@ -1,30 +1,30 @@
-import { FC } from "react";
+import { FC } from "react"
 import ArticleItem, {
   ArticleItemProps,
-} from "@component/molecule/articleItem/articleItem";
-import styles from "@styles/template/home.module.scss";
-import Headline, { HeadlineProps } from "@component/molecule/headline";
-import { PropsWithUserAgent } from "@interface/props";
+} from "@component/molecule/articleItem/articleItem"
+import styles from "@styles/template/home.module.scss"
+import Headline, { HeadlineProps } from "@component/molecule/headline"
+import { PropsWithUserAgent } from "@interface/props"
 import SectionHorizontal, {
   SectionHorizontalProps,
-} from "@component/molecule/sectionHorizontal";
-import Header from "@component/molecule/header";
+} from "@component/molecule/sectionHorizontal"
+import Header from "@component/molecule/header"
 import InfiniteScroll, {
   InfiniteScrollProps,
-} from "@component/atoms/infiniteScroll";
-import dynamic from "next/dynamic";
+} from "@component/atoms/infiniteScroll"
+import dynamic from "next/dynamic"
 const CircularLoader = dynamic(import("@component/atoms/circularLoader"), {
   ssr: false,
-});
+})
 
 export interface HomeGeneralTemplateProps extends PropsWithUserAgent {
-  title: string;
-  headline: HeadlineProps;
-  articles: ArticleItemProps[];
+  title: string
+  headline: HeadlineProps
+  articles: ArticleItemProps[]
 }
 export interface HomeTemplateProps extends HomeGeneralTemplateProps {
-  horizontalSection: SectionHorizontalProps;
-  infiniteScroll: InfiniteScrollProps;
+  horizontalSection: SectionHorizontalProps
+  infiniteScroll: InfiniteScrollProps
 }
 
 const HomeTemplate: FC<HomeTemplateProps> = ({
@@ -36,10 +36,10 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
   infiniteScroll,
 }) => {
   // to avoid the original changes
-  const articlesCopy = [...articles];
-  const topSectionArticles = articlesCopy.splice(0, 5);
-  const bottomSectionArticles = articlesCopy;
-  bottomSectionArticles[0].noBorder = true;
+  const articlesCopy = [...articles]
+  const topSectionArticles = articlesCopy.splice(0, 5)
+  const bottomSectionArticles = articlesCopy
+  bottomSectionArticles[0].noBorder = true
   return (
     <InfiniteScroll
       {...infiniteScroll}
@@ -65,7 +65,7 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
         ))}
       </main>
     </InfiniteScroll>
-  );
-};
+  )
+}
 
-export default HomeTemplate;
+export default HomeTemplate

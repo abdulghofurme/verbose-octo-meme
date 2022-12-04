@@ -1,4 +1,4 @@
-import { FC, LinkHTMLAttributes } from "react";
+import { FC, LinkHTMLAttributes } from "react"
 
 const PreloadLinkAsync: FC<LinkHTMLAttributes<HTMLLinkElement>> = (props) => (
   <>
@@ -18,6 +18,6 @@ const PreloadLinkAsync: FC<LinkHTMLAttributes<HTMLLinkElement>> = (props) => (
       }}
     ></style>
   </>
-);
+)
 
-export default PreloadLinkAsync;
+export default PreloadLinkAsync

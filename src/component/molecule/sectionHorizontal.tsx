@@ -1,16 +1,16 @@
-import { FC } from "react";
+import { FC } from "react"
 import ArticleItemVertical, {
   ArticleItemVerticalProps,
-} from "@component/molecule/articleItem/articleItemVertical";
-import styles from "@styles/molecule/sectionHorizontal.module.scss";
-import Link from "next/link";
+} from "@component/molecule/articleItem/articleItemVertical"
+import styles from "@styles/molecule/sectionHorizontal.module.scss"
+import Link from "next/link"
 // import MaterialIcon from "@component/atoms/materialIcon";
-import { ArrowRight } from "@mui/icons-material";
+import { ArrowRight } from "@mui/icons-material"
 
 export interface SectionHorizontalProps {
-  title: string;
-  url: string;
-  articles: ArticleItemVerticalProps[];
+  title: string
+  url: string
+  articles: ArticleItemVerticalProps[]
 }
 
 const SectionHorizontal: FC<SectionHorizontalProps> = ({
@@ -18,7 +18,7 @@ const SectionHorizontal: FC<SectionHorizontalProps> = ({
   title,
   articles,
 }) => {
-  if (!articles || articles?.length === 0) return null;
+  if (!articles || articles?.length === 0) return null
 
   return (
     <section className={`${styles.section} b-color-bg__surface--dark`}>
@@ -39,7 +39,7 @@ const SectionHorizontal: FC<SectionHorizontalProps> = ({
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SectionHorizontal;
+export default SectionHorizontal

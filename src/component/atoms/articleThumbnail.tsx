@@ -1,13 +1,13 @@
-import { FC } from "react";
-import Image, { ImageProps } from "next/image";
-import styles from "@styles/atoms/articleThumbnail.module.scss";
+import { FC } from "react"
+import Image, { ImageProps } from "next/image"
+import styles from "@styles/atoms/articleThumbnail.module.scss"
 
 interface ArticleThumbnailProps extends ImageProps {
-  src: string;
-  alt: string;
-  size: number;
-  height?: number;
-  width?: number;
+  src: string
+  alt: string
+  size: number
+  height?: number
+  width?: number
 }
 
 const ArticleThumbnail: FC<ArticleThumbnailProps> = ({
@@ -24,6 +24,6 @@ const ArticleThumbnail: FC<ArticleThumbnailProps> = ({
     height={size}
     {...props}
   />
-);
+)
 
-export default ArticleThumbnail;
+export default ArticleThumbnail

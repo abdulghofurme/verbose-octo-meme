@@ -1,16 +1,10 @@
-import {
-  FC,
-  PropsWithChildren,
-  ReactElement,
-  useCallback,
-  useRef,
-} from "react";
+import { FC, PropsWithChildren, ReactElement, useCallback, useRef } from "react"
 
 export interface InfiniteScrollProps extends PropsWithChildren {
-  hasMore: boolean;
-  isLoading: boolean;
-  loadFunction: () => void;
-  LoadingComponent?: ReactElement;
+  hasMore: boolean
+  isLoading: boolean
+  loadFunction: () => void
+  LoadingComponent?: ReactElement
 }
 
 const InfiniteScroll: FC<InfiniteScrollProps> = ({
@@ -20,20 +14,20 @@ const InfiniteScroll: FC<InfiniteScrollProps> = ({
   loadFunction,
   LoadingComponent,
 }) => {
-  const observer = useRef<IntersectionObserver | null>(null);
+  const observer = useRef<IntersectionObserver | null>(null)
   const ref = useCallback(
     (node: HTMLDivElement) => {
-      if (isLoading || !hasMore) return;
-      if (observer.current) observer.current.disconnect();
+      if (isLoading || !hasMore) return
+      if (observer.current) observer.current.disconnect()
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          loadFunction();
+          loadFunction()
         }
-      });
-      if (node) observer.current?.observe(node);
+      })
+      if (node) observer.current?.observe(node)
     },
     [hasMore, isLoading]
-  );
+  )
 
   return (
     <>
@@ -41,7 +35,7 @@ const InfiniteScroll: FC<InfiniteScrollProps> = ({
       {isLoading && LoadingComponent}
       <div ref={ref} />
     </>
-  );
-};
+  )
+}
 
-export default InfiniteScroll;
+export default InfiniteScroll

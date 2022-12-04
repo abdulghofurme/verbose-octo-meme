@@ -1,13 +1,13 @@
-import { FC } from "react";
-import Link from "next/link";
-import ArticleThumbnail from "@component/atoms/articleThumbnail";
-import styles from "@styles/molecule/articleItem/articleItemSmall.module.scss";
+import { FC } from "react"
+import Link from "next/link"
+import ArticleThumbnail from "@component/atoms/articleThumbnail"
+import styles from "@styles/molecule/articleItem/articleItemSmall.module.scss"
 
 export interface ArticleItemSmallProps {
-  url: string;
-  title: string;
-  category: string;
-  thumbnail: string;
+  url: string
+  title: string
+  category: string
+  thumbnail: string
 }
 
 const ArticleItemSmall: FC<ArticleItemSmallProps> = ({
@@ -30,6 +30,6 @@ const ArticleItemSmall: FC<ArticleItemSmallProps> = ({
       <ArticleThumbnail src={thumbnail} size={48} alt={`${title} thumbnail`} />
     </Link>
   </article>
-);
+)
 
-export default ArticleItemSmall;
+export default ArticleItemSmall

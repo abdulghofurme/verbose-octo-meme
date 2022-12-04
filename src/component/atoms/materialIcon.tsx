@@ -1,9 +1,9 @@
-import { FC } from "react";
-import styles from "@styles/atoms/materialIcon.module.scss";
+import { FC } from "react"
+import styles from "@styles/atoms/materialIcon.module.scss"
 
 interface MaterialIconProps {
-  icon: string;
-  className?: string;
+  icon: string
+  className?: string
 }
 
 const MaterialIcon: FC<MaterialIconProps> = ({ icon, className = "" }) => (
@@ -16,6 +16,6 @@ const MaterialIcon: FC<MaterialIconProps> = ({ icon, className = "" }) => (
       {icon}
     </span>
   </>
-);
+)
 
-export default MaterialIcon;
+export default MaterialIcon

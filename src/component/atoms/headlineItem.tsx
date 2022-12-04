@@ -1,16 +1,16 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
-import styles from "@styles/atoms/headlineItem.module.scss";
-import { UserAgentInterface } from "@lib/userAgent";
+import Image from "next/image"
+import Link from "next/link"
+import { FC } from "react"
+import styles from "@styles/atoms/headlineItem.module.scss"
+import { UserAgentInterface } from "@lib/userAgent"
 
 export interface HeadlineItemProps {
-  background: string;
-  title: string;
-  url: string;
-  priority?: boolean;
-  userAgent?: UserAgentInterface;
-  bigHeadline?: boolean;
+  background: string
+  title: string
+  url: string
+  priority?: boolean
+  userAgent?: UserAgentInterface
+  bigHeadline?: boolean
 }
 
 const HeadlineItem: FC<HeadlineItemProps> = ({
@@ -21,20 +21,20 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
   userAgent,
   bigHeadline = false,
 }) => {
-  let imageWidth: number;
+  let imageWidth: number
   // mobile & tablet using
   // max viewport width of
   // https://mediag.com/blog/popular-screen-resolutions-designing-for-all/
   switch (userAgent?.device?.type) {
     case "mobile":
-      imageWidth = 480;
-      break;
+      imageWidth = 480
+      break
     case "tablet":
-      imageWidth = 1024;
-      break;
+      imageWidth = 1024
+      break
     default:
-      imageWidth = bigHeadline ? 340 : 160;
-      break;
+      imageWidth = bigHeadline ? 340 : 160
+      break
   }
   return (
     <article
@@ -59,7 +59,7 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
         </h4>
       </Link>
     </article>
-  );
-};
+  )
+}
 
-export default HeadlineItem;
+export default HeadlineItem

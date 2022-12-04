@@ -1,31 +1,31 @@
-import { FC, PropsWithChildren, useEffect, useRef } from "react";
-import styles from "@styles/atoms/dialog.module.scss";
+import { FC, PropsWithChildren, useEffect, useRef } from "react"
+import styles from "@styles/atoms/dialog.module.scss"
 
 export interface DialogProps extends PropsWithChildren {
-  open?: boolean;
-  onClose?: () => void;
-  className?: string;
-  dataDialog?: string;
+  open?: boolean
+  onClose?: () => void
+  className?: string
+  dataDialog?: string
 }
 
 const Dialog: FC<DialogProps> = ({
   open = false,
   onClose = () => {
-    console.log("close");
+    console.log("close")
   },
   children,
   dataDialog = "",
   className = "",
 }) => {
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
     if (open) {
-      if (!dialogRef.current?.open) dialogRef?.current?.showModal();
+      if (!dialogRef.current?.open) dialogRef?.current?.showModal()
     } else {
-      dialogRef.current?.close();
+      dialogRef.current?.close()
     }
-  }, [open]);
+  }, [open])
 
   return (
     <dialog
@@ -39,7 +39,7 @@ const Dialog: FC<DialogProps> = ({
           right: 0,
           top: 0,
           bottom: 0,
-        };
+        }
 
         if (
           rect.left > event.clientX ||
@@ -47,13 +47,13 @@ const Dialog: FC<DialogProps> = ({
           rect.top > event.clientY ||
           rect.bottom < event.clientY
         ) {
-          onClose();
+          onClose()
         }
       }}
     >
       {children}
     </dialog>
-  );
-};
+  )
+}
 
-export default Dialog;
+export default Dialog

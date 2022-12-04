@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { FC } from "react";
-import AsideItemWrapper from "@component/atoms/asideItemWrapper";
+import Link from "next/link"
+import { FC } from "react"
+import AsideItemWrapper from "@component/atoms/asideItemWrapper"
 import ArticleItemSmall, {
   ArticleItemSmallProps,
-} from "@component/molecule/articleItem/articleItemSmall";
-import styles from "@styles/organism/pemulaAside.module.scss";
+} from "@component/molecule/articleItem/articleItemSmall"
+import styles from "@styles/organism/pemulaAside.module.scss"
 
 export interface PemulaAsideProps {
-  articles: ArticleItemSmallProps[];
+  articles: ArticleItemSmallProps[]
 }
 
 const PemulaAside: FC<PemulaAsideProps> = ({ articles = [] }) => {
@@ -29,7 +29,7 @@ const PemulaAside: FC<PemulaAsideProps> = ({ articles = [] }) => {
         Lihat Semua
       </Link>
     </AsideItemWrapper>
-  );
-};
+  )
+}
 
-export default PemulaAside;
+export default PemulaAside
