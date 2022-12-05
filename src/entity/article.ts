@@ -1,7 +1,6 @@
 import { format, formatDistanceToNow } from "date-fns"
 import idLocale from "date-fns/locale/id"
 
-import { ArticleItemProps } from "@component/molecule/articleItem/articleItem"
 import { HeadlineItemProps } from "@component/atoms/headlineItem"
 import {
   ArticleCategory,
@@ -9,6 +8,7 @@ import {
   ArticlePemulaInterface,
 } from "@entity/articleInterface"
 import { ArticleItemVerticalProps } from "@component/molecule/articleItem/articleItemVertical"
+import { ArticleItemBigProps } from "@component/molecule/articleItem/articleItemBig"
 
 class Article {
   private article!: ArticleInterface
@@ -89,7 +89,7 @@ class Article {
     }
   }
 
-  get articleItem(): ArticleItemProps {
+  get articleItem(): ArticleItemBigProps {
     return {
       url: this.url,
       title: this.article.title,
@@ -97,6 +97,7 @@ class Article {
       category: this.mainCategory?.name || "Kategori",
       categoryURL: this.mainCategory?.slug ? `/${this.mainCategory.slug}` : "",
       published: this.published,
+      subtitle: this.article.subtitle,
     }
   }
 }

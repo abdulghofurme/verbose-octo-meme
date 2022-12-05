@@ -1,8 +1,9 @@
 import { FC } from "react"
 import styles from "@styles/molecule/articleItem/articleItem.module.scss"
 import Link from "next/link"
-import ArticleThumbnail from "@component/atoms/articleThumbnail"
+import ArticleThumbnail from "@component/atoms/articleItem/articleThumbnail"
 import { ArticleItemSmallProps } from "@component/molecule/articleItem/articleItemSmall"
+import CategorySection from "@component/atoms/articleItem/categorySection"
 
 export interface ArticleItemProps extends ArticleItemSmallProps {
   categoryURL?: string
@@ -18,11 +19,8 @@ const ArticleItem: FC<ArticleItemProps> = ({
   published,
   categoryURL = "",
   noBorder = false,
-}) => {
-  if (!url) return null
-  const categoryClassName = "b-typography__button b-color-text__primary--800"
-
-  return (
+}) =>
+  !url ? null : (
     <article
       className={`${styles.article_item} ${noBorder ? styles.no_border : ""}`}
     >
@@ -36,26 +34,11 @@ const ArticleItem: FC<ArticleItemProps> = ({
           </h4>
         </Link>
 
-        <div className={`${styles.subtitle}`}>
-          {categoryURL ? (
-            <Link
-              data-testid="articleItem__category"
-              href={categoryURL}
-              className={categoryClassName}
-            >
-              {category}
-            </Link>
-          ) : (
-            <span className={categoryClassName}>{category}</span>
-          )}
-          <span className="b-color-text__onsurface--medium-emphasis">•</span>
-          <span
-            data-testid="articleItem__published"
-            className="b-typography__caption b-color-text__onsurface--medium-emphasis"
-          >
-            {published}
-          </span>
-        </div>
+        <CategorySection
+          category={category}
+          published={published}
+          categoryURL={categoryURL}
+        />
       </div>
 
       <Link href={url} data-testid="articleItem__link">
@@ -68,6 +51,5 @@ const ArticleItem: FC<ArticleItemProps> = ({
       </Link>
     </article>
   )
-}
 
 export default ArticleItem

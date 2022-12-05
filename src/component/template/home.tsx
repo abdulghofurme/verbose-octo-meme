@@ -21,10 +21,10 @@ export interface HomeGeneralTemplateProps extends PropsWithUserAgent {
   title: string
   headline: HeadlineProps
   articles: ArticleItemProps[]
+  infiniteScroll: InfiniteScrollProps
 }
 export interface HomeTemplateProps extends HomeGeneralTemplateProps {
   horizontalSection: SectionHorizontalProps
-  infiniteScroll: InfiniteScrollProps
 }
 
 const HomeTemplate: FC<HomeTemplateProps> = ({

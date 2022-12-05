@@ -1,7 +1,7 @@
 import { FC } from "react"
 import Link from "next/link"
 import styles from "@styles/molecule/articleItem/articleItemVertical.module.scss"
-import ArticleThumbnail from "@component/atoms/articleThumbnail"
+import ArticleThumbnail from "@component/atoms/articleItem/articleThumbnail"
 import { ArticleItemSmallProps } from "@component/molecule/articleItem/articleItemSmall"
 
 export interface ArticleItemVerticalProps extends ArticleItemSmallProps {

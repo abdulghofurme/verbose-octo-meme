@@ -25,28 +25,14 @@
       @include lineClamp(calc(100%), 3);
     }
   }
+
+  [class~="category"] {
+    padding-top: 4px;
+  }
 }
 
 .no_border {
   &::before {
     display: none;
-  }
-}
-
-.subtitle {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  max-width: 0 0 4px;
-
-  > a {
-    padding: 4px 4px 0 0;
-  }
-
-  span {
-    &:first-of-type {
-      margin: 0 4px 0 0;
-    }
   }
 }

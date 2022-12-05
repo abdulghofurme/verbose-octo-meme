@@ -1,6 +1,6 @@
 import { FC } from "react"
 import Link from "next/link"
-import ArticleThumbnail from "@component/atoms/articleThumbnail"
+import ArticleThumbnail from "@component/atoms/articleItem/articleThumbnail"
 import styles from "@styles/molecule/articleItem/articleItemSmall.module.scss"
 
 export interface ArticleItemSmallProps {

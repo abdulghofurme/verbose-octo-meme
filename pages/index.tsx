@@ -19,7 +19,7 @@ import { ServerQueryClient } from "@lib/queryClient"
 import { PropsWithUserAgent } from "@interface/props"
 
 import PageSEO from "@component/atoms/head/pageSEO"
-import { ArticleItemProps } from "@component/molecule/articleItem/articleItem"
+import { ArticleItemBigProps } from "@component/molecule/articleItem/articleItemBig"
 
 const HomeTemplate = dynamic(import("@component/template/home"))
 const HomeDesktopTemplate = dynamic(import("@component/template/homeDesktop"))
@@ -39,7 +39,7 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
     hasNextPage,
     isFetchingNextPage,
   } = useRecentNews({})
-  const recentArticles = recentNewsData?.pages?.reduce<ArticleItemProps[]>(
+  const recentArticles = recentNewsData?.pages?.reduce<ArticleItemBigProps[]>(
     (r, v) => [...r, ...(v?.news || [])],
     []
   )
@@ -92,6 +92,11 @@ const Home: NextPage<PropsWithUserAgent> = ({ userAgent }) => {
           title={homeTitle}
           headline={homeHeadline}
           articles={articles}
+          infiniteScroll={{
+            hasMore: Boolean(hasNextPage),
+            isLoading: isFetchingNextPage,
+            loadFunction: fetchNextPage,
+          }}
           categoryAside={{
             categories: categories || [],
           }}

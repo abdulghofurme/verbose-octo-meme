@@ -1,11 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { ArticleItemProps } from "@component/molecule/articleItem/articleItem"
 import { ArticleItemVerticalProps } from "@component/molecule/articleItem/articleItemVertical"
 import { HeadlineItemProps } from "@component/atoms/headlineItem"
 import Article, { ArticlePemula } from "@entity/article"
 import { ArticleInterface } from "@entity/articleInterface"
 import { GENERAL_HEADERS } from "@config/api"
 import { BASE_API } from "@config/env"
+import { ArticleItemBigProps } from "@component/molecule/articleItem/articleItemBig"
 
 export interface GetPemulaInterface {
   limit?: number
@@ -17,7 +17,7 @@ export interface GetRecentNewsInterface {
   scrollId?: string
 }
 export interface GetRecentNewsResultInterface {
-  news: ArticleItemProps[]
+  news: ArticleItemBigProps[]
   scrollId: string
   total: number
 }

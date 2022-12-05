@@ -1,0 +1,16 @@
+.div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+
+  > a {
+    padding: 0 4px 0 0;
+  }
+
+  span {
+    &:first-of-type {
+      margin: 0 4px 0 0;
+    }
+  }
+}

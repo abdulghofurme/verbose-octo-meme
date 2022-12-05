@@ -1,6 +1,6 @@
 import { FC } from "react"
 import Image, { ImageProps } from "next/image"
-import styles from "@styles/atoms/articleThumbnail.module.scss"
+import styles from "@styles/atoms/articleItem/articleThumbnail.module.scss"
 
 interface ArticleThumbnailProps extends ImageProps {
   src: string

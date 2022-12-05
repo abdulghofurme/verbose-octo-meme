@@ -1,0 +1,32 @@
+@import "../../mixins.scss";
+
+.article_item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 0 48px;
+
+  [class~="category"] {
+    padding-bottom: 4px;
+  }
+
+  > div {
+    width: calc(100% - 24px - 100px);
+
+    > a {
+      width: 100%;
+
+      h4 {
+        @include lineClamp(calc(100%), 2);
+      }
+
+      p {
+        margin: 4px 0 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+      }
+    }
+  }
+}
