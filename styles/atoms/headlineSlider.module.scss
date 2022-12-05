@@ -2,60 +2,47 @@
 @import "../variables.scss";
 
 .headline_slider {
-  margin: 0 (-$side_padding_mobile);
-  padding: 0 0 16px;
   position: relative;
+  height: 165px;
   overflow: hidden;
 
-  > div > div > * {
-    padding: 0 $side_padding_mobile;
-  }
+  article {
+    position: absolute;
+    transition: all 0.5s;
+    margin: 0 16px 0 0;
 
-  > button {
-    display: none !important;
-  }
-
-  ul {
-    position: initial;
-    margin: 12px 0 0;
-    height: auto;
-    width: 100%;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-
-    li {
-      padding: 0 4px;
-      margin: 0;
-      height: auto;
-      width: auto;
-
-      button {
-        height: auto;
-        width: auto;
-
-        &::before {
-          opacity: 1;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          content: "";
-          width: 8px !important;
-          height: 8px !important;
-          background: var(--secondary--100);
-          border-radius: 50%;
-        }
-      }
+    &:nth-child(1) {
+      transform: translateX(0%);
+    }
+    &:nth-child(2) {
+      transform: translateX(calc(100% + 16px));
+    }
+    &:nth-child(3) {
+      transform: translateX(calc(200% + 32px));
+    }
+    &:nth-child(4) {
+      transform: translateX(calc(300% + 48px));
+    }
+    &:nth-child(5) {
+      transform: translateX(calc(400% + 64px));
     }
   }
+}
 
-  @include devices(tablet) {
-    // margin: 0 -32px;
+.navigator {
+  margin: 12px auto 16px;
+  text-align: center;
 
-    margin: 0 (-$side_padding_tablet);
+  button {
+    width: 8px;
+    height: 8px;
+    background: var(--secondary--100);
+    border-radius: 50%;
+    border: none;
+    margin: 0 4px;
 
-    > div > div > * {
-      padding: 0 $side_padding_tablet;
+    &[class~="active"] {
+      background: var(--secondary--900);
     }
   }
 }

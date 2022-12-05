@@ -38,11 +38,11 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
   }
   return (
     <article
-      className={`${styles.article} ${
+      className={`headlineItem ${styles.article} ${
         userAgent?.isUserMobile
           ? styles["article--mobile"]
           : styles["article--desktop"]
-      } ${bigHeadline ? styles.article_big : styles.article_small}`}
+      } ${bigHeadline ? styles.article_big : ""}`}
     >
       <Link href={url}>
         <Image
@@ -54,9 +54,9 @@ const HeadlineItem: FC<HeadlineItemProps> = ({
         />
         <div />
 
-        <h4 className="title b-typography__subtitle-2--medium b-color-text__onprimary--high-emphasis">
+        <h3 className="title b-typography__subtitle-2--medium b-color-text__onprimary--high-emphasis">
           {title}
-        </h4>
+        </h3>
       </Link>
     </article>
   )
