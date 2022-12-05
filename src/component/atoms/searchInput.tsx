@@ -1,5 +1,5 @@
 import { FC } from "react"
-import MaterialIcon from "@component/atoms/materialIcon"
+import MaterialIcon from "@component/atoms/material-ui/materialIcon"
 import styles from "@styles/atoms/searchInput.module.scss"
 
 // export interface SearchInputProps extends HTMLInputElement {}

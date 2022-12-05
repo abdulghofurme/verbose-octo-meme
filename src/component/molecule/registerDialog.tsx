@@ -3,7 +3,7 @@ import Dialog, { DialogProps } from "../atoms/dialog"
 import styles from "@styles/molecule/registerDialog.module.scss"
 import Link from "next/link"
 import Image from "next/image"
-import MaterialIcon from "@component/atoms/materialIcon"
+import MaterialIcon from "@component/atoms/material-ui/materialIcon"
 import { BASE_IMAGE_URL, BASE_URL } from "@config/env"
 
 const navigations: {

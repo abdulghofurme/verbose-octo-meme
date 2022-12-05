@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react"
 import Router, { useRouter } from "next/router"
-import MaterialIcon from "@component/atoms/materialIcon"
+import MaterialIcon from "@component/atoms/material-ui/materialIcon"
 import styles from "@styles/molecule/header.module.scss"
 
 interface HeaderProps {

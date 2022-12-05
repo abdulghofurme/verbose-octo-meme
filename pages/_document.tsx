@@ -7,7 +7,7 @@ const Document: FC = () => {
   return (
     <Html lang="id">
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         {/* TYPOGRAPHY */}
         <PreloadLink
           rel="stylesheet"
@@ -18,7 +18,7 @@ const Document: FC = () => {
         <PreloadLinkAsync
           rel="stylesheet"
           as="font"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
         />
         {/* COLOR VARIABLE */}
         <PreloadLinkAsync

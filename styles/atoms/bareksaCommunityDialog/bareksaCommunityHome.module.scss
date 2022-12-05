@@ -1,0 +1,20 @@
+.container {
+  [class="header"] {
+    background: rgb(226, 235, 221);
+  }
+
+  [class="content"] {
+    padding: 16px 40px 8px;
+
+    > div {
+      margin: 24px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      [class~="material-icon"] {
+        margin: 0 20px 0 0;
+      }
+    }
+  }
+}

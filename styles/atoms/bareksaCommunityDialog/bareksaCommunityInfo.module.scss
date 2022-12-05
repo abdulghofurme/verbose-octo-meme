@@ -1,0 +1,9 @@
+.container {
+  [class="content"] {
+    padding: 16px 32px 40px;
+
+    > p {
+      margin: 0 0 24px;
+    }
+  }
+}

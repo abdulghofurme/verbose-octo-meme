@@ -1,0 +1,17 @@
+.container {
+  [class="content"] {
+    padding: 24px 32px;
+    text-align: center;
+
+    p {
+      &:nth-child(1) {
+        margin: 0 0 12px;
+      }
+    }
+
+    button {
+      margin: 24px 0 0;
+      width: 236px;
+    }
+  }
+}

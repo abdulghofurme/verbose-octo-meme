@@ -17,3 +17,12 @@
   color: var(--primary--800);
   border-color: var(--primary--800);
 }
+
+.contained {
+  border: none;
+  color: var(--onsurface--high-emphasis);
+}
+
+.contained--primary {
+  background: var(--primary);
+}

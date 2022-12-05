@@ -4,7 +4,7 @@ import ArticleItemVertical, {
 } from "@component/molecule/articleItem/articleItemVertical"
 import styles from "@styles/molecule/sectionHorizontal.module.scss"
 import Link from "next/link"
-import MaterialIcon from "@component/atoms/materialIcon"
+import MaterialIcon from "@component/atoms/material-ui/materialIcon"
 
 export interface SectionHorizontalProps {
   title: string

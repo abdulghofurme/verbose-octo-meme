@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, HtmlHTMLAttributes } from "react"
 import styles from "@styles/atoms/button.module.scss"
 
 interface ButtonProps extends PropsWithChildren {
-  variant: "outlined"
+  variant: "outlined" | "contained"
   color: "primary"
   fullWidth?: boolean
 }

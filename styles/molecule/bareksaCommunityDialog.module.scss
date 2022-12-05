@@ -1,0 +1,22 @@
+.dialog {
+  width: 410px;
+  padding: 0 !important;
+  margin: auto !important;
+
+  [class="header"] {
+    height: 56px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h6 {
+      margin: 0 16px 0 32px;
+      width: 100%;
+    }
+  }
+
+  [class="button-container"] {
+    padding: 40px 32px 32px;
+  }
+}

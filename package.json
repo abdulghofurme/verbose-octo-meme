@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start:debug": "rm -rf .next && yarn build && PORT=3005 yarn start",
+    "start:debug": "rm -rf .next && yarn build && PORT=4000 yarn start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "tsc": "tsc --noEmit",

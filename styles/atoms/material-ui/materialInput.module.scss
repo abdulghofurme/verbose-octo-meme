@@ -1,0 +1,69 @@
+.label--focused {
+  padding: 0 8px;
+  margin: 0 8px;
+  top: 0;
+  transform: translateY(-35%) scale(0.75);
+}
+
+.container {
+  position: relative;
+
+  label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    margin: 0 16px;
+    transition: 0.1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+  }
+
+  input {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    // border: 1px solid var(--onsurface--disabled);
+    border-radius: 4px;
+    padding: 15px 15px; // 16px - 1px border
+    transition: 0.1s ease-out;
+    width: 100%;
+
+    &::placeholder {
+      font: var(--b-typography__subtitle-1);
+      letter-spacing: var(--b-typography__subtitle-1_letter-spacing);
+      font-weight: var(--b-typography__subtitle-1--medium_font-weight);
+      color: var(--onsurface--disabled);
+    }
+
+    &:not([value=""]) + label,
+    &:focus + label {
+      @extend .label--focused;
+    }
+
+    &:focus {
+      border: 2px solid var(--primary);
+      padding: 14px 14px; // 16px - 2px border
+    }
+
+    &:focus + label {
+      color: var(--primary);
+    }
+  }
+
+  &[class~="container--error"] {
+    input {
+      border: 2px solid var(--red);
+      padding: 14px 14px; // 16px - 2px border
+    }
+
+    label,
+    input:focus + label {
+      color: var(--red);
+    }
+  }
+}
+
+.error {
+  margin: 4px 16px;
+}

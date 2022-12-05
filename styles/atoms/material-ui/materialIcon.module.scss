@@ -1,0 +1,9 @@
+.icon {
+  &[role="button"] {
+    cursor: pointer;
+  }
+}
+
+.color--default {
+  color: rgba(0, 0, 0, 0.54);
+}

@@ -52,7 +52,7 @@ const HomeTemplate: FC<HomeTemplateProps> = ({
           {title}
         </h1>
 
-        <Headline {...headline} />
+        {/* <Headline {...headline} /> */}
 
         {topSectionArticles.map((articleItem) => (
           <ArticleItem key={articleItem?.url} {...articleItem} />

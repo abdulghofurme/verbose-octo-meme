@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { FC } from "react"
 import styles from "@styles/atoms/categoryAsideItem.module.scss"
-import MaterialIcon from "@component/atoms/materialIcon"
+import MaterialIcon from "@component/atoms/material-ui/materialIcon"
 
 export interface CategoryAsideItemProps {
   title: string
