@@ -28,7 +28,7 @@ const ArticleItem: FC<ArticleItemProps> = ({
         <Link href={url} data-testid="articleItem__link">
           <h4
             data-testid="articleItem__title"
-            className="b-typography__subtitle-2--medium b-color-text__onsurface--high-emphasis"
+            className="title b-typography__subtitle-2--medium b-color-text__onsurface--high-emphasis"
           >
             {title}
           </h4>

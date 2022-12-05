@@ -16,7 +16,7 @@
     > a {
       width: 100%;
 
-      h4 {
+      [class~="title"] {
         @include lineClamp(calc(100%), 2);
       }
 

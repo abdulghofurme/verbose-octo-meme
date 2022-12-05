@@ -22,7 +22,7 @@ const ArticleItemVertical: FC<ArticleItemVerticalProps> = ({
           {badge}
         </span>
       )}
-      <h4 className="b-typography__caption b-color-text__onsurface--high-emphasis">
+      <h4 className="title b-typography__caption b-color-text__onsurface--high-emphasis">
         {title}
       </h4>
     </Link>

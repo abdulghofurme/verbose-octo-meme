@@ -19,7 +19,7 @@ const ArticleItemSmall: FC<ArticleItemSmallProps> = ({
   <article className={styles.article_item}>
     <Link href={url}>
       <div>
-        <h4 className="b-typography__subtitle-2--medium b-color-text__onsurface--high-emphasis">
+        <h4 className="title b-typography__subtitle-2--medium b-color-text__onsurface--high-emphasis">
           {title}
         </h4>
         <span className="b-typography__caption b-color-text__onsurface--medium-emphasis">

@@ -27,7 +27,7 @@ const ArticleItemBig: FC<ArticleItemBigProps> = ({
           categoryURL={categoryURL}
         />
         <Link href={url}>
-          <h4 className="b-typography__h6 b-text-color__onsurface--high-emphasis">
+          <h4 className="title b-typography__h6 b-text-color__onsurface--high-emphasis">
             {title}
           </h4>
           <p className="b-typography__body-2--reguler b-color-text__onsurface--medium-emphasis">

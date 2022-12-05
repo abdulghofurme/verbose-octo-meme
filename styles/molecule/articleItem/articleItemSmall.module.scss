@@ -7,7 +7,7 @@
     justify-content: space-between;
 
     > div {
-      h4 {
+      [class~="title"] {
         @include lineClamp(100%, 2);
       }
     }

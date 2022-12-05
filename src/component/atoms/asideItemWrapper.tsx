@@ -12,9 +12,9 @@ const AsideItemWrapper: FC<AsideItemWrapperProps> = ({
   className = "",
 }) => (
   <section className={`${styles.section} ${className}`}>
-    <h6 className="b-typography__h6 b-color-text__onsurface--high-emphasis">
+    <h3 className="b-typography__h6 b-color-text__onsurface--high-emphasis">
       {title}
-    </h6>
+    </h3>
     {children}
   </section>
 )
