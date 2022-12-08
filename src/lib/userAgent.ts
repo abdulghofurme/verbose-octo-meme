@@ -3,6 +3,7 @@ import UAParser from "ua-parser-js"
 export interface UserAgentInterface {
   device: UAParser.IDevice
   isUserMobile: boolean
+  isUserDesktop: boolean
 }
 
 export default function uaParser(header?: string): UserAgentInterface {
@@ -16,5 +17,6 @@ export default function uaParser(header?: string): UserAgentInterface {
     isUserMobile:
       uaParsed?.device?.type === "mobile" ||
       uaParsed?.device?.type === "tablet",
+    isUserDesktop: !/mobile|tablet/.test(uaParsed?.device?.type || ""),
   }
 }
